@@ -1,4 +1,4 @@
-// components/footer (replace your current Footer component with this)
+"use client"
 import Link from "next/link"
 import { Instagram, Mail, Linkedin } from "lucide-react"
 
