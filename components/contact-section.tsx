@@ -1,7 +1,7 @@
+// components/contact-section (replace the existing ContactSection component file with this)
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -24,25 +24,66 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    const mailtoLink = `mailto:ejgfinance@gmail.com?subject=Kapcsolatfelvétel - ${encodeURIComponent(
+      formData.name,
+    )}&body=${encodeURIComponent(`Név: ${formData.name}\nEmail: ${formData.email}\n\nÜzenet:\n${formData.message}`)}`
 
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    })
+    try {
+      // Try to open the user's email client in a new window/tab first
+      const newWindow = window.open(mailtoLink, "_blank")
+      if (newWindow) {
+        // opened successfully
+        toast({
+          title: "Email kliens megnyitva!",
+          description: "Küldd el az üzenetet az email kliensedből.",
+        })
+      } else {
+        // If popup blocked or failed, copy link to clipboard as fallback
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(mailtoLink)
+          toast({
+            title: "Nem sikerült automatikusan megnyitni az email klienst",
+            description: "A mailto linket a vágólapra másoltuk — illeszd be az email kliensedbe, vagy kattints a megadott email címre.",
+          })
+        } else {
+          // Ultimate fallback: set location.href (might work)
+          window.location.href = mailtoLink
+          toast({
+            title: "Email megnyitása folyamatban",
+            description: "Ha nem történik semmi, kérem másold ki az email címet és használd az email kliensedet.",
+          })
+        }
+      }
+    } catch (err) {
+      // If anything throws, fallback to location.href
+      try {
+        window.location.href = mailtoLink
+        toast({
+          title: "Email megnyitása folyamatban",
+          description: "Ha nem történik semmi, kérem másold ki az email címet és használd az email kliensedet.",
+        })
+      } catch (e) {
+        toast({
+          title: "Hiba történt",
+          description: "Nem sikerült automatikusan megnyitni az email klienset. Kérjük, küldj emailt az ejgfinance@gmail.com címre.",
+        })
+      }
+    }
+
+    // small delay so user can read the toast (keeps UX friendly)
+    await new Promise((resolve) => setTimeout(resolve, 400))
 
     setFormData({ name: "", email: "", message: "" })
     setIsSubmitting(false)
   }
 
   return (
-    <section id="contact" className="py-20 sm:py-24 lg:py-32 bg-background">
+    <section className="py-20 sm:py-24 bg-background lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Get in Touch</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Kérdezz bátran!</h2>
           <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-            Interested in joining or have questions? We'd love to hear from you!
+            Csatlakoznál, vagy kérdésed merült fel? Vedd fel velünk a kapcsolatot itt:
           </p>
         </div>
 
@@ -50,16 +91,16 @@ export function ContactSection() {
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
-                <CardTitle>Send us a message</CardTitle>
-                <CardDescription>Fill out the form below and we'll respond within 24 hours.</CardDescription>
+                <CardTitle>Küldj üzenetet</CardTitle>
+                <CardDescription>Töltsd ki a kapcsolatfelvételi lapot és rövidesen visszajelzünk!</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
+                    <Label htmlFor="name">Név</Label>
                     <Input
                       id="name"
-                      placeholder="Your name"
+                      placeholder="A neved"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
@@ -70,17 +111,17 @@ export function ContactSection() {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="your.email@example.com"
+                      placeholder="ajovoflctagja@siker.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message">Üzenet</Label>
                     <Textarea
                       id="message"
-                      placeholder="Tell us about yourself and why you're interested in joining..."
+                      placeholder="Jelentkezz, vagy küldj üzenetet..."
                       rows={5}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -88,7 +129,7 @@ export function ContactSection() {
                     />
                   </div>
                   <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Küldés..." : "Üzenet küldése"}
                   </Button>
                 </form>
               </CardContent>
@@ -103,11 +144,11 @@ export function ContactSection() {
                     <MapPin className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Location</h3>
+                    <h3 className="font-semibold mb-1">Helyszín</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       Eötvös József Gimnázium
                       <br />
-                      Budapest, Hungary
+                      Budapest, Magyarország
                     </p>
                   </div>
                 </div>
@@ -122,7 +163,12 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-sm text-muted-foreground">financialclub@eotvos.edu</p>
+                    <a
+                      href="mailto:ejgfinance@gmail.com"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      ejgfinance@gmail.com
+                    </a>
                   </div>
                 </div>
               </CardContent>
@@ -135,11 +181,11 @@ export function ContactSection() {
                     <Users className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Meetings</h3>
+                    <h3 className="font-semibold mb-1">Találkozók</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Every Thursday
+                      Minden csütörtökön
                       <br />
-                      15:30 - 17:00
+                      15:45 - 16:45
                     </p>
                   </div>
                 </div>

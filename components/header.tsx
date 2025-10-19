@@ -1,6 +1,8 @@
+// components/header (replace your current Header component with this)
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu } from "lucide-react"
 import { useState } from "react"
@@ -8,35 +10,52 @@ import { useState } from "react"
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  const scrollToTop = () => {
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+  }
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    // Solid background (no transparency/backdrop blur)
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border text-primary bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-background">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">FL</span>
+          <Link href="/" className="flex items-center gap-2" onClick={scrollToTop}>
+            <div className="w-10 h-10 relative">
+              <Image
+                src="/images/flc-logo-no-text.png"
+                alt="Financial Literacy Club Logo"
+                fill
+                className="object-contain rounded-lg"
+              />
             </div>
-            <span className="font-semibold text-lg hidden sm:inline">Financial Literacy Club</span>
+            <span className="font-semibold text-lg hidden sm:inline">Budapest Financial Literacy Club</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors">
-              About
+          <nav className="hidden md:flex items-center gap-7">
+            <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors" onClick={scrollToTop}>
+              Rólunk
             </Link>
-            <Link href="/events" className="text-sm font-medium hover:text-primary transition-colors">
-              Events
+            <Link href="/schedule" className="text-sm font-medium hover:text-primary transition-colors" onClick={scrollToTop}>
+              Naptár
             </Link>
-            <Link href="/schedule" className="text-sm font-medium hover:text-primary transition-colors">
-              Schedule
+            <Link href="/articles" className="text-sm font-medium hover:text-primary transition-colors" onClick={scrollToTop}>
+              Cikkek
             </Link>
-            <Link href="/#gallery" className="text-sm font-medium hover:text-primary transition-colors">
-              Gallery
+            <Link href="/competitions" className="text-sm font-medium hover:text-primary transition-colors" onClick={scrollToTop}>
+              Versenyek
             </Link>
-            <Link href="/#contact" className="text-sm font-medium hover:text-primary transition-colors">
-              Contact
+            <Link href="/collaboration" className="text-sm font-medium hover:text-primary transition-colors" onClick={scrollToTop}>
+              Együttműködés
             </Link>
-            <Button size="sm" asChild>
-              <Link href="/#contact">Join Us</Link>
+            <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors" onClick={scrollToTop}>
+              Kapcsolat
+            </Link>
+            <Button className="rounded-xl" size="sm" asChild>
+              <Link href="https://m.me/cm/AbaU8rQOgYlXAugE/" target="_blank" rel="noopener noreferrer" onClick={scrollToTop}>
+                Csatlakozz!
+              </Link>
             </Button>
           </nav>
 
@@ -48,44 +67,32 @@ export function Header() {
         {mobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
-              <Link
-                href="/about"
-                className="text-sm font-medium hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About
+              <Link href="/about" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
+                Rólunk
               </Link>
-              <Link
-                href="/events"
-                className="text-sm font-medium hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Events
+              <Link href="/schedule" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
+                Naptár
               </Link>
-              <Link
-                href="/schedule"
-                className="text-sm font-medium hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Schedule
+              <Link href="/articles" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
+                Cikkek
               </Link>
-              <Link
-                href="/#gallery"
-                className="text-sm font-medium hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Gallery
+              <Link href="/competitions" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
+                Versenyek
               </Link>
-              <Link
-                href="/#contact"
-                className="text-sm font-medium hover:text-primary transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
+              <Link href="/collaboration" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
+                Együttműködés
+              </Link>
+              <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors" onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}>
+                Kapcsolat
               </Link>
               <Button size="sm" asChild className="w-full">
-                <Link href="/#contact" onClick={() => setMobileMenuOpen(false)}>
-                  Join Us
+                <Link
+                  href="https://m.me/cm/AbaU8rQOgYlXAugE/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => { setMobileMenuOpen(false); scrollToTop(); }}
+                >
+                  Csatlakozz hozzánk
                 </Link>
               </Button>
             </div>

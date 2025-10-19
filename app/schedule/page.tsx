@@ -2,85 +2,34 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Clock, MapPin, Users } from "lucide-react"
+import { Clock, MapPin, Calendar } from "lucide-react"
+import { schedule } from "@/lib/schedule-data"
+import Image from "next/image"
 
-const weeklySchedule = [
+const upcomingEvents = [
   {
-    day: "Monday",
-    activities: [
-      {
-        time: "15:30 - 17:00",
-        title: "General Meeting",
-        location: "Room 204",
-        type: "Meeting",
-        description: "Weekly club meeting for all members. Discuss upcoming events and share financial news.",
-      },
-    ],
+    title: "Mi a startup?",
+    date: "2025. november 6.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Interaktív előadás",
+    description: "Egy előadás során felfedezzük mit is takar a manapság sokat hallott startup kifejezés",
   },
   {
-    day: "Tuesday",
-    activities: [
-      {
-        time: "16:00 - 17:30",
-        title: "Investment Workshop",
-        location: "Computer Lab",
-        type: "Workshop",
-        description: "Hands-on practice with stock market simulations and portfolio management.",
-      },
-    ],
+    title: "Milyen egy startup életútja?",
+    date: "2025. november 13.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Vendégelőadás",
+    description: "Szakértő vendégünk Golovics Milán mesél arról, hogy honnan indulnak és hova érkeznek meg a sikeres startupok",
   },
   {
-    day: "Wednesday",
-    activities: [
-      {
-        time: "15:30 - 17:00",
-        title: "Study Group",
-        location: "Library",
-        type: "Study",
-        description: "Collaborative learning session. Bring your questions and help fellow members.",
-      },
-    ],
-  },
-  {
-    day: "Thursday",
-    activities: [
-      {
-        time: "16:00 - 17:30",
-        title: "Guest Speaker Series",
-        location: "Auditorium",
-        type: "Special Event",
-        description: "Monthly guest speakers from finance industry (check events page for schedule).",
-        isMonthly: true,
-      },
-    ],
-  },
-  {
-    day: "Friday",
-    activities: [
-      {
-        time: "15:30 - 16:30",
-        title: "Competition Prep",
-        location: "Room 204",
-        type: "Practice",
-        description: "Prepare for upcoming financial literacy competitions and challenges.",
-      },
-    ],
-  },
-]
-
-const additionalInfo = [
-  {
-    title: "Office Hours",
-    description: "Club leaders are available for one-on-one questions every Wednesday from 14:00 - 15:00 in Room 204.",
-  },
-  {
-    title: "Special Events",
-    description:
-      "Check our Events page for special workshops, competitions, and guest speakers throughout the semester.",
-  },
-  {
-    title: "Membership",
-    description: "All students from Eötvös József Gimnázium are welcome. No prior financial knowledge required!",
+    title: "Startup month",
+    date: "2025. november 20.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Interaktív előadás",
+    description: "Hamarosan!",
   },
 ]
 
@@ -89,13 +38,24 @@ export default function SchedulePage() {
     <>
       <Header />
       <main className="pt-16">
-        <section className="py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-primary/5 to-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance">Weekly Schedule</h1>
-              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-                Join us throughout the week for meetings, workshops, and learning opportunities. All activities are held
-                at Eötvös József Gimnázium.
+        <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src="/images/hero-background.jpg"
+              alt="FLC Event"
+              fill
+              className="object-cover opacity-30"
+              priority
+            />
+            <div className="absolute inset-0 bg-primary/90" />
+          </div>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
+                Naptár és Események
+              </h1>
+              <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
+                Heti alkalmaink minden csütörtökön 15:45-kor a 10-es teremben az Eötvös József Gimnáziumban.
               </p>
             </div>
           </div>
@@ -103,54 +63,97 @@ export default function SchedulePage() {
 
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="space-y-8 mb-20">
-                {weeklySchedule.map((day, index) => (
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Közelgő események</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+                {upcomingEvents.map((event, index) => (
+                  <Card key={index} className="border-border hover:shadow-lg transition-shadow">
+                    <CardHeader>
+                      <div className="flex items-center justify-between mb-2">
+                        <Badge className="italic" variant="secondary">{event.type}</Badge>
+                      </div>
+                      <CardTitle className="text-xl text-balance">{event.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground mb-4 leading-relaxed">{event.description}</p>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Calendar className="h-4 w-4" />
+                          <span>{event.date}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Clock className="h-4 w-4" />
+                          <span>{event.time}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <MapPin className="h-4 w-4" />
+                          <span>{event.location}</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Heti alkalmak</h2>
+              <div className="space-y-12 mb-20">
+                {schedule.map((module, index) => (
                   <div key={index}>
-                    <h2 className="text-2xl font-bold mb-4 text-primary">{day.day}</h2>
-                    <div className="grid grid-cols-1 gap-4">
-                      {day.activities.map((activity, actIndex) => (
-                        <Card key={actIndex} className="border-border hover:border-primary transition-colors">
-                          <CardHeader>
-                            <div className="flex items-start justify-between gap-4">
-                              <CardTitle className="text-xl text-balance">{activity.title}</CardTitle>
-                              <Badge variant={activity.isMonthly ? "outline" : "secondary"}>
-                                {activity.isMonthly ? "Monthly" : activity.type}
-                              </Badge>
-                            </div>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="text-muted-foreground mb-4 leading-relaxed">{activity.description}</p>
-                            <div className="flex flex-wrap gap-4 text-sm">
-                              <div className="flex items-center gap-2 text-muted-foreground">
-                                <Clock className="h-4 w-4" />
-                                <span>{activity.time}</span>
-                              </div>
-                              <div className="flex items-center gap-2 text-muted-foreground">
-                                <MapPin className="h-4 w-4" />
-                                <span>{activity.location}</span>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      ))}
+                    <div className="mb-6">
+                      <h3 className="text-2xl font-bold text-primary mb-2">{module.module}</h3>
+                      {module.sessions.length === 0 && <p className="text-muted-foreground italic">Szünet</p>}
                     </div>
+
+                    {module.sessions.length > 0 && (
+                      <div className="grid grid-cols-1 gap-4">
+                        {module.sessions.map((session, sessionIndex) => (
+                          <Card key={sessionIndex} className="border-border hover:border-primary transition-colors bg-background">
+                            <CardHeader>
+                              <div className="flex items-start justify-between gap-4 flex-wrap">
+                                <div className="flex-1">
+                                  <CardTitle className="text-xl text-balance mb-2">{session.topic}</CardTitle>
+                                  {session.content && (
+                                    <p className="text-sm text-muted-foreground">{session.content}</p>
+                                  )}
+                                </div>
+                                <Badge className="font-medium text-base" variant="secondary">{session.date}</Badge>
+                              </div>
+                            </CardHeader>
+                            <CardContent>
+                              <div className="flex flex-wrap gap-4 text-sm">
+                                <div className="flex items-center gap-2 text-muted-foreground">
+                                  <Clock className="h-4 w-4" />
+                                  <span className="">15:45</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-muted-foreground">
+                                  <MapPin className="h-4 w-4" />
+                                  <span>10-es terem, Eötvös József Gimnázium</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-muted-foreground">
+                                  <Calendar className="h-4 w-4" />
+                                  <span>Csütörtök</span>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
 
-              <div className="bg-secondary/30 rounded-lg p-8">
-                <h2 className="text-3xl font-bold mb-8 text-center">Additional Information</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {additionalInfo.map((info, index) => (
-                    <div key={index} className="text-center">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
-                        <Users className="h-6 w-6 text-primary" />
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{info.description}</p>
-                    </div>
-                  ))}
+              <div className="bg-secondary/30 rounded-lg p-8 mt-16">
+                <h2 className="text-3xl font-bold mb-6 text-center">További információk</h2>
+                <div className="space-y-4 text-center max-w-2xl mx-auto">
+                  <p className="text-muted-foreground leading-relaxed">
+                    Minden budapesti diákot szívesen látunk csütörtöki alkalmainkon. Nincs szükség előzetes
+                    regisztrációra vagy pénzügyi tudásra!
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    A naptár a tanév során változhat. Csatlakozz Messenger-közösségünkhöz és kövess minket Instagramon a
+                    legfrissebb információkért!
+                  </p>
                 </div>
               </div>
             </div>
