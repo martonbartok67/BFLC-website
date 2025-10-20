@@ -91,7 +91,7 @@ export default function CompetitionsPage() {
     {
       title: "Közgazdasági Diákolimpiára",
       deadline: "jelentkezés hamarosan",
-      date: "Leadási határidő: jelenleg nem ismert",
+      date: "jelenleg nem ismert",
       description:
         "A verseny célja, hogy a középiskolások számára játékos tanulási lehetőséget biztosítson, amely során bővíthetik közgazdasági-pénzügyi ismereteiket, és a legjobbak értékes nyereményekben is részesülhetnek. Mindennek tetejébe pedig az egyes országok legjobb diákjai egymással is összemérhetik tudásukat a nemzetközi döntőben!",
       eligibility: "Középiskolás diákcsapatok - 3 fő",
