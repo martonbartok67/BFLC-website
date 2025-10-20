@@ -82,7 +82,7 @@ export default function CompetitionsPage() {
     {
       title: "KÖB Középiskolás Ötletbörze",
       deadline: "2026. május 24.",
-      date: "Leadási határidő: jelenleg nem ismert",
+      date: "jelenleg nem ismert",
       description:
         "A KÖB célja olyan innovatív ötletekre épülő csapatok kiválasztása és támogatása, akik a versenyt követően is képesek lehetnek az általuk kitalált ötletek alapján üzleti modellek kialakítására, erre építve sikeres vállalkozások működtetésére. Megmutathatjátok CSAPATOTOK mennyire jártas új, innovatív termékek, szolgáltatások ötleteinek kitalálásában, kidolgozásában, prezentálásában.",
       eligibility: "Középiskolás diákcsapatok - 3 fő",
