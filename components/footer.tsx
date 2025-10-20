@@ -58,11 +58,11 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/support"
+                  href="/collaboration"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   onClick={scrollToTop}
                 >
-                  Támogatás
+                  Együttműködés
                 </Link>
               </li>
             </ul>
