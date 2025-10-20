@@ -9,25 +9,25 @@ const features = [
     icon: Presentation,
     title: "Sokszínű alkalmak",
     description:
-      "Rendszeres vendégelőadások mellett, interaktív workshopok és beszélgetések színesítik alkalmainkat és garantálják, hogy minél több felületen találkozzunk hasznosítható tudással és újdonságokkal. Az év során modulszerű egységek biztosítják a strukturált tudásépítést.",
+      "A rendszeres saját és vendég előadásokat interaktív workshopok és beszélgetések is kiegészítik, így biztosítva, hogy minél változatosabb formában adhassunk át hasznosítható ismereteket és újdonságokat. Az év során modulszerű egységek biztosítják a strukturált tudásépítést.",
   },
   {
     icon: Users,
-    title: "Soft skillek fejlesztése",
+    title: "Soft skill-ek fejlesztése",
     description:
-      "Csapatmunkán, beszélgetéseken és prezentációkon át nyújtunk lehetőséget a nyilvános beszédkészség, kritikus gondolkodás, csapatmunka és vezetői képességek fejlesztésére. Ezek mindannyiunk jövőjében (és jelenjében is!) kiemelten fontos készségek, hiszen minden közösségben szükségünk lesz rájuk.",
+      "Csapatmunkán, beszélgetéseken és prezentációkon át nyújtunk lehetőséget a nyilvános beszédkészség, kritikus gondolkodás, csapatmunka és vezetői képességek fejlesztésére is. Ezek mindannyiunk jövőjében (és jelenjében is!) kiemelten fontos készségek, hiszen minden közösségben szükségünk lesz rájuk.",
   },
   {
      icon: Briefcase,
-    title: "Kapcsolatépítés és karrier",
+    title: "Karrier- és kapcsolatépítés",
     description:
-      "Kialakíthatsz értékes kapcsolatokat diáktársaiddal és szakértőkkel, részt vehetsz céglátogatásokon és előadásokon és építs ki olían kapcsolatrendszert, amely karriered alapját képezheti.",
+      " Építs ki az előadások és céglátogatások alkalmával már most olyan kapcsolatrendszert, amely karriered alapját képezheti. Kapcsolódj diák társaiddal és akár szakértőkkel is ezen alkalmakkor. ",
   },
   {
     icon: Trophy,
     title: "Pályaorientáció",
     description:
-      "Programunk részeként betekintést kaphatunk a felsőoktatás lehetőségeibe. Megismerhetjük ezeknek fontos elemeit és különbségeit is. Mindezt oktatással foglalkozó szakemberek tanácsai és szakértő előadóink tapasztalatai, karrierútjai segítik.",
+      "Programunk részeként betekintést kaphatunk felsőoktatási lehetőségekbe, megismerkedünk azok meghatározó elemeivel és különbségeivel is. Mindezt oktatással foglalkozó szakemberek tanácsai és szakértő előadóink tapasztalatai, karrierútjai segítik.",
   },
 ]
 
@@ -65,7 +65,7 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
-                A klubunkról
+                Klubunkról
               </h1>
               <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
                 A Financial Literacy Club 2024 májusában alakult, azzal a céllal, hogy
@@ -106,7 +106,7 @@ export default function AboutPage() {
         <section className="py-20 sm:py-24 bg-secondary/30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance text-center">A csapatunk</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance text-center">Csapatunk</h2>
               <div className="relative aspect-video rounded-2xl overflow-hidden mb-6">
                 <Image
                   src="/images/flc-team-2025.jpeg"

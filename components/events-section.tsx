@@ -38,7 +38,7 @@ export function EventsSection() {
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <MapPin className="h-4 w-4" />
-                    <span>10-es terem, Eötvös József Gimnázium</span>
+                    <span>10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053</span>
                   </div>
                 </div>
               </CardContent>

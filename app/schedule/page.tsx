@@ -21,7 +21,8 @@ const upcomingEvents = [
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
     type: "Vendégelőadás",
-    description: "Szakértő vendégünk Golovics Milán mesél arról, hogy honnan indulnak és hova érkeznek meg a sikeres startupok",
+    description:
+      "Szakértő vendégünk Golovics Milán mesél arról, hogy honnan indulnak és hova érkeznek meg a sikeres startupok",
   },
   {
     title: "Startup month",
@@ -52,7 +53,7 @@ export default function SchedulePage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 opacity-100">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
-                Naptár és Események
+                Eseménynaptár
               </h1>
               <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
                 Heti alkalmaink minden csütörtökön 15:45-kor a 10-es teremben az Eötvös József Gimnáziumban.
@@ -70,7 +71,9 @@ export default function SchedulePage() {
                   <Card key={index} className="border-border hover:shadow-lg transition-shadow">
                     <CardHeader>
                       <div className="flex items-center justify-between mb-2">
-                        <Badge className="italic" variant="secondary">{event.type}</Badge>
+                        <Badge className="italic" variant="secondary">
+                          {event.type}
+                        </Badge>
                       </div>
                       <CardTitle className="text-xl text-balance">{event.title}</CardTitle>
                     </CardHeader>
@@ -107,7 +110,10 @@ export default function SchedulePage() {
                     {module.sessions.length > 0 && (
                       <div className="grid grid-cols-1 gap-4">
                         {module.sessions.map((session, sessionIndex) => (
-                          <Card key={sessionIndex} className="border-border hover:border-primary transition-colors bg-background">
+                          <Card
+                            key={sessionIndex}
+                            className="border-border hover:border-primary transition-colors bg-background"
+                          >
                             <CardHeader>
                               <div className="flex items-start justify-between gap-4 flex-wrap">
                                 <div className="flex-1">
@@ -116,7 +122,9 @@ export default function SchedulePage() {
                                     <p className="text-sm text-muted-foreground">{session.content}</p>
                                   )}
                                 </div>
-                                <Badge className="font-medium text-base" variant="secondary">{session.date}</Badge>
+                                <Badge className="font-medium text-base" variant="secondary">
+                                  {session.date}
+                                </Badge>
                               </div>
                             </CardHeader>
                             <CardContent>
@@ -147,7 +155,7 @@ export default function SchedulePage() {
                 <h2 className="text-3xl font-bold mb-6 text-center">További információk</h2>
                 <div className="space-y-4 text-center max-w-2xl mx-auto">
                   <p className="text-muted-foreground leading-relaxed">
-                    Minden budapesti diákot szívesen látunk csütörtöki alkalmainkon. Nincs szükség előzetes
+                    Minden középiskolás diákot szívesen látunk csütörtöki alkalmainkon. Nincs szükség előzetes
                     regisztrációra vagy pénzügyi tudásra!
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
