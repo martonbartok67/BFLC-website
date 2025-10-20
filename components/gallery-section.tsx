@@ -1,38 +1,38 @@
 export function GallerySection() {
   const images = [
     {
-      src: "/students-in-classroom-workshop-financial-literacy.jpg",
-      alt: "Students participating in financial workshop",
+      src: "/images/gallery/flc-presentation.jpg",
+      alt: "Diákok a 'Fektess a jövődbe' prezentáción",
     },
     {
-      src: "/group-presentation-financial-charts-graphs.jpg",
-      alt: "Group presentation on financial topics",
+      src: "/images/gallery/flc-parliament-visit.jpg",
+      alt: "FLC tagok az Európai Parlamentben",
     },
     {
-      src: "/students-collaborating-team-project-finance.jpg",
-      alt: "Students collaborating on team project",
+      src: "/images/gallery/flc-event-table.jpg",
+      alt: "Regisztrációs asztal klubeseményen",
     },
     {
-      src: "/guest-speaker-presenting-to-students-auditorium.jpg",
-      alt: "Guest speaker presenting to students",
+      src: "/images/gallery/flc-outdoor-signup.jpg",
+      alt: "Diákok jelentkeznek a klubba",
     },
     {
-      src: "/students-celebrating-competition-award-ceremony.jpg",
-      alt: "Students celebrating competition success",
+      src: "/images/gallery/flc-classroom-engagement.jpg",
+      alt: "Aktív részvétel az osztályteremben",
     },
     {
-      src: "/financial-literacy-club-meeting-discussion.jpg",
-      alt: "Club meeting and discussion",
+      src: "/images/gallery/flc-speaker-event.jpg",
+      alt: "Vendégelőadó prezentál FLC eseményen",
     },
   ]
 
   return (
-    <section id="gallery" className="py-20 sm:py-24 lg:py-32 bg-background">
+    <section id="gallery" className="py-20 sm:py-24 bg-background lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Gallery</h2>
-          <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-            Moments from our workshops, events, and activities throughout the year.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Galéria</h2>
+          <p className="text-lg text-pretty leading-relaxed text-muted-foreground">
+            Pillanatok workshopjainkról, eseményeinkről és tevékenységeinkről az év során.
           </p>
         </div>
 
