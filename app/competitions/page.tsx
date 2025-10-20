@@ -106,7 +106,7 @@ export default function CompetitionsPage() {
                 Versenyek
               </h1>
               <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
-                Kövesd nyomon a közelgő pénzügyi és közgazdasági versenyeket, amelyeken részt vehetsz.
+                Vegyél részt izgalmas pénzügyi, közgazdasági vagy esettanulmányi versenyeken! Értékes képességek és ismeretek elsajátítása mellett a CV-d színesítésére is kiváló lehetőség.
               </p>
             </div>
           </div>
