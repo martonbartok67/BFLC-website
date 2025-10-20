@@ -62,7 +62,7 @@ export default function AboutPage() {
             />
             <div className="absolute inset-0 bg-primary/90 opacity-70" />
           </div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
                 A klubunkról
