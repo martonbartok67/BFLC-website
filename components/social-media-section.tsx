@@ -18,7 +18,7 @@ const socialLinks = [
     icon: MessageCircle,
     name: "Messenger Csoport",
     handle: "FLC Közösség",
-    description: "Csatlakozz közösségünkhöz, hogy ne maradj le a alkalmainkról és eseményeinkről!",
+    description: "Csatlakozz közösségünkhöz, hogy ne maradj le a alkalmainkról!",
     link: "https://m.me/cm/AbaU8rQOgYlXAugE/",
     color: "bg-blue-500",
     isExternal: true,
