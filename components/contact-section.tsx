@@ -148,7 +148,7 @@ export function ContactSection() {
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       Eötvös József Gimnázium
                       <br />
-                      Budapest, Magyarország
+                      Budapest, Reáltanoda utca 7, 1053
                     </p>
                   </div>
                 </div>
