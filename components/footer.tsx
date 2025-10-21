@@ -21,7 +21,7 @@ export function Footer() {
               <span className="font-bold">Budapest Financial Literacy Club</span>
             </div>
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
-              Minden budapesti diákot szívesen látunk csütörtöki alkalmainkon. Nincs szükség előzetes regisztrációra
+              Minden diákot szívesen látunk csütörtöki alkalmainkon. Nincs szükség előzetes regisztrációra
               vagy pénzügyi tudásra!
             </p>
           </div>
@@ -93,12 +93,15 @@ export function Footer() {
               </a>
               <a
                 href="mailto:ejgfinance@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
                 aria-label="Email"
                 onClick={scrollToTop}
               >
                 <Mail className="h-5 w-5" />
               </a>
+
             </div>
           </div>
         </div>
