@@ -1,11 +1,21 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Trophy, Calendar, Users } from "lucide-react"
+import { Trophy, Calendar, Users, Sparkles } from "lucide-react"
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
 export default function CompetitionsPage() {
+  const events = [
+    {
+      title: "Fiatal Vállalkozók Hete",
+      date: "2025. november 24-28.",
+      location: "Bálna",
+      description: "Network fiatal vállalkozóknak, érdeklődőknek, előadások. Ingyenes, de regisztráció szükséges!",
+      link: "https://fiatalvallalkozokhete.hu/",
+    },
+  ]
+
   const competitions = [
     {
       title: "K&H Vigyázz, kész, pénz!",
@@ -121,11 +131,62 @@ export default function CompetitionsPage() {
                 <Trophy className="w-8 h-8 text-primary-foreground" />
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
-                Versenyek
+                Versenyek és Események
               </h1>
               <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
-                Vegyél részt izgalmas pénzügyi, közgazdasági vagy esettanulmányi versenyeken! Értékes képességek és ismeretek elsajátítása mellett a CV-d színesítésére is kiváló lehetőség.
+                Vegyél részt izgalmas pénzügyi, közgazdasági vagy esettanulmányi versenyeken, valamint inspiráló
+                eseményeken! Értékes képességek és ismeretek elsajátítása mellett a CV-d színesítésére is kiváló
+                lehetőség.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Events Section */}
+        <section className="py-20 bg-secondary/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
+                  <Sparkles className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Események</h2>
+                <p className="text-muted-foreground text-lg">
+                  Konferenciák és egyéb izgalmas események, ahol bővítheted tudásod és kapcsolataidat
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                {events.map((event, index) => (
+                  <Card key={index} className="border-2 hover:border-primary/50 transition-colors bg-card">
+                    <CardHeader>
+                      <CardTitle className="text-2xl text-primary">{event.title}</CardTitle>
+                      <CardDescription className="space-y-1 text-base">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4" />
+                          <span>
+                            <strong>Időpont:</strong> {event.date}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Users className="w-4 h-4" />
+                          <span>
+                            <strong>Helyszín:</strong> {event.location}
+                          </span>
+                        </div>
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-foreground leading-relaxed">{event.description}</p>
+                      <Button asChild>
+                        <a href={event.link} target="_blank" rel="noopener noreferrer">
+                          További információ és regisztráció
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -133,42 +194,54 @@ export default function CompetitionsPage() {
         {/* Competitions List */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto space-y-8">
-              {competitions.map((competition, index) => (
-                <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
-                  <CardHeader>
-                    <CardTitle className="text-2xl text-primary">{competition.title}</CardTitle>
-                    <CardDescription className="space-y-1 text-base">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
+                  <Trophy className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Versenyek</h2>
+                <p className="text-muted-foreground text-lg">
+                  Pénzügyi, közgazdasági és esettanulmányi versenyek középiskolásoknak
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                {competitions.map((competition, index) => (
+                  <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
+                    <CardHeader>
+                      <CardTitle className="text-2xl text-primary">{competition.title}</CardTitle>
+                      <CardDescription className="space-y-1 text-base">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4" />
+                          <span>
+                            <strong>Jelentkezési határidő:</strong> {competition.deadline}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4" />
+                          <span>
+                            <strong>Verseny időpontja:</strong> {competition.date}
+                          </span>
+                        </div>
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-foreground leading-relaxed">{competition.description}</p>
+                      <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Users className="w-4 h-4 mt-0.5 flex-shrink-0" />
                         <span>
-                          <strong>Jelentkezési határidő:</strong> {competition.deadline}
+                          <strong>Ki jelentkezhet:</strong> {competition.eligibility}
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        <span>
-                          <strong>Verseny időpontja:</strong> {competition.date}
-                        </span>
-                      </div>
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-foreground leading-relaxed">{competition.description}</p>
-                    <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <Users className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                      <span>
-                        <strong>Ki jelentkezhet:</strong> {competition.eligibility}
-                      </span>
-                    </div>
-                    <Button asChild>
-                      <a href={competition.link} target="_blank" rel="noopener noreferrer">
-                        További információ
-                      </a>
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
+                      <Button asChild>
+                        <a href={competition.link} target="_blank" rel="noopener noreferrer">
+                          További információ
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </section>
