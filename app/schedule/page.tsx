@@ -8,7 +8,7 @@ import Image from "next/image"
 
 const upcomingEvents = [
   {
-    title: "Mi a startup?",
+    title: "Hogyan építs sikeres startupot?",
     date: "2025. november 6.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
