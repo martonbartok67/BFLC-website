@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { Instagram, Mail, Linkedin, Download } from "lucide-react"
+import { Instagram, Mail, Linkedin } from "lucide-react"
 
 export function Footer() {
   const scrollToTop = () => {
@@ -24,16 +24,6 @@ export function Footer() {
               Minden diákot szívesen látunk csütörtöki alkalmainkon. Nincs szükség előzetes regisztrációra vagy pénzügyi
               tudásra!
             </p>
-            <div className="mt-4">
-              <a
-                href="/FLC-Bemutatkozas-OnePager.txt"
-                download
-                className="inline-flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-              >
-                <Download className="h-4 w-4" />
-                Letölthető bemutatkozó
-              </a>
-            </div>
           </div>
 
           <div>
