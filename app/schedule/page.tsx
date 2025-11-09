@@ -14,7 +14,7 @@ const upcomingEvents = [
     location: "10-es terem, Eötvös József Gimnázium",
     type: "Vendégelőadás",
     description:
-      "Szakértő vendégünk Golovics Milán mesél arról, hogy ma hogyan lehet ma egy ötlettől egy startup-ig eljutni, és mik ennek az első lépései. ",
+      "Szakértő vendégünk Golovics Milán mesél arról, hogy hogyan lehet ma egy ötlettől egy startup-ig eljutni, és mik ennek az első lépései. ",
   },
   {
     title: "Hogyan építs sikeres startupot? 2. rész",

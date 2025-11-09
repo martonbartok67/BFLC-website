@@ -45,8 +45,8 @@ export const schedule: ScheduleModule[] = [
       },
       {
         date: "November 13.",
-        topic: "Milyen egy startup életútja?",
-        content: "Szakértő vendégünk Golovics Milán mesél arról, hogy honnan indulnak és hova érkeznek meg a sikeres startupok.",
+        topic: "Hogyan alakítsd az ötleted startuppá? "
+        content:  "Szakértő vendégünk Golovics Milán mesél arról, hogy hogyan lehet ma egy ötlettől egy startup-ig eljutni, és mik ennek az első lépései.",
       },
       {
         date: "November 20.",
