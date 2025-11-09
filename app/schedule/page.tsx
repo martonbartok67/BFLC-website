@@ -8,29 +8,29 @@ import Image from "next/image"
 
 const upcomingEvents = [
   {
-    title: "Hogyan építs sikeres startupot?",
-    date: "2025. november 6.",
-    time: "15:45 - 16:45",
-    location: "10-es terem, Eötvös József Gimnázium",
-    type: "Interaktív előadás",
-    description: "Egy előadás során felfedezzük mit is takar a manapság sokat hallott startup kifejezés",
-  },
-  {
-    title: "Milyen egy startup életútja?",
+    title: "Hogyan alakítsd az ötleted startuppá?",
     date: "2025. november 13.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
     type: "Vendégelőadás",
     description:
-      "Szakértő vendégünk Golovics Milán mesél arról, hogy honnan indulnak és hova érkeznek meg a sikeres startupok",
+      "Szakértő vendégünk Golovics Milán mesél arról, hogy ma hogyan lehet ma egy ötlettől egy startup-ig eljutni, és mik ennek az első lépései. ",
   },
   {
-    title: "Startup month",
+    title: "Hogyan építs sikeres startupot? 2. rész",
     date: "2025. november 20.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
     type: "Interaktív előadás",
-    description: "Hamarosan!",
+    description: "Megtudunk többet a sikeres startup receptjéről.",
+  },
+  {
+    title: "Milyen egy befektető életútja?",
+    date: "2025. november 27.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Vendégelőadás",
+    description: "Szakértő vendégünk megosztja tapasztalatait a befektetések világából",
   },
 ]
 

@@ -15,17 +15,17 @@ export const schedule: ScheduleModule[] = [
     module: "Évkezdés",
     sessions: [
       {
-        date: "október 3.",
+        date: "Október 3.",
         topic: "FLC x Milestone Business Society",
         content: "Bemutatkozás, rövid közös beszélgetés",
       },
       {
-        date: "október 9.",
+        date: "Október 9.",
         topic: "Bemutatkozó",
         content: "Bemutatkozás, befektetések tier-list workshop",
       },
       {
-        date: "október 16.",
+        date: "Október 16.",
         topic: "„Miért keres pénzt abból a Coca‑Cola, hogy ráírja a neved a palackra? — Legjobb marketing kampányok és azok pszichológiája",
         content: "A legikonikusabb marketing kampányok milyen egyszerű pszichológiai trükkökre épülnek fel, és akár hogyan tudjuk ezt mi is saját hasznunkra fordítani?",
       },
@@ -39,24 +39,24 @@ export const schedule: ScheduleModule[] = [
     module: "Startup hónap",
     sessions: [
       {
-        date: "november 6.",
-        topic: "Mi a startup?",
+        date: "November 6.",
+        topic: "Hogyan építs sikeres startupot? 1. rész",
         content: "Egy előadás során felfedezzük mit is takar a manapság sokat hallott startup kifejezés",
       },
       {
-        date: "november 13.",
+        date: "November 13.",
         topic: "Milyen egy startup életútja?",
         content: "Szakértő vendégünk Golovics Milán mesél arról, hogy honnan indulnak és hova érkeznek meg a sikeres startupok.",
       },
       {
-        date: "november 20.",
-        topic: "Session",
-        content: "Hamarosan!",
+        date: "November 20.",
+        topic: "Hogyan építs sikeres startupot? 2. rész",
+        content: "Megtudunk többet a sikeres startup receptjéről.",
       },
       {
-        date: "november 27.",
+        date: "November 27.",
         topic: "Session",
-        content: "Hamarosan!",
+        content: "Az OTP Junior Piacralépők program szereplője Bogyó Sanyi látogat el hozzánk.",
       },
     ],
   },
@@ -64,17 +64,17 @@ export const schedule: ScheduleModule[] = [
     module: "Közgazdaságtan hónap",
     sessions: [
       {
-        date: "december 4.",
+        date: "December 4.",
         topic: "Közgazdaságtan fogalma",
         content: "Mi is a közgazdaságtan és mivel foglalkozik?",
       },
       {
-        date: "december 11.",
+        date: "December 11.",
         topic: "Session",
         content: "Hamarosan!",
       },
       {
-        date: "december 18.",
+        date: "December 18.",
         topic: "Session",
         content: "Hamarosan!",
       },
