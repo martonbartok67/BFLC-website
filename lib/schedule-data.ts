@@ -26,8 +26,10 @@ export const schedule: ScheduleModule[] = [
       },
       {
         date: "Október 16.",
-        topic: "„Miért keres pénzt abból a Coca‑Cola, hogy ráírja a neved a palackra? — Legjobb marketing kampányok és azok pszichológiája",
-        content: "A legikonikusabb marketing kampányok milyen egyszerű pszichológiai trükkökre épülnek fel, és akár hogyan tudjuk ezt mi is saját hasznunkra fordítani?",
+        topic:
+          "„Miért keres pénzt abból a Coca‑Cola, hogy ráírja a neved a palackra? — Legjobb marketing kampányok és azok pszichológiája",
+        content:
+          "A legikonikusabb marketing kampányok milyen egyszerű pszichológiai trükkökre épülnek fel, és akár hogyan tudjuk ezt mi is saját hasznunkra fordítani?",
       },
     ],
   },
@@ -45,8 +47,9 @@ export const schedule: ScheduleModule[] = [
       },
       {
         date: "November 13.",
-        topic: "Hogyan alakítsd az ötleted startuppá? "
-        content:  "Szakértő vendégünk Golovics Milán mesél arról, hogy hogyan lehet ma egy ötlettől egy startup-ig eljutni, és mik ennek az első lépései.",
+        topic: "Hogyan alakítsd az ötleted startuppá?",
+        content:
+          "Szakértő vendégünk Golovics Milán mesél arról, hogy hogyan lehet ma egy ötlettől egy startup-ig eljutni, és mik ennek az első lépései.",
       },
       {
         date: "November 20.",
