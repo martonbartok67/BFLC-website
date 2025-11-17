@@ -8,15 +8,6 @@ import Image from "next/image"
 
 const upcomingEvents = [
   {
-    title: "Hogyan alakítsd az ötleted startuppá?",
-    date: "2025. november 13.",
-    time: "15:45 - 16:45",
-    location: "10-es terem, Eötvös József Gimnázium",
-    type: "Vendégelőadás",
-    description:
-      "Szakértő vendégünk Golovics Milán mesél arról, hogy hogyan lehet ma egy ötlettől egy startup-ig eljutni, és mik ennek az első lépései. ",
-  },
-  {
     title: "Hogyan építs sikeres startupot? 2. rész",
     date: "2025. november 20.",
     time: "15:45 - 16:45",
@@ -25,12 +16,21 @@ const upcomingEvents = [
     description: "Megtudunk többet a sikeres startup receptjéről.",
   },
   {
-    title: "Milyen egy befektető életútja?",
+    title: "Session",
     date: "2025. november 27.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
     type: "Vendégelőadás",
-    description: "Szakértő vendégünk megosztja tapasztalatait a befektetések világából",
+    description: "Az OTP Junior Piacralépők program szereplője, a Wordy nevű nyelvtanuló appon dolgozó Bogyó Sanyi látogat el hozzánk.",
+  },
+  {
+    title: "Közgazdaságtan fogalma",
+    date: "December 4.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Interaktív előadás",
+    description:
+      "Mi is a közgazdaságtan és mivel foglalkozik?",
   },
 ]
 

@@ -59,7 +59,7 @@ export const schedule: ScheduleModule[] = [
       {
         date: "November 27.",
         topic: "Session",
-        content: "Az OTP Junior Piacralépők program szereplője Bogyó Sanyi látogat el hozzánk.",
+        content: "Az OTP Junior Piacralépők program szereplője, a Wordy nevű nyelvtanuló appon dolgozó Bogyó Sanyi látogat el hozzánk.",
       },
     ],
   },
