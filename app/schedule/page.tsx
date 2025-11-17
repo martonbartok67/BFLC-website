@@ -16,7 +16,7 @@ const upcomingEvents = [
     description: "Megtudunk többet a sikeres startup receptjéről.",
   },
   {
-    title: "Session",
+    title: "Hogyan lesz egy ötletből valóság? – Bogyó Sanyi és a Wordy története",
     date: "2025. november 27.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
@@ -24,13 +24,13 @@ const upcomingEvents = [
     description: "Az OTP Junior Piacralépők program szereplője, a Wordy nevű nyelvtanuló appon dolgozó Bogyó Sanyi látogat el hozzánk.",
   },
   {
-    title: "Közgazdaságtan fogalma",
+    title: "Mit tanultunk a startup month alatt?",
     date: "December 4.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
-    type: "Interaktív előadás",
+    type: "Workshop",
     description:
-      "Mi is a közgazdaságtan és mivel foglalkozik?",
+      "Egy izgalmas workshoppal összefoglaljuk mindazt, amit a startup month során átvettünk",
   },
 ]
 

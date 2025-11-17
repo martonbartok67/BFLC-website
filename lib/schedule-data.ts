@@ -58,7 +58,7 @@ export const schedule: ScheduleModule[] = [
       },
       {
         date: "November 27.",
-        topic: "Session",
+        topic: "Hogyan lesz egy ötletből valóság? – Bogyó Sanyi és a Wordy története",
         content: "Az OTP Junior Piacralépők program szereplője, a Wordy nevű nyelvtanuló appon dolgozó Bogyó Sanyi látogat el hozzánk.",
       },
     ],
@@ -68,24 +68,46 @@ export const schedule: ScheduleModule[] = [
     sessions: [
       {
         date: "December 4.",
-        topic: "Közgazdaságtan fogalma",
-        content: "Mi is a közgazdaságtan és mivel foglalkozik?",
+        topic: "Mit tanultunk a startup month alatt?",
+        content: "Egy izgalmas workshoppal összefoglaljuk mindazt, amit a startup month során átvettünk",
       },
       {
         date: "December 11.",
-        topic: "Session",
-        content: "Hamarosan!",
+        topic: "Interaktív Előadás",
+        content: "Tőzsdei chart elemzés",
+        notes: "Farkas Gábor",
       },
       {
         date: "December 18.",
         topic: "Session",
-        content: "Hamarosan!",
+        content: "Ismerkedő karácsony előtti session",
       },
     ],
   },
   {
     module: "Téli szünet",
     sessions: [],
+  },
+  {
+    module: "Január",
+    sessions: [
+      {
+        date: "Január 8.",
+        topic: "Előadás",
+        content: "Hamarosan!",
+      },
+      {
+        date: "Január 15.",
+        topic: "Session",
+        content: "Hamarosan!",
+      },
+      {
+        date: "Január 22.",
+        topic: "Beszélgetés",
+        content: "Hamarosan!",
+        notes: "Kovács László András",
+      },
+    ],
   },
 ]
 
