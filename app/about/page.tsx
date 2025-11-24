@@ -116,7 +116,7 @@ export default function AboutPage() {
                 />
               </div>
               <p className="text-center text-muted-foreground text-pretty leading-relaxed">
-                Diákokból álló lelkes csapatunk dolgozik azon, hogy az alapvető pénzügyi tudatosságot elérhetővé tegyük minden középiskolás számára Budapesten.
+               Mi azzal a céllal hoztuk létre tavaly májusban a Budapest Financial Literacy Club-ot az Eötvös József Gimnáziumban, hogy középiskolás diákok számára biztosítson alapvető és releváns pénzügyi ismereteket heti rendszerességgel, szakértők előadásain és workshopokon keresztül. Jelenleg számos budapesti gimnáziummal állunk kapcsolatban, és diákjaik számára teljes mértékben elérhető programunk.
               </p>
             </div>
 
