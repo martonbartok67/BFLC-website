@@ -1,10 +1,26 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, Clock } from "lucide-react"
-import { getUpcomingEvents } from "@/lib/schedule-data"
 
 export function EventsSection() {
-  const upcomingEvents = getUpcomingEvents(2)
+  const upcomingEvents = [
+    {
+      date: "November 27.",
+      topic: "Hogyan lesz egy ötletből valóság? – Bogyó Sanyi és a Wordy története",
+      content:
+        "Ezen a héten Bogyó Sándor jön hozzánk, az  OTP Junior Piacralépők verseny nyertese. A Wordy nevű nyelvtanuló-appjáról fog mesélni (ami már megelőzte a Duolingót is!). Megosztja velünk hogy hogyan épített fel a nulláról egy nemzetközi vállalkozást, milyen nehézségekbe futott bele és mit tanácsolna annak aki ugyanerre az útra térne.",
+    },
+    {
+      date: "December 4.",
+      topic: "Mit tanultunk a startup month alatt?",
+      content: "Egy izgalmas workshoppal összefoglaljuk mindazt, amit a startup month során átvettünk.",
+    },
+    {
+      date: "December 11.",
+      topic: "Hogyan elemezzünk tőzsdei chart-okat?",
+      content: "Farkas Gábor elemző mesél a közgazdaságtan alapjairól és megtudjuk, hogy hogyan lehet elemezni az elsőre érthetetlennek tűnő tőzsdei chart-okat is!",
+    },
+  ]
 
   return (
     <section id="events" className="py-20 sm:py-24 bg-secondary/30 lg:py-20">
@@ -16,7 +32,7 @@ export function EventsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {upcomingEvents.map((event, index) => (
             <Card key={index} className="border-border hover:shadow-lg transition-shadow">
               <CardHeader>

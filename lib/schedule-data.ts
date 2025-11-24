@@ -59,7 +59,7 @@ export const schedule: ScheduleModule[] = [
       {
         date: "November 27.",
         topic: "Hogyan lesz egy ötletből valóság? – Bogyó Sanyi és a Wordy története",
-        content: "Az OTP Junior Piacralépők program szereplője, a Wordy nevű nyelvtanuló appon dolgozó Bogyó Sanyi látogat el hozzánk.",
+        content: "Ezen a héten Bogyó Sándor jön hozzánk, az  OTP Junior Piacralépők verseny nyertese. A Wordy nevű nyelvtanuló-appjáról fog mesélni (ami már megelőzte a Duolingót is!). Megosztja velünk hogy hogyan épített fel a nulláról egy nemzetközi vállalkozást, milyen nehézségekbe futott bele és mit tanácsolna annak aki ugyanerre az útra térne.",
       },
     ],
   },
@@ -73,9 +73,8 @@ export const schedule: ScheduleModule[] = [
       },
       {
         date: "December 11.",
-        topic: "Interaktív Előadás",
-        content: "Tőzsdei chart elemzés",
-        notes: "Farkas Gábor",
+        topic: "Hogyan elemezzünk tőzsdei chart-okat?",
+        content: "Farkas Gábor elemző mesél a közgazdaságtan alapjairól és megtudjuk, hogy hogyan lehet elemezni az elsőre érthetetlennek tűnő tőzsdei chart-okat is!",
       },
       {
         date: "December 18.",
@@ -95,11 +94,13 @@ export const schedule: ScheduleModule[] = [
         date: "Január 8.",
         topic: "Előadás",
         content: "Hamarosan!",
+        notes: "Budapest Investment Club - Financial Literacy",
       },
       {
         date: "Január 15.",
         topic: "Session",
         content: "Hamarosan!",
+        notes: "US Embassy",
       },
       {
         date: "Január 22.",

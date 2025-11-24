@@ -1,3 +1,5 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -5,36 +7,44 @@ import { Badge } from "@/components/ui/badge"
 import { Clock, MapPin, Calendar } from "lucide-react"
 import { schedule } from "@/lib/schedule-data"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 const upcomingEvents = [
-  {
-    title: "Hogyan építs sikeres startupot? 2. rész",
-    date: "2025. november 20.",
-    time: "15:45 - 16:45",
-    location: "10-es terem, Eötvös József Gimnázium",
-    type: "Interaktív előadás",
-    description: "Megtudunk többet a sikeres startup receptjéről.",
-  },
   {
     title: "Hogyan lesz egy ötletből valóság? – Bogyó Sanyi és a Wordy története",
     date: "2025. november 27.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
     type: "Vendégelőadás",
-    description: "Az OTP Junior Piacralépők program szereplője, a Wordy nevű nyelvtanuló appon dolgozó Bogyó Sanyi látogat el hozzánk.",
+    description:
+      "Ezen a héten Bogyó Sándor jön hozzánk, az  OTP Junior Piacralépők verseny nyertese. A Wordy nevű nyelvtanuló-appjáról fog mesélni (ami már megelőzte a Duolingót is!). Megosztja velünk hogy hogyan épített fel a nulláról egy nemzetközi vállalkozást, milyen nehézségekbe futott bele és mit tanácsolna annak aki ugyanerre az útra térne.",
   },
   {
-    title: "Mit tanultunk a startup month alatt?",
-    date: "December 4.",
+    title: "Startup month záró workshop a tanultakról",
+    date: "2025. december 4.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
     type: "Workshop",
+    description: "Egy izgalmas workshoppal összefoglaljuk mindazt, amit a startup month során átvettünk.",
+  },
+  {
+    title: "Hogyan elemezzünk tőzsdei chart-okat?",
+    date: "2025. december 11.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Vendégelőadás",
     description:
-      "Egy izgalmas workshoppal összefoglaljuk mindazt, amit a startup month során átvettünk",
+      "Farkas Gábor elemző mesél a közgazdaságtan alapjairól és megtudjuk, hogy hogyan lehet elemezni az elsőre érthetetlennek tűnő tőzsdei chart-okat is!",
   },
 ]
 
 export default function SchedulePage() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
     <>
       <Header />
@@ -68,33 +78,40 @@ export default function SchedulePage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Közelgő események</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
                 {upcomingEvents.map((event, index) => (
-                  <Card key={index} className="border-border hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="flex items-center justify-between mb-2">
-                        <Badge className="italic" variant="secondary">
-                          {event.type}
-                        </Badge>
-                      </div>
-                      <CardTitle className="text-xl text-balance">{event.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4 leading-relaxed">{event.description}</p>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex items-center gap-2 text-muted-foreground">
-                          <Calendar className="h-4 w-4" />
-                          <span>{event.date}</span>
+                  <div
+                    key={index}
+                    className={`transition-all duration-700 ease-out ${
+                      isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+                    }`}
+                  >
+                    <Card className="border-border hover:shadow-lg transition-shadow h-full">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <Badge className="italic" variant="secondary">
+                            {event.type}
+                          </Badge>
                         </div>
-                        <div className="flex items-center gap-2 text-muted-foreground">
-                          <Clock className="h-4 w-4" />
-                          <span>{event.time}</span>
+                        <CardTitle className="text-xl text-balance">{event.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">{event.description}</p>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex items-center gap-2 text-muted-foreground">
+                            <Calendar className="h-4 w-4" />
+                            <span>{event.date}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-muted-foreground">
+                            <Clock className="h-4 w-4" />
+                            <span>{event.time}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-muted-foreground">
+                            <MapPin className="h-4 w-4" />
+                            <span>{event.location}</span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2 text-muted-foreground">
-                          <MapPin className="h-4 w-4" />
-                          <span>{event.location}</span>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                      </CardContent>
+                    </Card>
+                  </div>
                 ))}
               </div>
 
@@ -112,7 +129,7 @@ export default function SchedulePage() {
                         {module.sessions.map((session, sessionIndex) => (
                           <Card
                             key={sessionIndex}
-                            className="border-border hover:border-primary transition-colors bg-background"
+                            className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm"
                           >
                             <CardHeader>
                               <div className="flex items-start justify-between gap-4 flex-wrap">
