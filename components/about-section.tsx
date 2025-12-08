@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Presentation, Trophy, Users, Briefcase } from "lucide-react"
 
 const features = [
- {
+  {
     icon: Presentation,
     title: "Sokszínű alkalmak",
     description:
@@ -15,7 +15,7 @@ const features = [
       "Csapatmunkán, beszélgetéseken és prezentációkon át nyújtunk lehetőséget a nyilvános beszédkészség, kritikus gondolkodás, csapatmunka és vezetői képességek fejlesztésére. Ezek mindannyiunk jövőjében (és jelenjében is!) kiemelten fontos készségek, hiszen minden közösségben szükségünk lesz rájuk.",
   },
   {
-     icon: Briefcase,
+    icon: Briefcase,
     title: "Kapcsolatépítés és karrier",
     description:
       "Kialakíthatsz értékes kapcsolatokat diáktársaiddal és szakértőkkel, részt vehetsz céglátogatásokon és előadásokon és építs ki olían kapcsolatrendszert, amely karriered alapját képezheti.",
@@ -35,8 +35,10 @@ export function AboutSection() {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">A klubunkról</h2>
           <p className="text-lg text-pretty leading-relaxed text-foreground">
-            A Financial Literacy Club 2024 májusában alakult, azzal a céllal, hogy
-                diákok számára biztosítson alapvető és a mindennapokban releváns pénzügyi ismereteket, amelyek a középiskolai oktatásból gyakran hiányoznak. Bár a klubot diákok vezetik, az oktatási programokat és tevékenységeket szakértő támogatók és partnerek segítik, hogy hasznos és praktikus ismereteket sajátíthassanak el diákjaink.
+            A Financial Literacy Club 2024 májusában alakult, azzal a céllal, hogy diákok számára biztosítson alapvető
+            és a mindennapokban releváns pénzügyi ismereteket, amelyek a középiskolai oktatásból gyakran hiányoznak. Bár
+            a klubot diákok vezetik, az oktatási programokat és tevékenységeket szakértő támogatók és partnerek segítik,
+            hogy hasznos és praktikus ismereteket sajátíthassanak el diákjaink.
           </p>
         </div>
 
@@ -44,9 +46,12 @@ export function AboutSection() {
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
-              <Card key={index} className="border-border hover:border-primary transition-colors">
+              <Card
+                key={index}
+                className="border-border hover:border-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              >
                 <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-primary text-background">
+                  <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-primary text-background transition-transform hover:scale-110 hover:rotate-6">
                     <Icon className="h-6 w-6 text-background" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 bg-card text-popover-foreground">{feature.title}</h3>

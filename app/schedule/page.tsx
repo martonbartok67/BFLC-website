@@ -11,30 +11,31 @@ import { useEffect, useState } from "react"
 
 const upcomingEvents = [
   {
-    title: "Hogyan lesz egy ötletből valóság? – Bogyó Sanyi és a Wordy története",
-    date: "2025. november 27.",
-    time: "15:45 - 16:45",
-    location: "10-es terem, Eötvös József Gimnázium",
-    type: "Vendégelőadás",
-    description:
-      "Ezen a héten Bogyó Sándor jön hozzánk, az  OTP Junior Piacralépők verseny nyertese. A Wordy nevű nyelvtanuló-appjáról fog mesélni (ami már megelőzte a Duolingót is!). Megosztja velünk hogy hogyan épített fel a nulláról egy nemzetközi vállalkozást, milyen nehézségekbe futott bele és mit tanácsolna annak aki ugyanerre az útra térne.",
-  },
-  {
-    title: "Startup month záró workshop a tanultakról",
-    date: "2025. december 4.",
-    time: "15:45 - 16:45",
-    location: "10-es terem, Eötvös József Gimnázium",
-    type: "Workshop",
-    description: "Egy izgalmas workshoppal összefoglaljuk mindazt, amit a startup month során átvettünk.",
-  },
-  {
-    title: "Hogyan elemezzünk tőzsdei chart-okat?",
+    title: "Közgazdaságtan és tőzsde",
     date: "2025. december 11.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
     type: "Vendégelőadás",
     description:
       "Farkas Gábor elemző mesél a közgazdaságtan alapjairól és megtudjuk, hogy hogyan lehet elemezni az elsőre érthetetlennek tűnő tőzsdei chart-okat is!",
+  },
+  {
+    title: "Ismerkedő karácsonyi előtti session",
+    date: "2025. december 18.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Session",
+    description:
+      "Az utolsó találkozónk az év végén, ahol összefoglaljuk az eddigi tapasztalatokat és kötetlenül beszélgetünk.",
+  },
+  {
+    title: "Budapest Investment Club előadás",
+    date: "2026. január 8.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Előadás",
+    description:
+      "Januárban visszatérünk egy izgalmas előadással a Budapest Investment Club-tól a pénzügyi műveltség témakörében.",
   },
 ]
 

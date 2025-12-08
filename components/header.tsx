@@ -19,7 +19,7 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border text-primary bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-background">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2" onClick={scrollToTop}>
+          <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105" onClick={scrollToTop}>
             <div className="w-10 h-10 relative">
               <Image
                 src="/images/flc-logo-no-text.png"
@@ -34,47 +34,47 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-7">
             <Link
               href="/about"
-              className="text-sm font-medium hover:text-primary transition-colors"
+              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
             >
               Rólunk
             </Link>
             <Link
               href="/schedule"
-              className="text-sm font-medium hover:text-primary transition-colors"
+              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
             >
               Naptár
             </Link>
             <Link
               href="/articles"
-              className="text-sm font-medium hover:text-primary transition-colors"
+              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
             >
               Cikkek
             </Link>
             <Link
               href="/competitions"
-              className="text-sm font-medium hover:text-primary transition-colors"
+              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
             >
               Versenyek és Események
             </Link>
             <Link
               href="/collaboration"
-              className="text-sm font-medium hover:text-primary transition-colors"
+              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
             >
               Együttműködés
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-medium hover:text-primary transition-colors"
+              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
             >
               Kapcsolat
             </Link>
-            <Button className="rounded-xl" size="sm" asChild>
+            <Button className="rounded-xl transition-all hover:scale-105 hover:shadow-lg" size="sm" asChild>
               <Link
                 href="https://m.me/cm/AbaU8rQOgYlXAugE/"
                 target="_blank"
@@ -86,17 +86,23 @@ export function Header() {
             </Button>
           </nav>
 
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
+          <button
+            className={`md:hidden transition-transform hover:scale-110 duration-300 ${mobileMenuOpen ? "rotate-90" : "rotate-0"}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
             <Menu className="h-6 w-6" />
           </button>
         </div>
 
-        {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border">
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+        >
+          <nav className="py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               <Link
                 href="/about"
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
                 onClick={() => {
                   setMobileMenuOpen(false)
                   scrollToTop()
@@ -106,7 +112,7 @@ export function Header() {
               </Link>
               <Link
                 href="/schedule"
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
                 onClick={() => {
                   setMobileMenuOpen(false)
                   scrollToTop()
@@ -116,7 +122,7 @@ export function Header() {
               </Link>
               <Link
                 href="/articles"
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
                 onClick={() => {
                   setMobileMenuOpen(false)
                   scrollToTop()
@@ -126,7 +132,7 @@ export function Header() {
               </Link>
               <Link
                 href="/competitions"
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
                 onClick={() => {
                   setMobileMenuOpen(false)
                   scrollToTop()
@@ -136,7 +142,7 @@ export function Header() {
               </Link>
               <Link
                 href="/collaboration"
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
                 onClick={() => {
                   setMobileMenuOpen(false)
                   scrollToTop()
@@ -146,7 +152,7 @@ export function Header() {
               </Link>
               <Link
                 href="/contact"
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
                 onClick={() => {
                   setMobileMenuOpen(false)
                   scrollToTop()
@@ -154,7 +160,7 @@ export function Header() {
               >
                 Kapcsolat
               </Link>
-              <Button size="sm" asChild className="w-full">
+              <Button size="sm" asChild className="w-full transition-all hover:scale-105">
                 <Link
                   href="https://m.me/cm/AbaU8rQOgYlXAugE/"
                   target="_blank"
@@ -169,7 +175,7 @@ export function Header() {
               </Button>
             </div>
           </nav>
-        )}
+        </div>
       </div>
     </header>
   )
