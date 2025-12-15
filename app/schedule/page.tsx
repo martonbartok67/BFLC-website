@@ -131,16 +131,16 @@ export default function SchedulePage() {
                             className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm"
                           >
                             <CardHeader>
-                              <div className="flex items-start justify-between gap-4 flex-wrap">
-                                <div className="flex-1">
-                                  <CardTitle className="text-xl text-balance mb-2">{session.topic}</CardTitle>
-                                  {session.content && (
-                                    <p className="text-sm text-muted-foreground">{session.content}</p>
-                                  )}
-                                </div>
-                                <Badge className="font-medium text-base" variant="secondary">
+                              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+                                <Badge className="font-medium text-base w-fit" variant="secondary">
                                   {session.date}
                                 </Badge>
+                                <div className="flex-1 md:order-first">
+                                  <CardTitle className="text-xl text-balance mb-2">{session.topic}</CardTitle>
+                                  {session.content && (
+                                    <p className="text-sm text-muted-foreground leading-relaxed">{session.content}</p>
+                                  )}
+                                </div>
                               </div>
                             </CardHeader>
                             <CardContent>
