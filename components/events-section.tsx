@@ -5,24 +5,22 @@ import { Calendar, MapPin, Clock } from "lucide-react"
 export function EventsSection() {
   const upcomingEvents = [
     {
-      date: "December 11.",
-      topic: "Közgazdaságtan és tőzsde",
-      content:
-        "Farkas Gábor elemző mesél a közgazdaságtan alapjairól és megtudjuk, hogy hogyan lehet elemezni az elsőre érthetetlennek tűnő tőzsdei chart-okat is!",
-      location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
-    },
-    {
-      date: "December 18.",
-      topic: "Ismerkedő karácsonyi előtti session",
-      content:
-        "Az utolsó találkozónk az év végén, ahol összefoglaljuk az eddigi tapasztalatokat és kötetlenül beszélgetünk.",
-      location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
-    },
-    {
       date: "Január 8.",
-      topic: "Budapest Investment Club előadás",
+      topic: "A Budapest Investment Club-pénzügyi tudatosság",
       content:
-        "Januárban visszatérünk egy izgalmas előadással a Budapest Investment Club-tól a pénzügyi műveltség témakörében.",
+        "A Budapest Investment Club Financial Literacy részlege érkezik hozzánk egy előadással, akiknek szintén szívügyük a pénzügyi oktatás.",
+      location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
+    },
+    {
+      date: "Január 15.",
+      topic: "Session",
+      content: "Hamarosan! - US Embassy",
+      location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
+    },
+    {
+      date: "Január 22.",
+      topic: "Beszélgetés",
+      content: "Hamarosan! - Kovács László András",
       location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
     },
   ]

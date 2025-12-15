@@ -78,15 +78,10 @@ export const schedule: ScheduleModule[] = [
         content:
           "Farkas Gábor elemző mesél a közgazdaságtan alapjairól és megtudjuk, hogy hogyan lehet elemezni az elsőre érthetetlennek tűnő tőzsdei chart-okat is!",
       },
-      {
-        date: "December 18.",
-        topic: "Session",
-        content: "Ismerkedő karácsony előtti session",
-      },
     ],
   },
   {
-    module: "Téli szünet",
+    module: "Téli szünet - Kellemes ünnepeket kíván a BFLC csapata!",
     sessions: [],
   },
   {
@@ -94,9 +89,9 @@ export const schedule: ScheduleModule[] = [
     sessions: [
       {
         date: "Január 8.",
-        topic: "Előadás",
-        content: "Hamarosan!",
-        notes: "Budapest Investment Club - Financial Literacy",
+        topic: "A Budapest Investment Club-pénzügyi tudatosság",
+        content:
+          "A Budapest Investment Club Financial Literacy részlege érkezik hozzánk egy előadással, akiknek szintén szívügyük a pénzügyi oktatás.",
       },
       {
         date: "Január 15.",

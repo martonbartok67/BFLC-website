@@ -11,31 +11,29 @@ import { useEffect, useState } from "react"
 
 const upcomingEvents = [
   {
-    title: "Közgazdaságtan és tőzsde",
-    date: "2025. december 11.",
-    time: "15:45 - 16:45",
-    location: "10-es terem, Eötvös József Gimnázium",
-    type: "Vendégelőadás",
-    description:
-      "Farkas Gábor elemző mesél a közgazdaságtan alapjairól és megtudjuk, hogy hogyan lehet elemezni az elsőre érthetetlennek tűnő tőzsdei chart-okat is!",
-  },
-  {
-    title: "Ismerkedő karácsonyi előtti session",
-    date: "2025. december 18.",
-    time: "15:45 - 16:45",
-    location: "10-es terem, Eötvös József Gimnázium",
-    type: "Session",
-    description:
-      "Az utolsó találkozónk az év végén, ahol összefoglaljuk az eddigi tapasztalatokat és kötetlenül beszélgetünk.",
-  },
-  {
-    title: "Budapest Investment Club előadás",
+    title: "A Budapest Investment Club-pénzügyi tudatosság",
     date: "2026. január 8.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
     type: "Előadás",
     description:
-      "Januárban visszatérünk egy izgalmas előadással a Budapest Investment Club-tól a pénzügyi műveltség témakörében.",
+      "A Budapest Investment Club Financial Literacy részlege érkezik hozzánk egy előadással, akiknek szintén szívügyük a pénzügyi oktatás.",
+  },
+  {
+    title: "Session",
+    date: "2026. január 15.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Session",
+    description: "Hamarosan! - US Embassy",
+  },
+  {
+    title: "Beszélgetés",
+    date: "2026. január 22.",
+    time: "15:45 - 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Beszélgetés",
+    description: "Hamarosan! - Kovács László András",
   },
 ]
 
