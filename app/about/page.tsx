@@ -18,7 +18,7 @@ const features = [
       "Csapatmunkán, beszélgetéseken és prezentációkon át nyújtunk lehetőséget a nyilvános beszédkészség, kritikus gondolkodás, csapatmunka és vezetői képességek fejlesztésére is. Ezek mindannyiunk jövőjében (és jelenjében is!) kiemelten fontos készségek, hiszen minden közösségben szükségünk lesz rájuk.",
   },
   {
-     icon: Briefcase,
+    icon: Briefcase,
     title: "Karrier- és kapcsolatépítés",
     description:
       " Építs ki az előadások és céglátogatások alkalmával már most olyan kapcsolatrendszert, amely karriered alapját képezheti. Kapcsolódj diák társaiddal és akár szakértőkkel is ezen alkalmakkor. ",
@@ -36,7 +36,7 @@ const values = [
     icon: Target,
     title: "Küldetésünk",
     description:
-      "Szerintünk a pénzügyi tudatosság kiemelten fontos már fiatal korban is. Ezért célunk olyan tájékozottságot adni diákoknak a pénzügyek terén, amely a mindennapjainkban is hasznosítható, azonban a középiskolás tantervből hiányzik.",
+      "Szerintünk a pénzügyi tudatosság kiemelten fontos már fiatal korban is. Ezért célunk olyan tájékozottságot adni diákoknak a pénzügyek terén, amely a mindennapjainkban is hasznosítható, azonban a középiskolai oktatásból hiányzik.",
   },
   {
     icon: Lightbulb,
@@ -68,8 +68,10 @@ export default function AboutPage() {
                 Klubunkról
               </h1>
               <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
-                A Financial Literacy Club 2024 májusában alakult, azzal a céllal, hogy
-                diákok számára biztosítson alapvető és a mindennapokban releváns pénzügyi ismereteket, amelyek a középiskolai oktatásból gyakran hiányoznak. Bár a klubot diákok vezetik, az oktatási programokat és tevékenységeket szakértő támogatók és partnerek segítik, hogy hasznos és praktikus ismereteket sajátíthassanak el diákjaink.
+                A Financial Literacy Club 2024 májusában alakult, azzal a céllal, hogy diákok számára biztosítson
+                alapvető és a mindennapokban releváns pénzügyi ismereteket, amelyek a középiskolai oktatásból gyakran
+                hiányoznak. Bár a klubot diákok vezetik, az oktatási programokat és tevékenységeket szakértő támogatók
+                és partnerek segítik, hogy hasznos és praktikus ismereteket sajátíthassanak el diákjaink.
               </p>
             </div>
           </div>
@@ -116,14 +118,18 @@ export default function AboutPage() {
                 />
               </div>
               <p className="text-center text-muted-foreground text-pretty leading-relaxed">
-               Mi azzal a céllal hoztuk létre tavaly májusban a Budapest Financial Literacy Club-ot az Eötvös József Gimnáziumban, hogy középiskolás diákok számára biztosítson alapvető és releváns pénzügyi ismereteket heti rendszerességgel, szakértők előadásain és workshopokon keresztül. Jelenleg számos budapesti gimnáziummal állunk kapcsolatban, és diákjaik számára teljes mértékben elérhető programunk.
+                Mi azzal a céllal hoztuk létre tavaly májusban a Budapest Financial Literacy Club-ot az Eötvös József
+                Gimnáziumban, hogy középiskolás diákok számára biztosítson alapvető és releváns pénzügyi ismereteket
+                heti rendszerességgel, szakértők előadásain és workshopokon keresztül. Jelenleg számos budapesti
+                gimnáziummal állunk kapcsolatban, és diákjaik számára teljes mértékben elérhető programunk.
               </p>
             </div>
 
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance">Csatlakozz közösségünkhöz</h2>
               <p className="text-lg text-muted-foreground text-pretty leading-relaxed mb-8">
-                Akár teljesen kezdő vagy, akár már van némi előzetes tudásod, szeretettel várunk klubunkban. Minden héten találkozunk és minden diákot szívesen látunk az Eötvös József Gimnáziumból.
+                Akár teljesen kezdő vagy, akár már van némi előzetes tudásod, szeretettel várunk klubunkban. Minden
+                diákot szívesen látunk bármely középiskolából!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
