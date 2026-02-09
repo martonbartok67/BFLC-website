@@ -5,23 +5,28 @@ import { Calendar, MapPin, Clock } from "lucide-react"
 export function EventsSection() {
   const upcomingEvents = [
     {
-      date: "Január 8.",
-      topic: "A Budapest Investment Club-pénzügyi tudatosság",
+      date: "Február 12.",
+      topic: "Juhász István & Pogány Marcell",
       content:
-        "A Budapest Investment Club Financial Literacy részlege érkezik hozzánk egy előadással, akiknek szintén szívügyük a pénzügyi oktatás.",
+        "Ezen az interaktív workshopon megtanulhatod, hogyan lehet AI segítségével, programozói tudás nélkül applikációkat és weboldalakat létrehozni. Lépésről lépésre végigmegyünk azon, hogyan valósíthatod meg az ötleteidet a Google AI eszközeivel! Az alkalmat Juhász István, a 49x AI alapítója, Forbes 30 under 30-as vállalkozó vezeti, Pogány Marcell elballagott Eötvös-diákkal közösen.",
       location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
+      type: "AI Előadás",
     },
     {
-      date: "Január 15.",
-      topic: "Session",
-      content: "Hamarosan! - US Embassy",
+      date: "Február 19.",
+      topic: "BNPL előadás",
+      content:
+        "Bendi előadása a Buy Now Pay Later szolgáltatásokról.",
       location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
+      type: "Előadás",
     },
     {
-      date: "Január 22.",
-      topic: "Beszélgetés",
-      content: "Hamarosan! - Kovács László András",
-      location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
+      date: "Március 12.",
+      topic: "HOLD céglátogatás",
+      content:
+        "Ellátogatunk a HOLD alapkezelő irodájába, ahol megismerkedhetünk a professzionális pénzügyi szektorral és a befektetéskezelés gyakorlatával.",
+      location: "HOLD alapkezelő irodája",
+      type: "Céglátogatás",
     },
   ]
 
@@ -44,7 +49,7 @@ export function EventsSection() {
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge variant="secondary" className="transition-transform hover:scale-110">
-                    Session
+                    {event.type}
                   </Badge>
                 </div>
                 <CardTitle className="text-xl text-balance text-popover-foreground">{event.topic}</CardTitle>

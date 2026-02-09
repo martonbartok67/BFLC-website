@@ -95,15 +95,57 @@ export const schedule: ScheduleModule[] = [
       },
       {
         date: "Január 15.",
-        topic: "Session",
-        content: "Hamarosan!",
-        notes: "US Embassy",
+        topic: "Hogyan győzz meg bárkit fél percben?",
+        content:
+          "Idén is megrendezésre kerül a tavaly nagy sikernek örvendő pitch workshop, ahol a sikeres pitch receptjéről hallhatunk, majd mindenki ki is próbálhatja magát.",
       },
       {
         date: "Január 22.",
-        topic: "Beszélgetés",
-        content: "Hamarosan!",
-        notes: "Kovács László András",
+        topic: "Vállalati pénzügyek a Richter Gedeonnal",
+        content:
+          "Kovács László András a Richter Gedeon pénzügyi igazgatója érkezik hozzánk és mesél arról, hogy egy ekkora vállalatnál a pénzügy és a stratégia hogy fűződik egymásba, továbbá életútjáról is hallhatunk majd!",
+      },
+    ],
+  },
+  {
+    module: "Témanapok - szünet",
+    sessions: [],
+  },
+  {
+    module: "Február",
+    sessions: [
+      {
+        date: "Február 5.",
+        topic: "Te hogyan döntenél? - valódi pénzügyi helyzetek",
+        content:
+          "Egy workshop során valós pénzügyi szituációkat próbálunk megoldani személyes, kis- és nagyvállalati szinten is, azonban ezenkívül van egy izgalmas csavar is…",
+      },
+      {
+        date: "Február 12.",
+        topic: "Juhász István & Pogány Marcell",
+        content:
+          "Ezen az interaktív workshopon megtanulhatod, hogyan lehet AI segítségével, programozói tudás nélkül applikációkat és weboldalakat létrehozni. Lépésről lépésre végigmegyünk azon, hogyan valósíthatod meg az ötleteidet a Google AI eszközeivel! Az alkalmat Juhász István, a 49x AI alapítója, Forbes 30 under 30-as vállalkozó vezeti, Pogány Marcell elballagott Eötvös-diákkal közösen. A foglalkozás során nemcsak tanulsz, hanem kérdezhetsz is – startupokról, vállalkozásról és az AI jövőjéről.",
+      },
+      {
+        date: "Február 19.",
+        topic: "BNPL előadás",
+        content:
+          "Bendi előadása a Buy Now Pay Later szolgáltatásokról.",
+      },
+    ],
+  },
+  {
+    module: "Síszünet",
+    sessions: [],
+  },
+  {
+    module: "Március",
+    sessions: [
+      {
+        date: "Március 12.",
+        topic: "HOLD céglátogatás",
+        content:
+          "Ellátogatunk a HOLD alapkezelő irodájába, ahol megismerkedhetünk a professzionális pénzügyi szektorral és a befektetéskezelés gyakorlatával.",
       },
     ],
   },

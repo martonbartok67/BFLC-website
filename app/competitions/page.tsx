@@ -6,17 +6,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 
 export default function CompetitionsPage() {
-  const events = [
-    {
-      title: "Fiatal Vállalkozók Hete",
-      date: "2025. november 24-28.",
-      location: "Bálna",
-      description: "Network fiatal vállalkozóknak, érdeklődőknek, előadások. Ingyenes, de regisztráció szükséges!",
-      link: "https://fiatalvallalkozokhete.hu/",
-    },
-  ]
+  const events: { title: string; date: string; location: string; description: string; link: string }[] = []
 
   const competitions = [
+    {
+      title: "Future Makers Innovációs és Gazdasági Verseny",
+      deadline: "2026. március 4. 23:59",
+      date: "Jelenleg nem ismert",
+      description:
+        "Szívesen kipróbálnád magad innovátorként, agrárgazdasági problémák megoldójaként? Most itt a lehetőség, hogy megmutasd, mit tudsz! Légy Te a jövő innovatív vállalkozója! A Future Makers 2026 középpontjában valós innovációs és gazdasági kihívások állnak. A verseny célja, hogy a résztvevők kreatív ötleteken és stratégiai gondolkodáson keresztül dolgozzanak fel egy gyakorlati problémát.",
+      eligibility: "Középiskolás diákcsapatok",
+      link: "https://futuremakers.hu/",
+    },
     {
       title: "K&H Vigyázz, kész, pénz!",
       deadline: "2026. január 23.",
