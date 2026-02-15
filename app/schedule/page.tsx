@@ -11,15 +11,6 @@ import { useEffect, useState } from "react"
 
 const upcomingEvents = [
   {
-    title: "Juhász István & Pogány Marcell",
-    date: "2026. február 12.",
-    time: "15:45 - 16:45",
-    location: "10-es terem, Eötvös József Gimnázium",
-    type: "AI Előadás",
-    description:
-      "Ezen az interaktív workshopon megtanulhatod, hogyan lehet AI segítségével, programozói tudás nélkül applikációkat és weboldalakat létrehozni. Lépésről lépésre végigmegyünk azon, hogyan valósíthatod meg az ötleteidet a Google AI eszközeivel! Az alkalmat Juhász István, a 49x AI alapítója, Forbes 30 under 30-as vállalkozó vezeti, Pogány Marcell elballagott Eötvös-diákkal közösen.",
-  },
-  {
     title: "BNPL előadás",
     date: "2026. február 19.",
     time: "15:45 - 16:45",

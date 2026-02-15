@@ -5,14 +5,6 @@ import { Calendar, MapPin, Clock } from "lucide-react"
 export function EventsSection() {
   const upcomingEvents = [
     {
-      date: "Február 12.",
-      topic: "Juhász István & Pogány Marcell",
-      content:
-        "Ezen az interaktív workshopon megtanulhatod, hogyan lehet AI segítségével, programozói tudás nélkül applikációkat és weboldalakat létrehozni. Lépésről lépésre végigmegyünk azon, hogyan valósíthatod meg az ötleteidet a Google AI eszközeivel! Az alkalmat Juhász István, a 49x AI alapítója, Forbes 30 under 30-as vállalkozó vezeti, Pogány Marcell elballagott Eötvös-diákkal közösen.",
-      location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
-      type: "AI Előadás",
-    },
-    {
       date: "Február 19.",
       topic: "BNPL előadás",
       content:
