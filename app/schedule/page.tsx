@@ -11,22 +11,31 @@ import { useEffect, useState } from "react"
 
 const upcomingEvents = [
   {
-    title: "BNPL előadás",
+    title: "Miért (ne) vegyél hitelre burritót?",
     date: "2026. február 19.",
     time: "15:45 - 16:45",
     location: "10-es terem, Eötvös József Gimnázium",
-    type: "Előadás",
+    type: "Interaktív Előadás",
     description:
-      "Bendi előadása a Buy Now Pay Later szolgáltatásokról.",
+      "Hogyan lehet hitelre burritót venni Amerikában? Megtudhatunk többet a Buy Now Pay Later szolgáltatások működéséről, előnyeiről és hibáiról, illetve kockázatairól egy interaktív előadás keretein belül.",
+  },
+  {
+    title: "AmCham céglátogatás",
+    date: "2026. március 5.",
+    time: "15:45 - 16:45",
+    location: "Budapest, Szent István tér 11, 1051",
+    type: "Céglátogatás",
+    description:
+      "Ellátogatunk az AmCham Hungary, az amerikai-magyar kereskedelmi kamara irodájába, ahol megismerkedhetünk a professzionális üzleti advocacy és nemzetközi kereskedelmi szektorral.",
   },
   {
     title: "HOLD céglátogatás",
     date: "2026. március 12.",
     time: "15:45 - 16:45",
-    location: "HOLD alapkezelő irodája",
+    location: "Budapest, Alkotás utca 50, 1123",
     type: "Céglátogatás",
     description:
-      "Ellátogatunk a HOLD alapkezelő irodájába, ahol megismerkedhetünk a professzionális pénzügyi szektorral és a befektetéskezelés gyakorlatával.",
+      "Ellátogatunk a HOLD Alapkezelő irodájába, ahol bepillantást nyerhetünk a professzionális vagyonkezelés világába és megismerkedhetünk a befektetési alapok működésével.",
   },
 ]
 

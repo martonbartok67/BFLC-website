@@ -128,9 +128,9 @@ export const schedule: ScheduleModule[] = [
       },
       {
         date: "Február 19.",
-        topic: "BNPL előadás",
+        topic: "Miért (ne) vegyél hitelre burritót?",
         content:
-          "Bendi előadása a Buy Now Pay Later szolgáltatásokról.",
+          "Hogyan lehet hitelre burritót venni Amerikában? Megtudhatunk többet a Buy Now Pay Later szolgáltatások működéséről, előnyeiről és hibáiról, illetve kockázatairól egy interaktív előadás keretein belül.",
       },
     ],
   },
@@ -142,10 +142,16 @@ export const schedule: ScheduleModule[] = [
     module: "Március",
     sessions: [
       {
+        date: "Március 5.",
+        topic: "AmCham céglátogatás",
+        content:
+          "Ellátogatunk az AmCham Hungary, az amerikai-magyar kereskedelmi kamara irodájába, ahol megismerkedhetünk a professzionális üzleti advocacy és nemzetközi kereskedelmi szektorral, valamint a magyarországi vállalati érdekek képviseletének gyakorlatával. Az AmCham több mint 300 tagvállalat (23 országból) érdekeit képviselve, politikai függetlenségük mellett Magyarország versenyképességét támogatják lobbying, networking és tudásmegosztás révén.",
+      },
+      {
         date: "Március 12.",
         topic: "HOLD céglátogatás",
         content:
-          "Ellátogatunk a HOLD alapkezelő irodájába, ahol megismerkedhetünk a professzionális pénzügyi szektorral és a befektetéskezelés gyakorlatával.",
+          "Ellátogatunk a HOLD Alapkezelő irodájába, ahol bepillantást nyerhetünk a professzionális vagyonkezelés világába. Megismerkedhetünk a befektetési alapok működésével, a portfóliókezelés rejtelmeivel és a pénzügyi piacok elemzésének gyakorlatával az egyik legmeghatározóbb magyar alapkezelő szakembereinek vezetésével.",
       },
     ],
   },
