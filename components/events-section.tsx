@@ -6,18 +6,26 @@ export function EventsSection() {
   const upcomingEvents = [
     {
       date: "Február 19.",
-      topic: "BNPL előadás",
+      topic: "Miért (ne) vegyél hitelre burritót?",
       content:
-        "Bendi előadása a Buy Now Pay Later szolgáltatásokról.",
+        "Hogyan lehet hitelre burritót venni Amerikában? Megtudhatunk többet a Buy Now Pay Later szolgáltatások működéséről, előnyeiről és hibáiról, illetve kockázatairól egy interaktív előadás keretein belül.",
       location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
-      type: "Előadás",
+      type: "Interaktív Előadás",
+    },
+    {
+      date: "Március 5.",
+      topic: "AmCham céglátogatás",
+      content:
+        "Ellátogatunk az AmCham Hungary, az amerikai-magyar kereskedelmi kamara irodájába, ahol megismerkedhetünk a professzionális üzleti advocacy és nemzetközi kereskedelmi szektorral.",
+      location: "Budapest, Szent István tér 11, 1051",
+      type: "Céglátogatás",
     },
     {
       date: "Március 12.",
       topic: "HOLD céglátogatás",
       content:
-        "Ellátogatunk a HOLD alapkezelő irodájába, ahol megismerkedhetünk a professzionális pénzügyi szektorral és a befektetéskezelés gyakorlatával.",
-      location: "HOLD alapkezelő irodája",
+        "Ellátogatunk a HOLD Alapkezelő irodájába, ahol bepillantást nyerhetünk a professzionális vagyonkezelés világába és megismerkedhetünk a befektetési alapok működésével.",
+      location: "Budapest, Alkotás utca 50, 1123",
       type: "Céglátogatás",
     },
   ]
