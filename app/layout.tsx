@@ -28,6 +28,7 @@ export default function RootLayout({
       <body className={`font-sans ${_montserrat.className}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
+        <script>(function(){var pp=document.createElement('script'), ppr=document.getElementsByTagName('script')[0]; stid='aUgyYjM4bnJMWmFZcHNpbTVqWkZVUT09';pp.type='text/javascript'; pp.async=true; pp.src=('https:' == document.location.protocol ? 'https://' : 'http://') + 's01.live2support.com/dashboardv2/chatwindow/'; ppr.parentNode.insertBefore(pp, ppr);})();</script>
         <Script async src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
       </body>
     </html>
