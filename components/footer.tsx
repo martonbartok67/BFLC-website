@@ -72,7 +72,7 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Vedd fel velünk a kapcsolatot:</h3>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/flc_ejg/"
+                href="https://www.instagram.com/budapestflc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"

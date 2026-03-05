@@ -8,9 +8,9 @@ const socialLinks = [
   {
     icon: Instagram,
     name: "Instagram",
-    handle: "@flc_ejg",
+    handle: "@budapestflc",
     description: "Kövess minket a legfrissebb tartalmakért és fontos friss információkért!",
-    link: "https://www.instagram.com/flc_ejg/",
+    link: "https://www.instagram.com/budapestflc/",
     color: "bg-gradient-to-br from-purple-500 to-pink-500",
     isExternal: true,
   },

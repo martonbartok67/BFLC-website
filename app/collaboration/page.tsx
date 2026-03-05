@@ -180,10 +180,10 @@ export default function CollaborationPage() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-lg mb-1">Instagram</h4>
-                        <p className="text-sm text-muted-foreground mb-4">@flc_ejg</p>
+                        <p className="text-sm text-muted-foreground mb-4">@budapestflc</p>
                       </div>
                       <Button asChild className="w-full">
-                        <a href="https://www.instagram.com/flc_ejg/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/budapestflc/" target="_blank" rel="noopener noreferrer">
                           Követés
                         </a>
                       </Button>
