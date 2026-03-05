@@ -142,16 +142,22 @@ export const schedule: ScheduleModule[] = [
     module: "Március",
     sessions: [
       {
-        date: "Március 5.",
-        topic: "AmCham céglátogatás",
-        content:
-          "Ellátogatunk az AmCham Hungary, az amerikai-magyar kereskedelmi kamara irodájába, ahol megismerkedhetünk a professzionális üzleti advocacy és nemzetközi kereskedelmi szektorral, valamint a magyarországi vállalati érdekek képviseletének gyakorlatával. Az AmCham több mint 300 tagvállalat (23 országból) érdekeit képviselve, politikai függetlenségük mellett Magyarország versenyképességét támogatják lobbying, networking és tudásmegosztás révén.",
-      },
-      {
         date: "Március 12.",
         topic: "HOLD céglátogatás",
         content:
-          "Ellátogatunk a HOLD Alapkezelő irodájába, ahol bepillantást nyerhetünk a professzionális vagyonkezelés világába. Megismerkedhetünk a befektetési alapok működésével, a portfóliókezelés rejtelmeivel és a pénzügyi piacok elemzésének gyakorlatával az egyik legmeghatározóbb magyar alapkezelő szakembereinek vezetésével.",
+          "Ellátogatunk a HOLD Alapkezelő irodájába, aki Magyarország egyik legmeghatározóbb ilyen cége. Itt bepillantást nyerhetünk a professzionális vagyonkezelés világába és megismerkedhetünk a befektetési alapok működésével.",
+      },
+      {
+        date: "Március 23.",
+        topic: "OTP céglátogatás",
+        content:
+          "A program egy, a pénzügyi tudatosság témakörét feldolgozó, rövid szakmai előadással veszi kezdetét, amelyet egy átfogóbb panelbeszélgetés követ. Ennek keretében szakértők válaszolnak a diákok által előzetesen összeállított kérdésekre. Az esemény végül egy vezetett épületbejárással zárul, amely betekintést nyújt az intézmény mindennapi működésébe.",
+      },
+      {
+        date: "Március 25.",
+        topic: "AmCham céglátogatás",
+        content:
+          "Ellátogatunk az AmCham Hungary, az amerikai-magyar kereskedelmi kamara irodájába, ahol megismerkedhetünk a professzionális üzleti advocacy és nemzetközi kereskedelmi szektorral.",
       },
     ],
   },

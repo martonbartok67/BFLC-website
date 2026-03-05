@@ -14,7 +14,7 @@ const _montserrat = V0_Font_Montserrat({
 
 export const metadata: Metadata = {
   title: "Budapest Financial Literacy Club",
-  description: "Student-led financial literacy club at Eötvös József Gimnázium in Budapest",
+  description: "Diákvezetésű pénzügyi tudatossági klub Budapesten - Budapest Financial Literacy Club",
   generator: "v0.app",
 }
 

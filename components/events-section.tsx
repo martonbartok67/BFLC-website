@@ -1,32 +1,38 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Clock } from "lucide-react"
+import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react"
 
 export function EventsSection() {
   const upcomingEvents = [
     {
-      date: "Február 19.",
-      topic: "Miért (ne) vegyél hitelre burritót?",
+      date: "Március 12.",
+      topic: "HOLD céglátogatás",
       content:
-        "Hogyan lehet hitelre burritót venni Amerikában? Megtudhatunk többet a Buy Now Pay Later szolgáltatások működéséről, előnyeiről és hibáiról, illetve kockázatairól egy interaktív előadás keretein belül.",
-      location: "10-es terem, Eötvös József Gimnázium - Budapest, Reáltanoda utca 7, 1053",
-      type: "Interaktív Előadás",
+        "Ellátogatunk a HOLD Alapkezelő irodájába, aki Magyarország egyik legmeghatározóbb ilyen cége. Itt bepillantást nyerhetünk a professzionális vagyonkezelés világába és megismerkedhetünk a befektetési alapok működésével.",
+      location: "Budapest, Alkotás utca 50, 1123",
+      time: "13:00 - 15:00",
+      type: "Céglátogatás",
+      registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSclbwve6cLizyiGnIOfgRO0zid0-rrIvMwEB-eXN_aUKYpTTA/viewform?usp=dialog",
     },
     {
-      date: "Március 5.",
+      date: "Március 23.",
+      topic: "OTP céglátogatás",
+      content:
+        "A program egy, a pénzügyi tudatosság témakörét feldolgozó, rövid szakmai előadással veszi kezdetét, amelyet egy átfogóbb panelbeszélgetés követ. Az esemény végül egy vezetett épületbejárással zárul.",
+      location: "Budapest, Madarász Viktor utca 12, 1131",
+      time: "13:00 - 15:00",
+      type: "Céglátogatás",
+      registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLScFuwg1nkGmR6SBpp4YXpUgIw8-c4-zPFyvP_sQ6XYUGwYBXQ/viewform?usp=publish-editor",
+    },
+    {
+      date: "Március 25.",
       topic: "AmCham céglátogatás",
       content:
         "Ellátogatunk az AmCham Hungary, az amerikai-magyar kereskedelmi kamara irodájába, ahol megismerkedhetünk a professzionális üzleti advocacy és nemzetközi kereskedelmi szektorral.",
       location: "Budapest, Szent István tér 11, 1051",
+      time: "15:00 - 16:00",
       type: "Céglátogatás",
-    },
-    {
-      date: "Március 12.",
-      topic: "HOLD céglátogatás",
-      content:
-        "Ellátogatunk a HOLD Alapkezelő irodájába, ahol bepillantást nyerhetünk a professzionális vagyonkezelés világába és megismerkedhetünk a befektetési alapok működésével.",
-      location: "Budapest, Alkotás utca 50, 1123",
-      type: "Céglátogatás",
+      registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSewvGnksU-4FucGxola_j_nRyVYpKvocUQmfzBbKM-OR6z-Fw/viewform",
     },
   ]
 
@@ -63,13 +69,24 @@ export function EventsSection() {
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground transition-all hover:translate-x-1">
                     <Clock className="h-4 w-4" />
-                    <span>15:45</span>
+                    <span>{event.time}</span>
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground transition-all hover:translate-x-1">
                     <MapPin className="h-4 w-4" />
                     <span>{event.location}</span>
                   </div>
                 </div>
+                {event.registrationUrl && (
+                  <a
+                    href={event.registrationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                  >
+                    Jelentkezés
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                )}
               </CardContent>
             </Card>
           ))}
