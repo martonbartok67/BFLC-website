@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { AboutSection } from "@/components/about-section"
 import { EventsSection } from "@/components/events-section"
+import { AboutSection } from "@/components/about-section"
 import { GallerySection } from "@/components/gallery-section"
 import { SocialMediaSection } from "@/components/social-media-section"
 import { ContactSection } from "@/components/contact-section"
@@ -14,8 +14,8 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <AboutSection />
         <EventsSection />
+        <AboutSection />
         <GallerySection />
         <SocialMediaSection />
         <ContactSection />
