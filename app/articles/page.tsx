@@ -279,7 +279,7 @@ export default function ArticlesPage() {
                   Kövess minket a közösségi médiában, hogy értesülj az új tartalmakról!
                 </p>
                 <Button asChild size="lg">
-                  <a href="https://www.instagram.com/flc_ejg/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.instagram.com/budapestflc/" target="_blank" rel="noopener noreferrer">
                     Kövess Instagramon
                   </a>
                 </Button>
