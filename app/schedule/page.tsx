@@ -134,11 +134,18 @@ export default function SchedulePage() {
                   ></iframe>
                 </div>
                 <div className="mt-4 text-center">
-                  <Button variant="outline" className="gap-2">
-                    <CalendarPlus className="h-4 w-4" /> Add hozzá a saját naptáradhoz (.ics)
+                 <Button variant="outline" className="gap-2" asChild>
+                    <a 
+                      href="https://calendar.google.com/calendar/ical/ejgfinance%40gmail.com/public/basic.ics" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                     >
+                      <CalendarPlus className="h-4 w -4" /> 
+                      Feliratkozás a naptárra (.ics)
+                    </a>
                   </Button>
                 </div>
-              </div>
+  
 
               <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Heti alkalmak</h2>
 
