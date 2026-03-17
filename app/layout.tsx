@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "BFLC",
     images: [
       {
-        url: "/images/og-image.png", // Make sure to place an image at this path in your /public folder
+        url: "\public\images\flc-logo-no-text.png", // Make sure to place an image at this path in your /public folder
         width: 1200,
         height: 630,
         alt: "BFLC Budapest Financial Literacy Club",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Budapest Financial Literacy Club",
     description: "Pénzügyi tudatosság középiskolásoknak.",
-    images: ["/images/og-image.png"],
+    images: ["\public\images\flc-logo-no-text.png"],
   },
   icons: {
     icon: "/favicon.ico",
