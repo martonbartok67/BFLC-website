@@ -5,16 +5,6 @@ import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react"
 export function EventsSection() {
   const upcomingEvents = [
     {
-      date: "Március 12.",
-      topic: "HOLD céglátogatás",
-      content:
-        "Ellátogatunk a HOLD Alapkezelő irodájába, aki Magyarország egyik legmeghatározóbb ilyen cége. Itt bepillantást nyerhetünk a professzionális vagyonkezelés világába és megismerkedhetünk a befektetési alapok működésével.",
-      location: "Budapest, Alkotás utca 50, 1123",
-      time: "13:00 - 15:00",
-      type: "Céglátogatás",
-      registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSclbwve6cLizyiGnIOfgRO0zid0-rrIvMwEB-eXN_aUKYpTTA/viewform?usp=dialog",
-    },
-    {
       date: "Március 23.",
       topic: "OTP céglátogatás",
       content:
