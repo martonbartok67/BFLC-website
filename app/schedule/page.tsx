@@ -123,8 +123,7 @@ export default function SchedulePage() {
 <div className="mb-20">
                 <h2 className="text-3xl font-bold mb-8 text-center">Interaktív Naptár</h2>
                 <div className="rounded-xl overflow-hidden border shadow-xl bg-white p-2">
-                  <iframe 
-                    src="https://calendar.google.com/calendar/embed?src=hu.hungarian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FBudapest" 
+                  <iframe src="https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest" 
                     style={{ border: 0 }} 
                     width="100%" 
                     height="600" 
