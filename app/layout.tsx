@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "BFLC",
     images: [
       {
-        url: "\public\images\flc-logo-no-text.png", // Make sure to place an image at this path in your /public folder
+        url: "\public\images\flc-logo-no-text.png", 
         width: 1200,
         height: 630,
         alt: "BFLC Budapest Financial Literacy Club",
