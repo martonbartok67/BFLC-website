@@ -38,7 +38,7 @@ export const schedule: ScheduleModule[] = [
     sessions: [],
   },
   {
-    module: "Startup hónap",
+    module: "Startup month",
     sessions: [
       {
         date: "November 6.",
@@ -65,7 +65,7 @@ export const schedule: ScheduleModule[] = [
     ],
   },
   {
-    module: "Közgazdaságtan hónap",
+    module: "Econ month",
     sessions: [
       {
         date: "December 4.",
@@ -139,7 +139,7 @@ export const schedule: ScheduleModule[] = [
     sessions: [],
   },
   {
-    module: "Március",
+    module: "Field Trip Month",
     sessions: [
       {
         date: "Március 12.",
@@ -160,6 +160,10 @@ export const schedule: ScheduleModule[] = [
           "Ellátogatunk az AmCham Hungary, az amerikai-magyar kereskedelmi kamara irodájába, ahol megismerkedhetünk a professzionális üzleti advocacy és nemzetközi kereskedelmi szektorral.",
       },
     ],
+  },
+  {
+    module: "Tavaszi szünet",
+    sessions: [],
   },
 ]
 
