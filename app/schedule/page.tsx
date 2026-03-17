@@ -147,7 +147,7 @@ export default function SchedulePage() {
                 </div>
   
 
-              <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Heti alkalmak</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-center border-0 mb-0 py-0 mt-16">Heti alkalmak</h2>
 
               <div className="space-y-12 mb-20">
 
