@@ -165,6 +165,24 @@ export const schedule: ScheduleModule[] = [
     module: "Tavaszi szünet",
     sessions: [],
   },
+  {
+    module: "Április",
+    sessions: [
+      {
+        date: "Április 16.",
+        topic: "Hamarosan!",
+        content:
+          "A tavaszi szünet után nyomban egy szuper lehetőség nyílik a BFLC diákjai előtt! Részletek hamarosan!",
+      },
+      {
+        date: "Április 23.",
+        topic: "Továbbtanulás - Pályaorientáció és egyetemválasztás elsőkézből",
+        content:
+          "Hamarosan!",
+      },
+    
+    ],
+  },
 ]
 
 // Helper function to parse Hungarian date format and get next upcoming events
