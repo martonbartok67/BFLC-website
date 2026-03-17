@@ -11,16 +11,6 @@ import { useEffect, useState } from "react"
 
 const upcomingEvents = [
   {
-    title: "HOLD céglátogatás",
-    date: "2026. március 12.",
-    time: "13:00 - 15:00",
-    location: "Budapest, Alkotás utca 50, 1123",
-    type: "Céglátogatás",
-    description:
-      "Ellátogatunk a HOLD Alapkezelő irodájába, aki Magyarország egyik legmeghatározóbb ilyen cége. Itt bepillantást nyerhetünk a professzionális vagyonkezelés világába és megismerkedhetünk a befektetési alapok működésével.",
-    registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSclbwve6cLizyiGnIOfgRO0zid0-rrIvMwEB-eXN_aUKYpTTA/viewform?usp=dialog",
-  },
-  {
     title: "OTP céglátogatás",
     date: "2026. március 23.",
     time: "13:00 - 15:00",
