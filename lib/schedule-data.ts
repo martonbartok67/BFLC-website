@@ -38,7 +38,7 @@ export const schedule: ScheduleModule[] = [
     sessions: [],
   },
   {
-    module: "Startup hónap",
+    module: "Startup month",
     sessions: [
       {
         date: "November 6.",
@@ -65,7 +65,7 @@ export const schedule: ScheduleModule[] = [
     ],
   },
   {
-    module: "Közgazdaságtan hónap",
+    module: "Econ month",
     sessions: [
       {
         date: "December 4.",
@@ -139,7 +139,7 @@ export const schedule: ScheduleModule[] = [
     sessions: [],
   },
   {
-    module: "Március",
+    module: "Field Trip Month",
     sessions: [
       {
         date: "Március 12.",
@@ -159,6 +159,28 @@ export const schedule: ScheduleModule[] = [
         content:
           "Ellátogatunk az AmCham Hungary, az amerikai-magyar kereskedelmi kamara irodájába, ahol megismerkedhetünk a professzionális üzleti advocacy és nemzetközi kereskedelmi szektorral.",
       },
+    ],
+  },
+  {
+    module: "Tavaszi szünet",
+    sessions: [],
+  },
+  {
+    module: "Április",
+    sessions: [
+      {
+        date: "Április 16.",
+        topic: "Hamarosan!",
+        content:
+          "A tavaszi szünet után nyomban egy szuper lehetőség nyílik a BFLC diákjai előtt! Részletek hamarosan!",
+      },
+      {
+        date: "Április 23.",
+        topic: "Továbbtanulás - Pályaorientáció és egyetemválasztás elsőkézből",
+        content:
+          "Hamarosan!",
+      },
+    
     ],
   },
 ]

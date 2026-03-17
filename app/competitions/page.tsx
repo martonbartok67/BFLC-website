@@ -127,7 +127,7 @@ export default function CompetitionsPage() {
             <div className="absolute inset-0 bg-primary/90 opacity-70" />
           </div>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
+            <div className="max-w-3xl mx-auto text-center tracking-normal my-9">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-foreground/10 mb-6">
                 <Trophy className="w-8 h-8 text-primary-foreground" />
               </div>

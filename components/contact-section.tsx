@@ -181,7 +181,7 @@ export function ContactSection() {
                     <Users className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Találkozók</h3>
+                    <h3 className="font-semibold mb-1">Időpont</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       Minden csütörtökön
                       <br />

@@ -4,22 +4,13 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Clock, MapPin, Calendar, ExternalLink } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Clock, MapPin, Calendar, ExternalLink, CalendarPlus } from "lucide-react"
 import { schedule } from "@/lib/schedule-data"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
 const upcomingEvents = [
-  {
-    title: "HOLD céglátogatás",
-    date: "2026. március 12.",
-    time: "13:00 - 15:00",
-    location: "Budapest, Alkotás utca 50, 1123",
-    type: "Céglátogatás",
-    description:
-      "Ellátogatunk a HOLD Alapkezelő irodájába, aki Magyarország egyik legmeghatározóbb ilyen cége. Itt bepillantást nyerhetünk a professzionális vagyonkezelés világába és megismerkedhetünk a befektetési alapok működésével.",
-    registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSclbwve6cLizyiGnIOfgRO0zid0-rrIvMwEB-eXN_aUKYpTTA/viewform?usp=dialog",
-  },
   {
     title: "OTP céglátogatás",
     date: "2026. március 23.",
@@ -130,77 +121,176 @@ export default function SchedulePage() {
                 ))}
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Heti alkalmak</h2>
+<div className="mb-20">
+                <h2 className="text-3xl font-bold mb-8 text-center">Interaktív Naptár</h2>
+                <div className="rounded-xl overflow-hidden border shadow-xl bg-white p-2">
+                  <iframe src="https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest" 
+                    style={{ border: 0 }} 
+                    width="100%" 
+                    height="600" 
+                    frameBorder="0" 
+                    scrolling="no"
+                    className="rounded-lg"
+                  ></iframe>
+                </div>
+                <div className="mt-4 text-center">
+                 <Button variant="outline" className="gap-2" asChild>
+                    <a 
+                      href="https://calendar.google.com/calendar/ical/ejgfinance%40gmail.com/public/basic.ics" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                     >
+                      <CalendarPlus className="h-4 w -4" /> 
+                      Feliratkozás a naptárra (.ics)
+                    </a>
+                  </Button>
+                </div>
+  
+
+              <h2 className="text-3xl sm:text-4xl font-bold text-center border-0 mb-0 py-0 mt-16">Heti alkalmak</h2>
+
               <div className="space-y-12 mb-20">
+
                 {schedule.map((module, index) => (
+
                   <div key={index}>
+
                     <div className="mb-6">
+
                       <h3 className="text-2xl font-bold text-primary mb-2">{module.module}</h3>
+
                       {module.sessions.length === 0 && <p className="text-muted-foreground italic">Szünet</p>}
+
                     </div>
 
+
+
                     {module.sessions.length > 0 && (
+
                       <div className="grid grid-cols-1 gap-4">
+
                         {module.sessions.map((session, sessionIndex) => (
+
                           <Card
+
                             key={sessionIndex}
+
                             className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm"
+
                           >
+
                             <CardHeader>
+
                               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+
                                 <Badge className="font-medium text-base w-fit" variant="secondary">
+
                                   {session.date}
+
                                 </Badge>
+
                                 <div className="flex-1 md:order-first">
+
                                   <CardTitle className="text-xl text-balance mb-2">{session.topic}</CardTitle>
+
                                   {session.content && (
+
                                     <p className="text-sm text-muted-foreground leading-relaxed">{session.content}</p>
+
                                   )}
+
                                 </div>
+
                               </div>
+
                             </CardHeader>
+
                             <CardContent>
+
                               <div className="flex flex-wrap gap-4 text-sm">
+
                                 <div className="flex items-center gap-2 text-muted-foreground">
+
                                   <Clock className="h-4 w-4" />
+
                                   <span className="">15:45</span>
+
                                 </div>
+
                                 <div className="flex items-center gap-2 text-muted-foreground">
+
                                   <MapPin className="h-4 w-4" />
+
                                   <span>10-es terem, Eötvös József Gimnázium</span>
+
                                 </div>
+
                                 <div className="flex items-center gap-2 text-muted-foreground">
+
                                   <Calendar className="h-4 w-4" />
+
                                   <span>Csütörtök</span>
+
                                 </div>
+
                               </div>
+
                             </CardContent>
+
                           </Card>
+
                         ))}
+
                       </div>
+
                     )}
+
                   </div>
+
                 ))}
+
               </div>
 
+
+
               <div className="bg-secondary/30 rounded-lg p-8 mt-16">
+
                 <h2 className="text-3xl font-bold mb-6 text-center">További információk</h2>
+
                 <div className="space-y-4 text-center max-w-2xl mx-auto">
+
                   <p className="text-muted-foreground leading-relaxed">
+
                     Minden középiskolás diákot szívesen látunk csütörtöki alkalmainkon. Nincs szükség előzetes
+
                     regisztrációra vagy pénzügyi tudásra!
+
                   </p>
+
                   <p className="text-muted-foreground leading-relaxed">
+
                     A naptár a tanév során változhat. Csatlakozz Messenger-közösségünkhöz és kövess minket Instagramon a
+
                     legfrissebb információkért!
+
                   </p>
+
                 </div>
+
               </div>
+
             </div>
+
           </div>
+
         </section>
+
       </main>
+
       <Footer />
+
     </>
+
   )
+
 }
