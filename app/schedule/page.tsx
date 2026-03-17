@@ -8,7 +8,6 @@ import { Clock, MapPin, Calendar, ExternalLink, CalendarPlus } from "lucide-reac
 import { schedule } from "@/lib/schedule-data"
 import Image from "next/image"
 import { useEffect, useState } from "react"
-import { Button } from "@/components/ui/button"
 
 const upcomingEvents = [
   {
@@ -44,8 +43,7 @@ export default function SchedulePage() {
     <>
       <Header />
       <main className="pt-16">
-        {/* Hero Section */}
-        <section className="relative min-h-[30vh] flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
             <Image
               src="/images/hero-background.jpg"
@@ -56,50 +54,73 @@ export default function SchedulePage() {
             />
             <div className="absolute inset-0 bg-primary/90 opacity-70" />
           </div>
-          <div className="container mx-auto px-4 relative z-10 text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-primary-foreground">Eseménynaptár</h1>
-            <p className="text-lg text-primary-foreground/90 max-w-2xl mx-auto">
-              Kövess minket élőben! Itt találod a közelgő céglátogatásokat és a heti kurzusaink beosztását.
-            </p>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 opacity-100">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
+                Eseménynaptár
+              </h1>
+              <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
+                Heti alkalmaink minden csütörtökön 15:45-kor a 10-es teremben az Eötvös József Gimnáziumban.
+              </p>
+            </div>
           </div>
         </section>
 
-        <section className="py-16 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              
-              {/* 1. UPCOMING VISUAL CARDS */}
-              <h2 className="text-3xl font-bold mb-8 flex items-center gap-3">
-                <Calendar className="text-primary" /> Közelgő kiemelt események
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Közelgő események</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
                 {upcomingEvents.map((event, index) => (
-                  <Card key={index} className="overflow-hidden border-2 hover:border-primary/50 transition-all shadow-md">
-                    <div className="bg-primary/5 p-4 border-b">
-                       <Badge variant="outline" className="bg-background">{event.type}</Badge>
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="text-2xl">{event.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-6">{event.description}</p>
-                      <div className="grid grid-cols-1 gap-3 mb-6 bg-secondary/20 p-4 rounded-lg text-sm">
-                        <div className="flex items-center gap-3"><Calendar className="h-4 w-4 text-primary" /> <strong>{event.date}</strong></div>
-                        <div className="flex items-center gap-3"><Clock className="h-4 w-4 text-primary" /> {event.time}</div>
-                        <div className="flex items-center gap-3"><MapPin className="h-4 w-4 text-primary" /> {event.location}</div>
-                      </div>
-                      <Button asChild className="w-full gap-2">
-                        <a href={event.registrationUrl} target="_blank" rel="noopener noreferrer">
-                          Jelentkezés az eseményre <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
-                    </CardContent>
-                  </Card>
+                  <div
+                    key={index}
+                    className={`transition-all duration-700 ease-out ${
+                      isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+                    }`}
+                  >
+                    <Card className="border-border hover:shadow-lg transition-shadow h-full">
+                      <CardHeader>
+                        <div className="flex items-center justify-between mb-2">
+                          <Badge className="italic" variant="secondary">
+                            {event.type}
+                          </Badge>
+                        </div>
+                        <CardTitle className="text-xl text-balance">{event.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground mb-4 leading-relaxed">{event.description}</p>
+                        <div className="space-y-2 text-sm">
+                          <div className="flex items-center gap-2 text-muted-foreground">
+                            <Calendar className="h-4 w-4" />
+                            <span>{event.date}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-muted-foreground">
+                            <Clock className="h-4 w-4" />
+                            <span>{event.time}</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-muted-foreground">
+                            <MapPin className="h-4 w-4" />
+                            <span>{event.location}</span>
+                          </div>
+                        </div>
+                        {event.registrationUrl && (
+                          <a
+                            href={event.registrationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-4 inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                          >
+                            Jelentkezés
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </div>
                 ))}
               </div>
 
-              {/* 2. GOOGLE CALENDAR INTEGRATION */}
-              <div className="mb-20">
+<div className="mb-20">
                 <h2 className="text-3xl font-bold mb-8 text-center">Interaktív Naptár</h2>
                 <div className="rounded-xl overflow-hidden border shadow-xl bg-white p-2">
                   <iframe 
@@ -119,34 +140,150 @@ export default function SchedulePage() {
                 </div>
               </div>
 
-              {/* 3. WEEKLY SCHEDULE LIST */}
-              <h2 className="text-3xl font-bold mb-12 text-center">Heti alkalmak (Tanmenet)</h2>
-              <div className="space-y-8">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Heti alkalmak</h2>
+
+              <div className="space-y-12 mb-20">
+
                 {schedule.map((module, index) => (
-                  <div key={index} className="border-l-4 border-primary pl-6 py-2">
-                    <h3 className="text-2xl font-bold text-primary mb-4">{module.module}</h3>
-                    <div className="grid gap-4">
-                      {module.sessions.map((session, sIndex) => (
-                        <Card key={sIndex} className="hover:bg-secondary/10 transition-colors">
-                          <CardContent className="p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                            <div>
-                              <p className="font-bold text-lg">{session.topic}</p>
-                              <p className="text-sm text-muted-foreground">{session.content}</p>
-                            </div>
-                            <Badge variant="secondary" className="whitespace-nowrap">{session.date}</Badge>
-                          </CardContent>
-                        </Card>
-                      ))}
+
+                  <div key={index}>
+
+                    <div className="mb-6">
+
+                      <h3 className="text-2xl font-bold text-primary mb-2">{module.module}</h3>
+
+                      {module.sessions.length === 0 && <p className="text-muted-foreground italic">Szünet</p>}
+
                     </div>
+
+
+
+                    {module.sessions.length > 0 && (
+
+                      <div className="grid grid-cols-1 gap-4">
+
+                        {module.sessions.map((session, sessionIndex) => (
+
+                          <Card
+
+                            key={sessionIndex}
+
+                            className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm"
+
+                          >
+
+                            <CardHeader>
+
+                              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+
+                                <Badge className="font-medium text-base w-fit" variant="secondary">
+
+                                  {session.date}
+
+                                </Badge>
+
+                                <div className="flex-1 md:order-first">
+
+                                  <CardTitle className="text-xl text-balance mb-2">{session.topic}</CardTitle>
+
+                                  {session.content && (
+
+                                    <p className="text-sm text-muted-foreground leading-relaxed">{session.content}</p>
+
+                                  )}
+
+                                </div>
+
+                              </div>
+
+                            </CardHeader>
+
+                            <CardContent>
+
+                              <div className="flex flex-wrap gap-4 text-sm">
+
+                                <div className="flex items-center gap-2 text-muted-foreground">
+
+                                  <Clock className="h-4 w-4" />
+
+                                  <span className="">15:45</span>
+
+                                </div>
+
+                                <div className="flex items-center gap-2 text-muted-foreground">
+
+                                  <MapPin className="h-4 w-4" />
+
+                                  <span>10-es terem, Eötvös József Gimnázium</span>
+
+                                </div>
+
+                                <div className="flex items-center gap-2 text-muted-foreground">
+
+                                  <Calendar className="h-4 w-4" />
+
+                                  <span>Csütörtök</span>
+
+                                </div>
+
+                              </div>
+
+                            </CardContent>
+
+                          </Card>
+
+                        ))}
+
+                      </div>
+
+                    )}
+
                   </div>
+
                 ))}
+
+              </div>
+
+
+
+              <div className="bg-secondary/30 rounded-lg p-8 mt-16">
+
+                <h2 className="text-3xl font-bold mb-6 text-center">További információk</h2>
+
+                <div className="space-y-4 text-center max-w-2xl mx-auto">
+
+                  <p className="text-muted-foreground leading-relaxed">
+
+                    Minden középiskolás diákot szívesen látunk csütörtöki alkalmainkon. Nincs szükség előzetes
+
+                    regisztrációra vagy pénzügyi tudásra!
+
+                  </p>
+
+                  <p className="text-muted-foreground leading-relaxed">
+
+                    A naptár a tanév során változhat. Csatlakozz Messenger-közösségünkhöz és kövess minket Instagramon a
+
+                    legfrissebb információkért!
+
+                  </p>
+
+                </div>
+
               </div>
 
             </div>
+
           </div>
+
         </section>
+
       </main>
+
       <Footer />
+
     </>
+
   )
+
 }
