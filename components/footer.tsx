@@ -106,7 +106,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/20 text-center text-sm text-primary-foreground/80 pt-3">
-          <p>© {new Date().getFullYear()} Budapest Financial Literacy Club 2024</p>
+          <p>© {new Date().getFullYear()} Budapest Financial Literacy Club </p>
         </div>
       </div>
     </footer>
