@@ -5,16 +5,6 @@ import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react"
 export function EventsSection() {
   const upcomingEvents = [
     {
-      date: "Március 23.",
-      topic: "OTP céglátogatás",
-      content:
-        "A program egy, a pénzügyi tudatosság témakörét feldolgozó, rövid szakmai előadással veszi kezdetét, amelyet egy átfogóbb panelbeszélgetés követ. Az esemény végül egy vezetett épületbejárással zárul.",
-      location: "Budapest, Madarász Viktor utca 12, 1131",
-      time: "13:00 - 15:00",
-      type: "Céglátogatás",
-      registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLScFuwg1nkGmR6SBpp4YXpUgIw8-c4-zPFyvP_sQ6XYUGwYBXQ/viewform?usp=publish-editor",
-    },
-    {
       date: "Március 25.",
       topic: "AmCham céglátogatás",
       content:
@@ -23,6 +13,26 @@ export function EventsSection() {
       time: "15:00 - 16:00",
       type: "Céglátogatás",
       registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSewvGnksU-4FucGxola_j_nRyVYpKvocUQmfzBbKM-OR6z-Fw/viewform",
+    },
+    {
+      date: "Április 16.",
+      topic: "Továbbtanulás - Pályaorientáció és egyetemválasztás elsőkézből",
+      content:
+        "A tavaszi szünet után nyomban egy szuper lehetőség nyílik a BFLC diákjai előtt, ahol a pályaorientáció és egyetemválasztás elsőkézből történik.",
+      location: "10-es terem, Eötvös József Gimnázium",
+      time: "15:45",
+      type: "Workshop",
+      registrationUrl: null,
+    },
+    {
+      date: "Április 23.",
+      topic: "Hamarosan!",
+      content:
+        "Izgalmas program vár a közeljövőben. Részletek hamarosan!",
+      location: "10-es terem, Eötvös József Gimnázium",
+      time: "15:45",
+      type: "Esemény",
+      registrationUrl: null,
     },
   ]
 
