@@ -5,33 +5,13 @@ import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react"
 export function EventsSection() {
   const upcomingEvents = [
     {
-      date: "Március 25.",
-      topic: "AmCham céglátogatás",
+      date: "",
+      topic: "Valami nagyban készülünk számotokra!",
       content:
-        "Ellátogatunk az AmCham Hungary, az amerikai-magyar kereskedelmi kamara irodájába, ahol megismerkedhetünk a professzionális üzleti advocacy és nemzetközi kereskedelmi szektorral.",
-      location: "Budapest, Szent István tér 11, 1051",
-      time: "15:00 - 16:00",
-      type: "Céglátogatás",
-      registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSewvGnksU-4FucGxola_j_nRyVYpKvocUQmfzBbKM-OR6z-Fw/viewform",
-    },
-    {
-      date: "Április 16.",
-      topic: "Továbbtanulás - Pályaorientáció és egyetemválasztás elsőkézből",
-      content:
-        "A tavaszi szünet után nyomban egy szuper lehetőség nyílik a BFLC diákjai előtt, ahol a pályaorientáció és egyetemválasztás elsőkézből történik.",
-      location: "10-es terem, Eötvös József Gimnázium",
-      time: "15:45",
-      type: "Workshop",
-      registrationUrl: null,
-    },
-    {
-      date: "Április 23.",
-      topic: "Hamarosan!",
-      content:
-        "Izgalmas program vár a közeljövőben. Részletek hamarosan!",
-      location: "10-es terem, Eötvös József Gimnázium",
-      time: "15:45",
-      type: "Esemény",
+        "A normál tanévünk véget ért, új információk hamarosan!",
+      location: "",
+      time: "",
+      type: "Teaser",
       registrationUrl: null,
     },
   ]
@@ -63,18 +43,24 @@ export function EventsSection() {
               <CardContent className="text-background">
                 {event.content && <p className="text-muted-foreground mb-4 leading-relaxed">{event.content}</p>}
                 <div className="space-y-2 text-sm text-muted">
-                  <div className="flex items-center gap-2 text-muted-foreground transition-all hover:translate-x-1">
-                    <Calendar className="h-4 w-4" />
-                    <span>{event.date}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground transition-all hover:translate-x-1">
-                    <Clock className="h-4 w-4" />
-                    <span>{event.time}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground transition-all hover:translate-x-1">
-                    <MapPin className="h-4 w-4" />
-                    <span>{event.location}</span>
-                  </div>
+                  {event.date && (
+                    <div className="flex items-center gap-2 text-muted-foreground transition-all hover:translate-x-1">
+                      <Calendar className="h-4 w-4" />
+                      <span>{event.date}</span>
+                    </div>
+                  )}
+                  {event.time && (
+                    <div className="flex items-center gap-2 text-muted-foreground transition-all hover:translate-x-1">
+                      <Clock className="h-4 w-4" />
+                      <span>{event.time}</span>
+                    </div>
+                  )}
+                  {event.location && (
+                    <div className="flex items-center gap-2 text-muted-foreground transition-all hover:translate-x-1">
+                      <MapPin className="h-4 w-4" />
+                      <span>{event.location}</span>
+                    </div>
+                  )}
                 </div>
                 {event.registrationUrl && (
                   <a
