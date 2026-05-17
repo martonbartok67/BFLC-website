@@ -68,13 +68,6 @@ export function Header() {
               Együttműködés
             </Link>
             <Link
-              href="/fektess-vol-2"
-              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
-              onClick={scrollToTop}
-            >
-              Fektess a jövődbe! vol. 2
-            </Link>
-            <Link
               href="/contact"
               className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
@@ -156,16 +149,6 @@ export function Header() {
                 }}
               >
                 Együttműködés
-              </Link>
-              <Link
-                href="/fektess-vol-2"
-                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  scrollToTop()
-                }}
-              >
-                Fektess a jövődbe! vol. 2
               </Link>
               <Link
                 href="/contact"
