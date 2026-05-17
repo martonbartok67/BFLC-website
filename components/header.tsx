@@ -34,28 +34,31 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-7">
             <Link
               href="/vol2"
-              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
+              className="text-sm font-medium relative transition-all hover:text-primary group"
               onClick={scrollToTop}
             >
               Fektess a Jövődbe! Vol. 2
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 group-hover:w-full" />
             </Link>
             <Link
               href="/about"
-              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
+              className="text-sm font-medium relative transition-all hover:text-primary group"
               onClick={scrollToTop}
             >
               Rólunk
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 group-hover:w-full" />
             </Link>
             <Link
               href="/schedule"
-              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
+              className="text-sm font-medium relative transition-all hover:text-primary group"
               onClick={scrollToTop}
             >
               Naptár
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 group-hover:w-full" />
             </Link>
             <Link
               href="/articles"
-              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
+              className="text-sm font-medium relative transition-all hover:text-primary group"
               onClick={scrollToTop}
             >
               Cikkek
