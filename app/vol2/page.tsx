@@ -32,12 +32,12 @@ export default function Vol2Page() {
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl mb-8 text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-              Az eddig legambiciózusabb projektünk. Készülj fel a pénzügyi világra - új szinten.
+              Az eddig legambiciózusabb projektünk. Készülj fel!.
             </p>
 
             {/* Coming Soon Info */}
             <div className="mb-12 p-8 rounded-2xl bg-gradient-to-br from-[#102664]/10 to-[#8B61C2]/10 border border-[#8B61C2]/20">
-              <p className="text-sm font-semibold text-[#8B61C2] mb-2">TEASER CAMPAIGN</p>
+              <p className="text-sm font-semibold text-[#8B61C2] mb-2"><br></p>
               <p className="text-primary text-lg">Részletek hamarosan</p>
             </div>
 
