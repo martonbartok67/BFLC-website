@@ -45,6 +45,16 @@ export function HeroSection() {
                 Csatlakozz a klubhoz
               </Link>
             </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
+              className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-2xl leading-8"
+            >
+              <Link href="/vol2">
+                Valami készül... 👀
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
