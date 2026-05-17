@@ -113,7 +113,7 @@ export default function Vol2Page() {
             Nem akarasz lemaradni?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Csatlakozz a klubhoz és légy az elsők között, akik megtudják, mikor indul a Vol. 2!
+            Csatlakozz a klubhoz és légy az elsők között, akik megtudják, mikor indul a Fektess a Jövődbe! Vol. 2!
           </p>
           <Button size="lg" asChild className="rounded-2xl">
             <Link
