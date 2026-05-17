@@ -33,6 +33,13 @@ export function Header() {
 
           <nav className="hidden md:flex items-center gap-7">
             <Link
+              href="/vol2"
+              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
+              onClick={scrollToTop}
+            >
+              Fektess a Jövődbe! Vol. 2
+            </Link>
+            <Link
               href="/about"
               className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
@@ -68,13 +75,6 @@ export function Header() {
               Együttműködés
             </Link>
             <Link
-              href="/fektess-vol-2"
-              className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
-              onClick={scrollToTop}
-            >
-              Fektess a jövődbe! vol. 2
-            </Link>
-            <Link
               href="/contact"
               className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
@@ -102,21 +102,31 @@ export function Header() {
           </button>
         </div>
 
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-        >
-          <nav className="py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
-              <Link
-                href="/about"
-                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  scrollToTop()
-                }}
-              >
-                Rólunk
-              </Link>
+          <div
+            className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+          >
+            <nav className="py-4 border-t border-border">
+              <div className="flex flex-col gap-4">
+                <Link
+                  href="/vol2"
+                  className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
+                  onClick={() => {
+                    setMobileMenuOpen(false)
+                    scrollToTop()
+                  }}
+                >
+                  Fektess a Jövődbe! Vol. 2
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
+                  onClick={() => {
+                    setMobileMenuOpen(false)
+                    scrollToTop()
+                  }}
+                >
+                  Rólunk
+                </Link>
               <Link
                 href="/schedule"
                 className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
@@ -156,16 +166,6 @@ export function Header() {
                 }}
               >
                 Együttműködés
-              </Link>
-              <Link
-                href="/fektess-vol-2"
-                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  scrollToTop()
-                }}
-              >
-                Fektess a jövődbe! vol. 2
               </Link>
               <Link
                 href="/contact"

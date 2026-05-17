@@ -40,7 +40,7 @@ export function EventsSection() {
                 </div>
                 <CardTitle className="text-xl text-balance text-popover-foreground">{event.topic}</CardTitle>
               </CardHeader>
-              <CardContent className="text-background">
+              <CardContent className="text-foreground">
                 {event.content && <p className="text-muted-foreground mb-4 leading-relaxed">{event.content}</p>}
                 <div className="space-y-2 text-sm text-muted">
                   {event.date && (
