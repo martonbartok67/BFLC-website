@@ -3,10 +3,13 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Zap, Target, TrendingUp } from "lucide-react"
 import Link from "next/link"
+import { Header } from "@/components/header"
 
 export default function Vol2Page() {
   return (
-    <main className="min-h-screen bg-background">
+    <>
+      <Header />
+      <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 bg-gradient-to-br from-[#102664]/5 via-background to-[#8B61C2]/5" />
@@ -84,6 +87,7 @@ export default function Vol2Page() {
           </Button>
         </div>
       </section>
-    </main>
+      </main>
+    </>
   )
 }

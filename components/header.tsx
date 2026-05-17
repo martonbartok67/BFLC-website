@@ -37,7 +37,7 @@ export function Header() {
               className="text-sm font-medium hover:text-primary transition-all hover:scale-105"
               onClick={scrollToTop}
             >
-              Vol. 2
+              Fektess a Jövődbe! Vol. 2
             </Link>
             <Link
               href="/about"
@@ -115,7 +115,7 @@ export function Header() {
                     scrollToTop()
                   }}
                 >
-                  Vol. 2
+                  Fektess a Jövődbe! Vol. 2
                 </Link>
                 <Link
                   href="/about"
