@@ -15,34 +15,30 @@ export default function Vol2Page() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#102664]/5 via-background to-[#8B61C2]/5" />
         
         {/* Animated background elements */}
-        <div className="absolute top-20 right-10 w-72 h-72 bg-[#8B61C2]/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-10 w-72 h-72 bg-[#102664]/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-2000" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-[#8B61C2]/20 rounded-full mix-blend-multiply filter blur-3xl animate-float" />
+        <div className="absolute bottom-20 left-10 w-72 h-72 bg-[#102664]/20 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            {/* Teaser Badge */}
-            
-
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance leading-tight">
-              <span className="text-[rgba(16,38,100,1)]">Fektess</span> a
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance leading-tight animate-fade-in-up">
+              <span className="text-[rgba(16,38,100,1)] inline-block">Fektess</span> a
               <br />
-              <span className="text-[#8B61C2]">Jövődbe!</span>
+              <span className="text-[#8B61C2] inline-block animate-glow">Jövődbe!</span>
               <br />
-              <span className="text-2xl sm:text-4xl md:text-5xl text-primary/70">Vol. 2</span>
+              <span className="text-2xl sm:text-4xl md:text-5xl text-primary/70 inline-block animate-fade-in-up" style={{ animationDelay: "0.3s" }}>Vol. 2</span>
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-pretty leading-relaxed text-popover-foreground font-medium">
-              Az eddig legambiciózusabb projektünk. Készülj fel!.
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-pretty leading-relaxed text-popover-foreground font-medium animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              Az eddig legambiciózusabb projektünk. Készülj fel!
             </p>
 
             {/* Coming Soon Info */}
-            <div className="p-8 bg-gradient-to-br from-[#102664]/10 to-[#8B61C2]/10 border-[#8B61C2]/20 mb-12 leading-7 py-1 px-0 border-2 rounded-full">
-              
+            <div className="p-8 bg-gradient-to-br from-[#102664]/10 to-[#8B61C2]/10 border-[#8B61C2]/20 mb-12 leading-7 py-1 px-0 border-2 rounded-full animate-fade-in-up hover-lift" style={{ animationDelay: "0.4s" }}>
               <p className="text-primary text-lg font-semibold">Részletek hamarosan</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" variant="secondary" asChild className="group rounded-2xl leading-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+              <Button size="lg" variant="secondary" asChild className="group rounded-2xl leading-8 hover-lift">
                 <Link href="https://m.me/cm/AbaU8rQOgYlXAugE/" target="_blank" rel="noopener noreferrer">
                   Értesítést szeretnék
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -52,7 +48,7 @@ export default function Vol2Page() {
                 size="lg"
                 variant="outline"
                 asChild
-                className="bg-transparent border-primary text-primary hover:bg-primary/10 rounded-2xl leading-8"
+                className="bg-transparent border-primary text-primary hover:bg-primary/10 rounded-2xl leading-8 transition-all duration-300"
               >
                 <Link href="/about">
                   Tudj meg többet a klubról

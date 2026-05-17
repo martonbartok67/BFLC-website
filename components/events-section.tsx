@@ -19,7 +19,7 @@ export function EventsSection() {
   return (
     <section id="events" className="py-20 sm:py-24 bg-secondary/30 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Közelgő események</h2>
           <p className="text-lg text-pretty leading-relaxed text-foreground">
             Csatlakozz hozzánk workshopokra, vendégelőadókhoz és versenyekre, amelyek célja a pénzügyi tudásod bővítése.
@@ -30,7 +30,8 @@ export function EventsSection() {
           {upcomingEvents.map((event, index) => (
             <Card
               key={index}
-              className="border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className="border-border transition-all duration-300 hover-lift hover:shadow-2xl animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
