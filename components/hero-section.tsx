@@ -33,20 +33,15 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-            <Button size="lg" variant="secondary" asChild className="group rounded-2xl leading-8 hover-lift">
-              <Link href="/about">
-                Tudj meg többet!
-                <ArrowRight className="ml-2 h-12 w-12 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
             <Button
               size="lg"
-              variant="outline"
+              variant="secondary"
               asChild
-              className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-2xl leading-8 transition-all duration-300"
+              className="group rounded-2xl leading-8 hover-lift font-semibold"
             >
               <Link href="https://m.me/cm/AbaU8rQOgYlXAugE/" target="_blank" rel="noopener noreferrer">
                 Csatlakozz a klubhoz
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
             <Button
@@ -55,8 +50,18 @@ export function HeroSection() {
               asChild
               className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-2xl leading-8 transition-all duration-300"
             >
-              <Link href="/vol2">
-                Valami készül... 👀
+              <Link href="/about">
+                Tudj meg többet
+              </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
+              className="bg-gradient-to-r from-[#102664]/30 to-[#8B61C2]/30 border border-[#8B61C2]/50 text-primary-foreground hover:from-[#102664]/50 hover:to-[#8B61C2]/50 hover:border-[#8B61C2]/80 rounded-2xl leading-8 transition-all duration-300 animate-pulse-subtle hover-lift shadow-lg hover:shadow-[0_0_30px_rgba(139,97,194,0.4)]"
+            >
+              <Link href="https://form.jotform.com/261445662237055" target="_blank" rel="noopener noreferrer">
+                Jelentkezem!
               </Link>
             </Button>
           </div>

@@ -14,10 +14,15 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
+        <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         <EventsSection />
+        <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         <AboutSection />
+        <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         <GallerySection />
+        <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         <SocialMediaSection />
+        <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         <ContactSection />
       </main>
       <Footer />
