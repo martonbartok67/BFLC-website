@@ -50,7 +50,7 @@ export function Header() {
               className={`text-sm font-medium relative transition-all hover:text-primary group ${isActive("/vol2") ? "text-primary" : ""}`}
               onClick={scrollToTop}
             >
-              Fektess a Jövődbe! Vol. 2
+              Fektess a Jövődbe! vol. 2
               <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 ${isActive("/vol2") ? "w-full" : "w-0 group-hover:w-full"}`} />
             </Link>
             <Link
