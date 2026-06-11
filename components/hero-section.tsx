@@ -58,10 +58,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               asChild
-              className="bg-gradient-to-r from-[#102664]/30 to-[#8B61C2]/30 border border-[#8B61C2]/50 text-primary-foreground rounded-2xl leading-8 transition-all duration-300 animate-pulse-subtle hover-lift shadow-lg"
-              style={{
-                "--tw-shadow": "0 0 30px rgba(139, 97, 194, 0.4)"
-              } as React.CSSProperties}
+              className="bg-gradient-to-r from-[#102664]/30 to-[#8B61C2]/30 border border-[#8B61C2]/50 text-primary-foreground hover:from-[#102664]/50 hover:to-[#8B61C2]/50 hover:border-[#8B61C2]/80 rounded-2xl leading-8 transition-all duration-300 animate-pulse-subtle hover-lift shadow-lg hover:shadow-[0_0_30px_rgba(139,97,194,0.4)]"
             >
               <Link href="https://form.jotform.com/261445662237055" target="_blank" rel="noopener noreferrer">
                 Jelentkezem!
