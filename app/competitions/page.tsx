@@ -59,7 +59,7 @@ export default function CompetitionsPage() {
       deadline: "2025. november 30.",
       date: "1. forduló: december 01-07; 2. forduló: január 10-25, 2026; Döntő: február 27, 2026",
       description:
-        "Egy esettanulmányi verseny középiskolásoknak, ahol a vállalkozói szemlélet és előadásmód mellett a csapatmunka és a praktikus képességek kerülnek a középpontba. Az 1. forduló tesztkérdéseket és összetett feladatokat tartalmaz, a 2. fordulóban üzleti terv és pitch készítésére kerül sor. A döntőbe jutva szakértőkből álló zsűri előtt prezentálhatjátok megoldásaitokat Budapesten, a legjobb csapatok pedig értékes nyereményekben részesülnek!",
+        "Egy esettanulmányi verseny középiskolásoknak, ahol a vállalkozói szemlélet és előadásmód mellett a csapatmunka és a praktikus képességek kerülnek a középpontba. Az 1. forduló tesztkérdéseket és összetett feladatokat tartalmaz, a 2. fordulóban üzleti terv és pitch készítésére kerül sor. A döntőbe jutva szakértőkből álló zsűri előtt prezentálhatjátok megoldásaitokat Budapesten, a legjobb csapatok pedig értékes nyereményekben részesülhetnek!",
       eligibility: "Középiskolás diákcsapatok - 3 fő.",
       link: "https://cegrefel.hu/",
     },
@@ -201,9 +201,7 @@ export default function CompetitionsPage() {
                   <Trophy className="w-6 h-6 text-primary" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">Versenyek</h2>
-                <p className="text-muted-foreground text-lg">
-                  Pénzügyi, közgazdasági és esettanulmányi versenyek középiskolásoknak
-                </p>
+                <p className="text-muted-foreground text-lg">frissites 2026/27-re hamarosan. tavalyi versenyek es idopontok:</p>
               </div>
 
               <div className="space-y-8">

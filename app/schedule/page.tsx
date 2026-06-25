@@ -12,13 +12,12 @@ import { useEffect, useState } from "react"
 
 const upcomingEvents = [
   {
-    title: "Valami nagyban készülünk számotokra!",
+    title: "Vakáció! Talalkozunk jovore!",
     date: "",
     time: "",
     location: "",
-    type: "Teaser",
-    description:
-      "A normál tanévünk véget ért, új információk hamarosan!",
+    type: "",
+    description: "",
     registrationUrl: null,
   },
 ]
@@ -79,7 +78,9 @@ export default function SchedulePage() {
                         <CardTitle className="text-xl text-balance">{event.title}</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-muted-foreground mb-4 leading-relaxed">{event.description}</p>
+                        {event.description && (
+                          <p className="text-muted-foreground mb-4 leading-relaxed">{event.description}</p>
+                        )}
                         <div className="space-y-2 text-sm">
                           {event.date && (
                             <div className="flex items-center gap-2 text-muted-foreground">
@@ -121,23 +122,24 @@ export default function SchedulePage() {
               <div className="mb-20">
                 <h2 className="text-3xl font-bold mb-8 text-center">Interaktív Naptár</h2>
                 <div className="rounded-xl overflow-hidden border shadow-xl bg-white p-2">
-                  <iframe src="https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest" 
-                    style={{ border: 0 }} 
-                    width="100%" 
-                    height="600" 
-                    frameBorder="0" 
+                  <iframe
+                    src="https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest"
+                    style= 54 
+                    width="100%"
+                    height="600"
+                    frameBorder="0"
                     scrolling="no"
                     className="rounded-lg"
                   ></iframe>
                 </div>
                 <div className="mt-4 text-center">
-                 <Button variant="outline" className="gap-2" asChild>
-                    <a 
-                      href="https://calendar.google.com/calendar/ical/ejgfinance%40gmail.com/public/basic.ics" 
-                      target="_blank" 
+                  <Button variant="outline" className="gap-2" asChild>
+                    <a
+                      href="https://calendar.google.com/calendar/ical/ejgfinance%40gmail.com/public/basic.ics"
+                      target="_blank"
                       rel="noopener noreferrer"
-                     >
-                      <CalendarPlus className="h-4 w-4" /> 
+                    >
+                      <CalendarPlus className="h-4 w-4" />
                       Feliratkozás a naptárra (.ics)
                     </a>
                   </Button>

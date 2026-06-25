@@ -29,10 +29,16 @@ export function Header() {
   const isActive = (href: string) => pathname === href
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 border-b border-border text-primary bg-background transition-all duration-300 ${isScrolled ? "h-14 shadow-md" : "h-16"}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-border text-primary bg-background transition-all duration-300 ${isScrolled ? "h-14 shadow-md" : "h-16"}`}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-background">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 transition-transform hover:scale-105" onClick={scrollToTop}>
+          <Link
+            href="/"
+            className="flex items-center gap-2 transition-transform hover:scale-105"
+            onClick={scrollToTop}
+          >
             <div className="w-10 h-10 relative">
               <Image
                 src="/images/flc-logo-no-text.png"
@@ -46,20 +52,14 @@ export function Header() {
 
           <nav className="hidden md:flex items-center gap-7">
             <Link
-              href="/vol2"
-              className={`text-sm font-medium relative transition-all hover:text-primary group ${isActive("/vol2") ? "text-primary" : ""}`}
-              onClick={scrollToTop}
-            >
-              Fektess a Jövődbe! vol. 2
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 ${isActive("/vol2") ? "w-full" : "w-0 group-hover:w-full"}`} />
-            </Link>
-            <Link
               href="/about"
               className={`text-sm font-medium relative transition-all hover:text-primary group ${isActive("/about") ? "text-primary" : ""}`}
               onClick={scrollToTop}
             >
               Rólunk
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 ${isActive("/about") ? "w-full" : "w-0 group-hover:w-full"}`} />
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 ${isActive("/about") ? "w-full" : "w-0 group-hover:w-full"}`}
+              />
             </Link>
             <Link
               href="/schedule"
@@ -67,7 +67,9 @@ export function Header() {
               onClick={scrollToTop}
             >
               Naptár
-              <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 ${isActive("/schedule") ? "w-full" : "w-0 group-hover:w-full"}`} />
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 ${isActive("/schedule") ? "w-full" : "w-0 group-hover:w-full"}`}
+              />
             </Link>
             <Link
               href="/articles"
@@ -118,31 +120,21 @@ export function Header() {
           </button>
         </div>
 
-          <div
-            className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-          >
-            <nav className="py-4 border-t border-border">
-              <div className="flex flex-col gap-4">
-                <Link
-                  href="/vol2"
-                  className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    scrollToTop()
-                  }}
-                >
-                  Fektess a Jövődbe! Vol. 2
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    scrollToTop()
-                  }}
-                >
-                  Rólunk
-                </Link>
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+        >
+          <nav className="py-4 border-t border-border">
+            <div className="flex flex-col gap-4">
+              <Link
+                href="/about"
+                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
+                onClick={() => {
+                  setMobileMenuOpen(false)
+                  scrollToTop()
+                }}
+              >
+                Rólunk
+              </Link>
               <Link
                 href="/schedule"
                 className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"

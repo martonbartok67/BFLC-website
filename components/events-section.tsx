@@ -6,12 +6,11 @@ export function EventsSection() {
   const upcomingEvents = [
     {
       date: "",
-      topic: "Valami nagyban készülünk számotokra!",
-      content:
-        "A normál tanévünk véget ért, új információk hamarosan!",
+      topic: "Vakáció! Talalkozunk jovore!",
+      content: "",
       location: "",
       time: "",
-      type: "Teaser",
+      type: "",
       registrationUrl: null,
     },
   ]
