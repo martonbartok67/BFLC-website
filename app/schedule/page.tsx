@@ -124,7 +124,6 @@ export default function SchedulePage() {
                 <div className="rounded-xl overflow-hidden border shadow-xl bg-white p-2">
                   <iframe
                     src="https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest"
-                    style= 54 
                     width="100%"
                     height="600"
                     frameBorder="0"
