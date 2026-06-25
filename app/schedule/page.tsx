@@ -12,7 +12,7 @@ import { useEffect, useState } from "react"
 
 const upcomingEvents = [
   {
-    title: "Vakáció! Talalkozunk jovore!",
+    title: "Vakáció! Találkozunk jövőre!",
     date: "",
     time: "",
     location: "",

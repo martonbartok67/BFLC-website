@@ -201,7 +201,9 @@ export default function CompetitionsPage() {
                   <Trophy className="w-6 h-6 text-primary" />
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">Versenyek</h2>
-                <p className="text-muted-foreground text-lg">frissites 2026/27-re hamarosan. tavalyi versenyek es idopontok:</p>
+                <p className="text-muted-foreground text-lg">
+                  Frissítés a 2026/27-es tanévre hamarosan. Tavalyi versenyek és időpontok:
+                </p>
               </div>
 
               <div className="space-y-8">

@@ -6,7 +6,7 @@ export function EventsSection() {
   const upcomingEvents = [
     {
       date: "",
-      topic: "Vakáció! Talalkozunk jovore!",
+      topic: "Vakáció! Találkozunk jövőre!",
       content: "",
       location: "",
       time: "",
