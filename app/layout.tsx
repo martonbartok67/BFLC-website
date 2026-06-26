@@ -4,13 +4,8 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Suspense } from "react"
 import Script from "next/script"
-import { Montserrat as V0_Font_Montserrat } from "next/font/google"
-
-// Initialize fonts
-const _montserrat = V0_Font_Montserrat({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-})
+import { GeistSans } from "geist/font/sans"
+import { AmbientBackground } from "@/components/ambient-background"
 
 export const metadata: Metadata = {
   title: {
@@ -57,7 +52,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background">
-      <body className={`font-sans ${_montserrat.className}`}>
+      <body className={`font-sans ${GeistSans.className} ${GeistSans.variable}`}>
+        <AmbientBackground />
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
         <Script

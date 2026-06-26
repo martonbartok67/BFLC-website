@@ -58,7 +58,7 @@ export function Header() {
             >
               Rólunk
               <span
-                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 ${isActive("/about") ? "w-full" : "w-0 group-hover:w-full"}`}
+                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#C5B0E1] transition-all duration-300 ${isActive("/about") ? "w-full" : "w-0 group-hover:w-full"}`}
               />
             </Link>
             <Link
@@ -68,7 +68,7 @@ export function Header() {
             >
               Naptár
               <span
-                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#8B61C2] transition-all duration-300 ${isActive("/schedule") ? "w-full" : "w-0 group-hover:w-full"}`}
+                className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#102664] to-[#C5B0E1] transition-all duration-300 ${isActive("/schedule") ? "w-full" : "w-0 group-hover:w-full"}`}
               />
             </Link>
             <Link

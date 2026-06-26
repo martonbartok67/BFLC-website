@@ -120,6 +120,15 @@
   body {
     @apply bg-background text-foreground;
   }
+  h1 {
+    letter-spacing: -0.02em;
+  }
+  h2 {
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    letter-spacing: -0.005em;
+  }
 }
 
 @layer utilities {
@@ -198,10 +207,10 @@
 
   @keyframes glow {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(139, 97, 194, 0.3);
+      box-shadow: 0 0 20px rgba(197, 176, 225, 0.3);
     }
     50% {
-      box-shadow: 0 0 30px rgba(139, 97, 194, 0.6);
+      box-shadow: 0 0 30px rgba(197, 176, 225, 0.55);
     }
   }
 
@@ -252,7 +261,7 @@
 
   .gradient-border {
     position: relative;
-    background: linear-gradient(135deg, #102664 0%, #8B61C2 100%);
+    background: linear-gradient(135deg, #102664 0%, #C5B0E1 100%);
     padding: 1px;
     border-radius: 0.625rem;
   }
@@ -260,8 +269,32 @@
   .gradient-border > * {
     @apply bg-background rounded-[calc(0.625rem-1px)];
   }
+
+  /* Motion guardrail: anyone with reduced-motion gets the final visible
+     state instantly instead of being stuck mid-animation or invisible. */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .animate-fade-in-down,
+    .animate-scale-in,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .animate-float,
+    .animate-glow,
+    .animate-pulse-subtle {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @theme inline {
-  --font-sans: 'Montserrat', 'Montserrat Fallback';
+  --font-sans: var(--font-geist-sans), 'Geist Fallback', ui-sans-serif, system-ui, sans-serif;
 }
