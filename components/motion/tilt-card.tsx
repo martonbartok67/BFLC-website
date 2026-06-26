@@ -8,9 +8,12 @@ interface TiltCardProps {
   className?: string
   /** Max tilt in degrees. Keep modest -- this should feel responsive, not gimmicky. */
   maxTilt?: number
+  /** rgba string for the cursor-spotlight glow. Default suits light cards;
+   * pass a light/white-based rgba for dark-background cards. */
+  glowColor?: string
 }
 
-export function TiltCard({ children, className, maxTilt = 8 }: TiltCardProps) {
+export function TiltCard({ children, className, maxTilt = 8, glowColor = "rgba(16,38,100,0.16)" }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const shouldReduceMotion = useReducedMotion()
   const [hovered, setHovered] = useState(false)
@@ -57,7 +60,7 @@ export function TiltCard({ children, className, maxTilt = 8 }: TiltCardProps) {
             opacity: hovered ? 1 : 0,
             background: useTransform(
               [glowX, glowY],
-              (latest) => `radial-gradient(circle at ${latest[0]} ${latest[1]}, rgba(16,38,100,0.16), transparent 65%)`,
+              (latest) => `radial-gradient(circle at ${latest[0]} ${latest[1]}, ${glowColor}, transparent 65%)`,
             ),
           }}
         />

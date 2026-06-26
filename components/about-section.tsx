@@ -44,11 +44,34 @@ export function AboutSection() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon
+
+            if (index === 0) {
+              return (
+                <Reveal key={index} className="lg:col-span-6">
+                  <TiltCard maxTilt={4} glowColor="rgba(255,255,255,0.14)" className="h-full rounded-2xl">
+                    <Card className="h-full border-none bg-gradient-to-br from-primary to-[#0a1a47] text-primary-foreground overflow-hidden">
+                      <CardContent className="p-8 lg:p-10 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center bg-white/10 shrink-0 transition-transform hover:scale-110 hover:rotate-6">
+                          <Icon className="h-8 w-8 sm:h-10 sm:w-10 text-primary-foreground" />
+                        </div>
+                        <div>
+                          <h3 className="text-2xl sm:text-3xl font-bold mb-3">{feature.title}</h3>
+                          <p className="text-primary-foreground/85 leading-relaxed text-base sm:text-lg max-w-2xl">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TiltCard>
+                </Reveal>
+              )
+            }
+
             return (
-              <Reveal key={index} delay={index * 0.1}>
+              <Reveal key={index} delay={index * 0.1} className="lg:col-span-2">
                 <TiltCard className="h-full rounded-xl">
                   <Card
                     className="border-border hover:border-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full"
