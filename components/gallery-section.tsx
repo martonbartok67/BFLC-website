@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/reveal"
+
 export function GallerySection() {
   const images = [
     {
@@ -29,23 +31,25 @@ export function GallerySection() {
   return (
     <section id="gallery" className="py-20 sm:py-24 bg-background lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in-up">
+        <Reveal className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Galéria</h2>
           <p className="text-lg text-pretty leading-relaxed text-muted-foreground">
             Pillanatok workshopjainkról, eseményeinkről és tevékenységeinkről az év során.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
           {images.map((image, index) => (
-            <div key={index} className="relative aspect-[4/3] overflow-hidden rounded-lg bg-muted group cursor-pointer animate-fade-in-up hover-lift shadow-lg" style={{ animationDelay: `${index * 0.08}s` }}>
-              <img
-                src={image.src || "/placeholder.svg"}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-primary/0 group-hover:from-primary/40 transition-all duration-300" />
-            </div>
+            <Reveal key={index} delay={index * 0.08}>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-muted group cursor-pointer hover-lift shadow-lg">
+                <img
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-primary/0 group-hover:from-primary/40 transition-all duration-300" />
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

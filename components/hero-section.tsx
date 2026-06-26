@@ -1,9 +1,15 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { motion, useReducedMotion } from "framer-motion"
+import { TextReveal } from "@/components/motion/text-reveal"
 
 export function HeroSection() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center text-primary-foreground overflow-hidden">
       <div className="absolute inset-0">
@@ -17,22 +23,43 @@ export function HeroSection() {
       </div>
 
       <div className="absolute inset-0 bg-primary opacity-70" />
-      
-      {/* Animated background orbs */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-white/10 rounded-full mix-blend-multiply filter blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-10 w-72 h-72 bg-white/5 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: "1s" }} />
+
+      {/* Bold animated background orbs — this is the single boldest motion
+          moment on the site. Three blobs, different sizes/durations/delays
+          so they never sync, multi-axis drift (not just up-down). */}
+      <div aria-hidden="true" className="absolute top-10 right-0 w-96 h-96 bg-white/15 rounded-full mix-blend-overlay filter blur-3xl animate-hero-drift" />
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 w-[26rem] h-[26rem] bg-white/10 rounded-full mix-blend-overlay filter blur-3xl animate-hero-drift"
+        style={{ animationDelay: "2.5s", animationDuration: "14s" }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute top-1/3 left-1/4 w-64 h-64 bg-[#C5B0E1]/10 rounded-full mix-blend-overlay filter blur-3xl animate-hero-drift"
+        style={{ animationDelay: "5s", animationDuration: "9s" }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight animate-fade-in-up">
-            Budapest Financial Literacy Club
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
+            <TextReveal text="Budapest Financial Literacy Club" delay={0.1} wordDelay={0.12} />
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto text-pretty leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <motion.p
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.5, ease: "easeOut", delay: shouldReduceMotion ? 0 : 0.65 }}
+            className="text-lg sm:text-xl md:text-2xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto text-pretty leading-relaxed"
+          >
             A jövőd a legjobb befektetés!
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.5, ease: "easeOut", delay: shouldReduceMotion ? 0 : 0.9 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
             <Button
               size="lg"
               variant="secondary"
@@ -64,7 +91,7 @@ export function HeroSection() {
                 Jelentkezem!
               </Link>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

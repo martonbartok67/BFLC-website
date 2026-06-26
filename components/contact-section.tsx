@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Mail, MapPin, Users } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { Reveal } from "@/components/motion/reveal"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -80,12 +81,12 @@ export function ContactSection() {
   return (
     <section className="py-20 sm:py-24 bg-background lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <Reveal className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Kérdezz bátran!</h2>
           <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
             Csatlakoznál, vagy kérdésed merült fel? Vedd fel velünk a kapcsolatot itt:
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="lg:col-span-2">
