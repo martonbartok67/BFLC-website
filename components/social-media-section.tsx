@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Instagram, MessageCircle, Mail, Linkedin } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
 import { TiltCard } from "@/components/motion/tilt-card"
+import { SectionLabel } from "@/components/section-label"
 
 export function SocialMediaSection() {
   // components/social-media-section (replace the socialLinks array inside the file)
@@ -51,6 +52,7 @@ const socialLinks = [
     <section className="py-20 sm:py-24 bg-muted/30 lg:py-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-3xl mx-auto text-center mb-16">
+          <SectionLabel>Közösség</SectionLabel>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Elérhetőségeink</h2>
           <p className="text-lg text-muted-foreground text-balance">
             Kövess minket és csatlakozz közösségünkhöz a különböző platformokon, hogy ne maradj le semmiről!

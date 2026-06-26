@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Instagram } from "lucide-react"
+import { ArrowRight, Instagram, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
@@ -41,7 +41,7 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-balance leading-[1.05] tracking-tight">
             <TextReveal text="Budapest Financial Literacy Club" delay={0.1} wordDelay={0.12} />
           </h1>
 
@@ -95,6 +95,32 @@ export function HeroSection() {
           </motion.div>
         </div>
       </div>
+
+      {/* Diagonal seam into the next section -- replaces a flat horizontal
+          edge with an intentional angled cut. Scale-invariant corner-to-corner
+          triangle, safe at any width. Sits below z-10 content so it can never
+          visually clip the headline/buttons even on very short viewports. */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-0 w-full h-12 sm:h-16 lg:h-24 bg-background"
+        style={{ clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }}
+      />
+
+      <motion.div
+        initial={shouldReduceMotion ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: shouldReduceMotion ? 0 : 1.5, duration: 0.6 }}
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20"
+      >
+        <motion.div
+          animate={shouldReduceMotion ? {} : { y: [0, 8, 0] }}
+          transition={{ duration: 1.6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-1 text-primary-foreground/70"
+        >
+          <span className="text-[10px] uppercase tracking-[0.25em]">Görgess</span>
+          <ChevronDown className="h-4 w-4" />
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

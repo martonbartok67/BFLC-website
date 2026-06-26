@@ -14,7 +14,6 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         <EventsSection />
         <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
         <AboutSection />

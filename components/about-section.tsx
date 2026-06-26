@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Presentation, Trophy, Users, Briefcase } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
 import { TiltCard } from "@/components/motion/tilt-card"
+import { SectionLabel } from "@/components/section-label"
 
 const features = [
   {
@@ -35,6 +36,7 @@ export function AboutSection() {
     <section id="about" className="py-20 sm:py-24 bg-background lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-3xl mx-auto text-center mb-16">
+          <SectionLabel>Rólunk</SectionLabel>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">A klubunkról</h2>
           <p className="text-lg text-pretty leading-relaxed text-foreground">
             A Financial Literacy Club 2024 májusában alakult, azzal a céllal, hogy diákok számára biztosítson alapvető

@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
 import { TiltCard } from "@/components/motion/tilt-card"
+import { SectionLabel } from "@/components/section-label"
 
 export function EventsSection() {
   const upcomingEvents = [
@@ -18,9 +19,10 @@ export function EventsSection() {
   ]
 
   return (
-    <section id="events" className="py-20 sm:py-24 bg-secondary/30 lg:py-20">
+    <section id="events" className="py-20 sm:py-24 bg-background lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-3xl mx-auto text-center mb-16">
+          <SectionLabel>Események</SectionLabel>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">Közelgő események</h2>
           <p className="text-lg text-pretty leading-relaxed text-foreground">
             Csatlakozz hozzánk workshopokra, vendégelőadókhoz és versenyekre, amelyek célja a pénzügyi tudásod bővítése.
