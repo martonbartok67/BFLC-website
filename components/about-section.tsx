@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Presentation, Trophy, Users, Briefcase } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
+import { TiltCard } from "@/components/motion/tilt-card"
 
 const features = [
   {
@@ -48,17 +49,19 @@ export function AboutSection() {
             const Icon = feature.icon
             return (
               <Reveal key={index} delay={index * 0.1}>
-                <Card
-                  className="border-border hover:border-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full"
-                >
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-primary text-background transition-transform hover:scale-110 hover:rotate-6">
-                      <Icon className="h-6 w-6 text-background" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 bg-card text-popover-foreground">{feature.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                  </CardContent>
-                </Card>
+                <TiltCard className="h-full rounded-xl">
+                  <Card
+                    className="border-border hover:border-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-xl h-full"
+                  >
+                    <CardContent className="p-6">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-primary text-background transition-transform hover:scale-110 hover:rotate-6">
+                        <Icon className="h-6 w-6 text-background" />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2 bg-card text-popover-foreground">{feature.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </TiltCard>
               </Reveal>
             )
           })}

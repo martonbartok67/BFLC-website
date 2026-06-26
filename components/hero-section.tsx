@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Instagram } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
@@ -85,10 +85,11 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               asChild
-              className="bg-gradient-to-r from-[#102664]/30 to-[#C5B0E1]/30 border border-[#C5B0E1]/50 text-primary-foreground hover:from-[#102664]/50 hover:to-[#C5B0E1]/50 hover:border-[#C5B0E1]/80 rounded-2xl leading-8 transition-all duration-300 animate-pulse-subtle hover-lift shadow-lg hover:shadow-[0_0_30px_rgba(197,176,225,0.4)]"
+              className="group bg-gradient-to-r from-[#102664]/30 to-[#C5B0E1]/30 border border-[#C5B0E1]/50 text-primary-foreground hover:from-[#102664]/50 hover:to-[#C5B0E1]/50 hover:border-[#C5B0E1]/80 rounded-2xl leading-8 transition-all duration-300 animate-pulse-subtle hover-lift shadow-lg hover:shadow-[0_0_30px_rgba(197,176,225,0.4)]"
             >
-              <Link href="https://form.jotform.com/261445662237055" target="_blank" rel="noopener noreferrer">
-                Jelentkezem!
+              <Link href="https://www.instagram.com/budapestflc/" target="_blank" rel="noopener noreferrer">
+                <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                Kövess Instagramon
               </Link>
             </Button>
           </motion.div>

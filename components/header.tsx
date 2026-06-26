@@ -30,10 +30,12 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 border-b border-border text-primary bg-background transition-all duration-300 ${isScrolled ? "h-14 shadow-md" : "h-16"}`}
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-border text-primary bg-background transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-background">
-        <div className="flex items-center justify-between h-16">
+        <div
+          className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? "h-14" : "h-16"}`}
+        >
           <Link
             href="/"
             className="flex items-center gap-2 transition-transform hover:scale-105"
