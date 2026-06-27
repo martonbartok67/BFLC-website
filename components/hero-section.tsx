@@ -85,7 +85,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               asChild
-              className="group bg-gradient-to-r from-[#102664]/30 to-[#C5B0E1]/30 border border-[#C5B0E1]/50 text-primary-foreground hover:from-[#102664]/50 hover:to-[#C5B0E1]/50 hover:border-[#C5B0E1]/80 rounded-2xl leading-8 transition-all duration-300 animate-pulse-subtle hover-lift shadow-lg hover:shadow-[0_0_30px_rgba(197,176,225,0.4)]"
+              className="group bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#4f5bd5] border-0 text-white hover:brightness-110 rounded-2xl leading-8 transition-all duration-300 hover-lift shadow-lg hover:shadow-[0_0_30px_rgba(214,41,118,0.5)]"
             >
               <Link href="https://www.instagram.com/budapestflc/" target="_blank" rel="noopener noreferrer">
                 <Instagram className="h-5 w-5 group-hover:scale-110 transition-transform" />
