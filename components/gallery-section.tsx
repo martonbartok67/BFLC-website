@@ -53,27 +53,27 @@ export function GallerySection() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-5 max-w-6xl mx-auto">
-          {images.map((image, index) => (
-            <Reveal
-              key={index}
-              delay={index * 0.08}
-              className={index === 0 ? "col-span-2 row-span-1" : ""}
-            >
-              <div
-                className={`relative overflow-hidden rounded-lg bg-white/5 ring-1 ring-white/10 group cursor-pointer shadow-xl shadow-black/20 ${
-                  index === 0 ? "aspect-[16/10]" : "aspect-square"
-                }`}
-              >
-                <img
-                  src={image.src || "/placeholder.svg"}
-                  alt={image.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a47]/50 to-[#0a1a47]/0 group-hover:from-[#0a1a47]/70 transition-all duration-300" />
-              </div>
-            </Reveal>
-          ))}
+        <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[9rem] sm:auto-rows-[11rem] lg:auto-rows-[14rem] gap-4 lg:gap-5 max-w-6xl mx-auto">
+          {images.map((image, index) => {
+            // Two featured tiles, placed diagonally (first + last) so the
+            // grid fills with zero leftover gaps at every breakpoint --
+            // 2 featured (col-span-2) + 4 normal (col-span-1) = 8 cells,
+            // exactly a 4x2 grid on lg, and col-span-2 = full width on the
+            // 2-col mobile grid too. No trailing empty cell at any size.
+            const isFeatured = index === 0 || index === images.length - 1
+            return (
+              <Reveal key={index} delay={index * 0.08} className={isFeatured ? "col-span-2" : ""}>
+                <div className="relative h-full overflow-hidden rounded-lg bg-white/5 ring-1 ring-white/10 group cursor-pointer shadow-xl shadow-black/20">
+                  <img
+                    src={image.src || "/placeholder.svg"}
+                    alt={image.alt}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a47]/50 to-[#0a1a47]/0 group-hover:from-[#0a1a47]/70 transition-all duration-300" />
+                </div>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>
