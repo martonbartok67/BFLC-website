@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
+import { SkeletonImage } from "@/components/skeleton-image"
 
 export function GallerySection() {
   const images = [
@@ -64,10 +65,12 @@ export function GallerySection() {
             return (
               <Reveal key={index} delay={index * 0.08} className={isFeatured ? "col-span-2" : ""}>
                 <div className="relative h-full overflow-hidden rounded-lg bg-white/5 ring-1 ring-white/10 group cursor-pointer shadow-xl shadow-black/20">
-                  <img
-                    src={image.src || "/placeholder.svg"}
+                  <SkeletonImage
+                    src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    tone="dark"
+                    sizes={isFeatured ? "(min-width: 1024px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
+                    className="transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a47]/50 to-[#0a1a47]/0 group-hover:from-[#0a1a47]/70 transition-all duration-300" />
                 </div>
