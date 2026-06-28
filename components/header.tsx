@@ -3,12 +3,27 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu } from "lucide-react"
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
+import { StaggeredMenu } from "@/components/staggered-menu"
+
+const navItems = [
+  { label: "Rólunk", link: "/about" },
+  { label: "Naptár", link: "/schedule" },
+  { label: "Cikkek", link: "/articles" },
+  { label: "Versenyek és Események", link: "/competitions" },
+  { label: "Együttműködés", link: "/collaboration" },
+  { label: "Kapcsolat", link: "/contact" },
+]
+
+const socialItems = [
+  { label: "Instagram", link: "https://www.instagram.com/budapestflc/" },
+  { label: "Messenger", link: "https://m.me/cm/AbaU8rQOgYlXAugE/" },
+  { label: "Email", link: "mailto:ejgfinance@gmail.com" },
+  { label: "LinkedIn", link: "https://www.linkedin.com/company/financial-literacy-club-bp" },
+]
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
 
@@ -52,7 +67,7 @@ export function Header() {
             <span className="font-semibold text-lg hidden sm:inline">Budapest Financial Literacy Club</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-7">
             <Link
               href="/about"
               className={`text-sm font-medium relative transition-all hover:text-primary group ${isActive("/about") ? "text-primary" : ""}`}
@@ -113,95 +128,15 @@ export function Header() {
             </Button>
           </nav>
 
-          <button
-            className={`md:hidden transition-transform hover:scale-110 duration-300 ${mobileMenuOpen ? "rotate-90" : "rotate-0"}`}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <Menu className="h-6 w-6" />
-          </button>
-        </div>
-
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
-        >
-          <nav className="py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
-              <Link
-                href="/about"
-                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  scrollToTop()
-                }}
-              >
-                Rólunk
-              </Link>
-              <Link
-                href="/schedule"
-                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  scrollToTop()
-                }}
-              >
-                Naptár
-              </Link>
-              <Link
-                href="/articles"
-                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  scrollToTop()
-                }}
-              >
-                Cikkek
-              </Link>
-              <Link
-                href="/competitions"
-                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  scrollToTop()
-                }}
-              >
-                Versenyek és Események
-              </Link>
-              <Link
-                href="/collaboration"
-                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  scrollToTop()
-                }}
-              >
-                Együttműködés
-              </Link>
-              <Link
-                href="/contact"
-                className="text-sm font-medium hover:text-primary transition-all hover:translate-x-2"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  scrollToTop()
-                }}
-              >
-                Kapcsolat
-              </Link>
-              <Button size="sm" asChild className="w-full transition-all hover:scale-105">
-                <Link
-                  href="https://m.me/cm/AbaU8rQOgYlXAugE/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => {
-                    setMobileMenuOpen(false)
-                    scrollToTop()
-                  }}
-                >
-                  Csatlakozz hozzánk
-                </Link>
-              </Button>
-            </div>
-          </nav>
+          <div className="lg:hidden">
+            <StaggeredMenu
+              items={navItems}
+              socialItems={socialItems}
+              ctaLabel="Csatlakozz!"
+              ctaLink="https://m.me/cm/AbaU8rQOgYlXAugE/"
+              buttonColor="var(--primary)"
+            />
+          </div>
         </div>
       </div>
     </header>
