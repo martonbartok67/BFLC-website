@@ -1,43 +1,29 @@
+"use client"
+
+import { useState } from "react"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
 import { SkeletonImage } from "@/components/skeleton-image"
+import { Lightbox } from "@/components/lightbox"
+import { Maximize2 } from "lucide-react"
+
+const images = [
+  { src: "/images/gallery/flc-presentation.jpg",        alt: "Diákok a 'Fektess a jövődbe' prezentáción"  },
+  { src: "/images/gallery/flc-parliament-visit.jpg",    alt: "FLC tagok az Európai Parlamentben"           },
+  { src: "/images/gallery/flc-event-table.jpg",         alt: "Regisztrációs asztal klubeseményen"          },
+  { src: "/images/gallery/flc-outdoor-signup.jpg",      alt: "Diákok jelentkeznek a klubba"                },
+  { src: "/images/gallery/flc-classroom-engagement.jpg",alt: "Aktív részvétel az osztályteremben"          },
+  { src: "/images/gallery/flc-speaker-event.jpg",       alt: "Vendégelőadó prezentál FLC eseményen"        },
+]
 
 export function GallerySection() {
-  const images = [
-    {
-      src: "/images/gallery/flc-presentation.jpg",
-      alt: "Diákok a 'Fektess a jövődbe' prezentáción",
-    },
-    {
-      src: "/images/gallery/flc-parliament-visit.jpg",
-      alt: "FLC tagok az Európai Parlamentben",
-    },
-    {
-      src: "/images/gallery/flc-event-table.jpg",
-      alt: "Regisztrációs asztal klubeseményen",
-    },
-    {
-      src: "/images/gallery/flc-outdoor-signup.jpg",
-      alt: "Diákok jelentkeznek a klubba",
-    },
-    {
-      src: "/images/gallery/flc-classroom-engagement.jpg",
-      alt: "Aktív részvétel az osztályteremben",
-    },
-    {
-      src: "/images/gallery/flc-speaker-event.jpg",
-      alt: "Vendégelőadó prezentál FLC eseményen",
-    },
-  ]
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null)
 
   return (
     <section
       id="gallery"
       className="relative py-20 sm:py-24 lg:py-28 bg-gradient-to-b from-primary to-[#0a1a47] text-primary-foreground overflow-hidden"
     >
-      {/* Same ambient-blob language as the hero, but calmer -- ties the
-          two dark sections together as a visual pair without competing
-          with the hero for "boldest moment." */}
       <div aria-hidden="true" className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-white/[0.06] blur-3xl animate-float" />
       <div
         aria-hidden="true"
@@ -56,15 +42,14 @@ export function GallerySection() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[9rem] sm:auto-rows-[11rem] lg:auto-rows-[14rem] gap-4 lg:gap-5 max-w-6xl mx-auto">
           {images.map((image, index) => {
-            // Two featured tiles, placed diagonally (first + last) so the
-            // grid fills with zero leftover gaps at every breakpoint --
-            // 2 featured (col-span-2) + 4 normal (col-span-1) = 8 cells,
-            // exactly a 4x2 grid on lg, and col-span-2 = full width on the
-            // 2-col mobile grid too. No trailing empty cell at any size.
             const isFeatured = index === 0 || index === images.length - 1
             return (
               <Reveal key={index} delay={index * 0.08} className={isFeatured ? "col-span-2" : ""}>
-                <div className="relative h-full overflow-hidden rounded-lg bg-white/5 ring-1 ring-white/10 group cursor-pointer shadow-xl shadow-black/20">
+                <button
+                  className="relative h-full w-full overflow-hidden rounded-lg bg-white/5 ring-1 ring-white/10 group shadow-xl shadow-black/20 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  onClick={() => setLightboxIdx(index)}
+                  aria-label={`Kép megnyitása: ${image.alt}`}
+                >
                   <SkeletonImage
                     src={image.src}
                     alt={image.alt}
@@ -73,12 +58,27 @@ export function GallerySection() {
                     className="transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a1a47]/50 to-[#0a1a47]/0 group-hover:from-[#0a1a47]/70 transition-all duration-300" />
-                </div>
+
+                  {/* Expand hint — appears on hover */}
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <div className="w-8 h-8 rounded-full bg-black/40 flex items-center justify-center">
+                      <Maximize2 className="h-4 w-4 text-white" />
+                    </div>
+                  </div>
+                </button>
               </Reveal>
             )
           })}
         </div>
       </div>
+
+      <Lightbox
+        images={images}
+        index={lightboxIdx}
+        onClose={() => setLightboxIdx(null)}
+        onPrev={() => setLightboxIdx(i => (i !== null && i > 0 ? i - 1 : i))}
+        onNext={() => setLightboxIdx(i => (i !== null && i < images.length - 1 ? i + 1 : i))}
+      />
     </section>
   )
 }
