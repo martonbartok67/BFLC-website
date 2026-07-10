@@ -20,7 +20,7 @@ const navItems = [
 const socialItems = [
   { label: "Instagram", link: "https://www.instagram.com/budapestflc/"                      },
   { label: "Messenger", link: "https://m.me/cm/AbaU8rQOgYlXAugE/"                          },
-  { label: "Email",     link: "mailto:ejgfinance@gmail.com"                                 },
+  { label: "Email",     link: "mailto:bflc@bflc.hu"                                 },
   { label: "LinkedIn",  link: "https://www.linkedin.com/company/financial-literacy-club-bp" },
 ]
 

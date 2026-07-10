@@ -26,7 +26,7 @@ export function ContactSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    const mailtoLink = `mailto:ejgfinance@gmail.com?subject=Kapcsolatfelvétel - ${encodeURIComponent(
+    const mailtoLink = `mailto:bflc@bflc.hu?subject=Kapcsolatfelvétel - ${encodeURIComponent(
       formData.name,
     )}&body=${encodeURIComponent(`Név: ${formData.name}\nEmail: ${formData.email}\n\nÜzenet:\n${formData.message}`)}`
 
@@ -67,7 +67,7 @@ export function ContactSection() {
       } catch (e) {
         toast({
           title: "Hiba történt",
-          description: "Nem sikerült automatikusan megnyitni az email klienset. Kérjük, küldj emailt az ejgfinance@gmail.com címre.",
+          description: "Nem sikerült automatikusan megnyitni az email klienset. Kérjük, küldj emailt az bflc@bflc.hu címre.",
         })
       }
     }
@@ -167,10 +167,10 @@ export function ContactSection() {
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
                     <a
-                      href="mailto:ejgfinance@gmail.com"
+                      href="mailto:bflc@bflc.hu"
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      ejgfinance@gmail.com
+                      bflc@bflc.hu
                     </a>
                   </div>
                 </div>

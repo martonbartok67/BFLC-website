@@ -123,7 +123,7 @@ export default function SchedulePage() {
                 <h2 className="text-3xl font-bold mb-8 text-center">Interaktív Naptár</h2>
                 <div className="rounded-xl overflow-hidden border shadow-xl bg-white p-2">
                   <iframe
-                    src="https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest"
+                    src="https://calendar.google.com/calendar/embed?src=bflc%40bflc.hu&ctz=Europe%2FBudapest"
                     width="100%"
                     height="600"
                     frameBorder="0"
@@ -134,7 +134,7 @@ export default function SchedulePage() {
                 <div className="mt-4 text-center">
                   <Button variant="outline" className="gap-2" asChild>
                     <a
-                      href="https://calendar.google.com/calendar/ical/ejgfinance%40gmail.com/public/basic.ics"
+                      href="https://calendar.google.com/calendar/ical/bflc%40bflc.hu/public/basic.ics"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

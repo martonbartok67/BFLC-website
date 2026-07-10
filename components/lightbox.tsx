@@ -73,16 +73,6 @@ export function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxPro
             />
           </motion.div>
 
-          {/* Caption */}
-          <motion.p
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm text-center px-4 max-w-lg"
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.18, duration: 0.25 }}
-          >
-            {image.alt}
-          </motion.p>
-
           {/* Counter */}
           <div className="absolute top-5 left-1/2 -translate-x-1/2 text-white/50 text-xs tracking-widest">
             {(index ?? 0) + 1} / {images.length}

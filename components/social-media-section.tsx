@@ -30,9 +30,9 @@ const socialLinks = [
     icon: Mail,
     // normalized fields so the renderer finds them
     name: "Email",
-    handle: "ejgfinance@gmail.com",
+    handle: "bflc@bflc.hu",
     description: "Írj nekünk bátran bármilyen kérdéseddel kapcsolatban és hamarosan válaszolunk!",
-    link: "mailto:ejgfinance@gmail.com",
+    link: "mailto:bflc@bflc.hu",
     color: "bg-primary",
     isExternal: true,
   },

@@ -18,7 +18,7 @@ const socials = [
   { label: "Instagram", href: "https://www.instagram.com/budapestflc/",                        icon: Instagram   },
   { label: "LinkedIn",  href: "https://www.linkedin.com/company/financial-literacy-club-bp",   icon: Linkedin    },
   { label: "Messenger", href: "https://m.me/cm/AbaU8rQOgYlXAugE/",                            icon: MessageCircle },
-  { label: "Email",     href: "mailto:ejgfinance@gmail.com",                                   icon: Mail        },
+  { label: "Email",     href: "mailto:bflc@bflc.hu",                                   icon: Mail        },
 ]
 
 export function Footer() {
@@ -125,7 +125,7 @@ export function Footer() {
             <div className="space-y-2 text-sm text-primary-foreground/70">
               <p>📅 Minden csütörtök</p>
               <p>🏫 Eötvös József Gimnázium</p>
-              <p>🕐 16:00 – 17:30</p>
+              <p>🕐 15:45 – 16:45</p>
             </div>
           </div>
         </div>

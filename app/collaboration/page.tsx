@@ -138,7 +138,7 @@ export default function CollaborationPage() {
                       Érdekel az együttműködés? Vedd fel velünk a kapcsolatot!
                     </p>
                     <Button asChild size="lg">
-                      <a href="mailto:ejgfinance@gmail.com">
+                      <a href="mailto:bflc@bflc.hu">
                         <Mail className="mr-2 h-4 w-4" />
                         Kapcsolatfelvétel
                       </a>
@@ -165,10 +165,10 @@ export default function CollaborationPage() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-lg mb-1">Email</h4>
-                        <p className="text-sm text-muted-foreground mb-4 break-all">ejgfinance@gmail.com</p>
+                        <p className="text-sm text-muted-foreground mb-4 break-all">bflc@bflc.hu</p>
                       </div>
                       <Button asChild className="w-full">
-                        <a href="mailto:ejgfinance@gmail.com">Írj nekünk</a>
+                        <a href="mailto:bflc@bflc.hu">Írj nekünk</a>
                       </Button>
                     </CardContent>
                   </Card>
