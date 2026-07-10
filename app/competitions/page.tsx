@@ -1,9 +1,10 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Trophy, Calendar, Users, Sparkles } from "lucide-react"
-import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Reveal } from "@/components/motion/reveal"
+import { SectionLabel } from "@/components/section-label"
 
 export default function CompetitionsPage() {
   const events: { title: string; date: string; location: string; description: string; link: string }[] = []
@@ -114,31 +115,27 @@ export default function CompetitionsPage() {
     <>
       <Header />
       <main className="pt-16">
-        {/* Hero Section */}
-        <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/hero-background.jpg"
-              alt="FLC Competitions"
-              fill
-              className="object-cover opacity-30"
-              priority
-            />
-            <div className="absolute inset-0 bg-primary/90 opacity-70" />
+        {/* Dark navy, left-aligned. The centered icon-above-title treatment was
+            identical to every other page. Giant ghost trophy at low opacity gives
+            it a visual signature without competing with the content. */}
+        <section className="relative min-h-[50vh] flex items-center overflow-hidden bg-gradient-to-b from-primary to-[#0a1a47] text-primary-foreground">
+          <div aria-hidden="true" className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 pointer-events-none select-none">
+            <Trophy strokeWidth={0.6} className="w-[28rem] h-[28rem] text-white/[0.05]" />
           </div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl mx-auto text-center tracking-normal my-9">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-foreground/10 mb-6">
-                <Trophy className="w-8 h-8 text-primary-foreground" />
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
-                Versenyek és Események
-              </h1>
-              <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
-                Vegyél részt izgalmas pénzügyi, közgazdasági vagy esettanulmányi versenyeken, valamint inspiráló
-                eseményeken! Értékes képességek és ismeretek elsajátítása mellett a CV-d színesítésére is kiváló
-                lehetőség.
-              </p>
+          <div aria-hidden="true" className="absolute -top-16 left-1/3 w-80 h-80 rounded-full bg-white/[0.04] blur-3xl" />
+
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20">
+            <div className="max-w-3xl">
+              <Reveal>
+                <SectionLabel tone="light" align="start">Versenyek & Események</SectionLabel>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-balance leading-[1.05] tracking-tight">
+                  Versenyek és Események
+                </h1>
+                <p className="text-lg text-pretty leading-relaxed text-primary-foreground/85 max-w-2xl">
+                  Vegyél részt izgalmas pénzügyi, közgazdasági vagy esettanulmányi versenyeken, valamint inspiráló
+                  eseményeken! Értékes képességek és ismeretek elsajátítása mellett a CV-d színesítésére is kiváló lehetőség.
+                </p>
+              </Reveal>
             </div>
           </div>
         </section>

@@ -1,42 +1,37 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
-import { Calendar, User, ArrowLeft, TrendingUp, BookOpen, Lightbulb } from "lucide-react"
-import Image from "next/image"
+import { Calendar, User, TrendingUp, BookOpen, Lightbulb } from "lucide-react"
 import Link from "next/link"
+import { Reveal } from "@/components/motion/reveal"
+import { SectionLabel } from "@/components/section-label"
 
 export default function ArticlesPage() {
   return (
     <>
       <Header />
       <main className="pt-16">
-        <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/hero-background.jpg"
-              alt="FLC Articles"
-              fill
-              className="object-cover opacity-30"
-              priority
-            />
-            <div className="absolute inset-0 bg-primary/90 opacity-70" />
-          </div>
-          <div className="absolute top-20 right-10 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
-          <div className="absolute bottom-20 left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl" />
+        {/* Light background, editorial masthead feel. Horizontal rules, volume
+            number, tracked small-caps label — signals "this is published content"
+            rather than another generic page header. */}
+        <section className="relative overflow-hidden bg-background border-b border-border">
+          <div aria-hidden="true" className="absolute top-0 right-12 w-64 h-64 rounded-full bg-primary/[0.04] blur-3xl pointer-events-none" />
 
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 opacity-100">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6">
-                <BookOpen className="w-4 h-4 text-primary-foreground" />
-                <span className="text-sm text-primary-foreground/90">Klubunk írásai</span>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10 relative z-10">
+            <Reveal>
+              <div className="w-full h-px bg-border mb-8" />
+              <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
+                <SectionLabel align="start" className="mb-0">Cikkek & Írások</SectionLabel>
+                <span className="text-xs text-muted-foreground tracking-[0.2em] uppercase">Vol. 01 · 2024–25</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
-                Cikkek
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-balance leading-[1.05] tracking-tight max-w-3xl">
+                A pénzügyi tudatosságról
               </h1>
-              <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
-                Klubtagjaink által írt cikkek a pénzügyi tudatosságról, ennek fontosságáról vagy különböző témaköreiről. Publikáld itt Te is a cikkeid!
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mb-10">
+                Klubtagjaink által írt cikkek a pénzügyi tudatosságról, ennek fontosságáról vagy különböző témaköreiről.
               </p>
-            </div>
+              <div className="w-full h-px bg-border" />
+            </Reveal>
           </div>
         </section>
 

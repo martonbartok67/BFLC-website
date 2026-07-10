@@ -2,32 +2,35 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ContactSection } from "@/components/contact-section"
 import { SocialMediaSection } from "@/components/social-media-section"
+import { Reveal } from "@/components/motion/reveal"
+import { SectionLabel } from "@/components/section-label"
 
 export default function ContactPage() {
   return (
     <>
       <Header />
       <main className="min-h-screen">
-        {/* Hero Section */}
-        <section className="relative min-h-[50vh] flex items-center justify-center bg-primary text-primary-foreground overflow-hidden mb-16">
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <div
-              className="absolute inset-0 bg-cover bg-center opacity-30"
-              style={{ backgroundImage: "url('/images/hero-background.jpg')" }}
-            />
-            {/* Dark blue overlay */}
-            <div className="absolute inset-0 bg-primary/90 border-0 py-0 px-0 my-0 opacity-100" />
+        {/* Light background, minimal. The contact form below is the real
+            content — this hero just sets the page context and gets out of the
+            way. The ghost '@' echoes what email IS without being literal. */}
+        <section className="relative overflow-hidden bg-background border-b border-border">
+          <div
+            aria-hidden="true"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 text-[18rem] font-bold leading-none text-primary/[0.04] select-none pointer-events-none"
+          >
+            @
           </div>
 
-          {/* Content */}
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-4xl mx-auto text-center py-0 my-0">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance mt-16">Kapcsolat</h1>
-              <p className="text-lg sm:text-xl text-primary-foreground/90 mb-8 text-balance leading-relaxed">
-                Vedd fel velünk a kapcsolatot, ha kérdésed van vagy csatlakoznál hozzánk!
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
+            <Reveal>
+              <SectionLabel align="start">Kapcsolat</SectionLabel>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 text-balance leading-[1.05] tracking-tight max-w-xl">
+                Szólj hozzánk
+              </h1>
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+                Kérdésed van? Csatlakoznál? Vedd fel velünk a kapcsolatot!
               </p>
-            </div>
+            </Reveal>
           </div>
         </section>
 

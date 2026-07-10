@@ -7,8 +7,8 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Clock, MapPin, Calendar, ExternalLink, CalendarPlus } from "lucide-react"
 import { schedule } from "@/lib/schedule-data"
-import Image from "next/image"
-import { useEffect, useState } from "react"
+import { Reveal } from "@/components/motion/reveal"
+import { SectionLabel } from "@/components/section-label"
 
 const upcomingEvents = [
   {
@@ -23,35 +23,67 @@ const upcomingEvents = [
 ]
 
 export default function SchedulePage() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
 
   return (
     <>
       <Header />
       <main className="pt-16">
-        <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/hero-background.jpg"
-              alt="FLC Event"
-              fill
-              className="object-cover opacity-30"
-              priority
-            />
-            <div className="absolute inset-0 bg-primary/90 opacity-70" />
-          </div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 opacity-100">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
-                Eseménynaptár
-              </h1>
-              <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
-                Heti alkalmaink minden csütörtökön 15:45-kor a 10-es teremben az Eötvös József Gimnáziumban.
-              </p>
+        {/* Dark navy, split layout. The "next session" info card on the right
+            answers the most important question immediately: when and where.
+            Previously this info was only inside the body, below the fold. */}
+        <section className="relative min-h-[50vh] flex items-center overflow-hidden bg-gradient-to-b from-primary to-[#0a1a47] text-primary-foreground">
+          <div aria-hidden="true" className="absolute -top-16 right-1/4 w-80 h-80 rounded-full bg-white/[0.04] blur-3xl pointer-events-none" />
+
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+
+              <Reveal>
+                <SectionLabel tone="light" align="start">Eseménynaptár</SectionLabel>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-balance leading-[1.05] tracking-tight">
+                  Heti alkalmak
+                </h1>
+                <p className="text-lg text-pretty leading-relaxed text-primary-foreground/85 max-w-lg">
+                  Rendszeres csütörtöki foglalkozások, versenyek és különleges vendégelőadások az egész tanév során.
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.15}>
+                <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6 sm:p-8 space-y-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/50">
+                    Rendszeres alkalmak
+                  </p>
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                        <Calendar className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-primary-foreground/50 mb-0.5">Nap</p>
+                        <p className="font-bold text-lg">Minden csütörtök</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                        <Clock className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-primary-foreground/50 mb-0.5">Időpont</p>
+                        <p className="font-bold text-lg">15:45 – 16:45</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
+                        <MapPin className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-primary-foreground/50 mb-0.5">Helyszín</p>
+                        <p className="font-bold">10-es terem<br /><span className="font-normal text-sm text-primary-foreground/75">Eötvös József Gimnázium</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+
             </div>
           </div>
         </section>
@@ -62,12 +94,7 @@ export default function SchedulePage() {
               <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Közelgő események</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
                 {upcomingEvents.map((event, index) => (
-                  <div
-                    key={index}
-                    className={`transition-all duration-700 ease-out ${
-                      isVisible ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-                    }`}
-                  >
+                  <Reveal key={index} delay={index * 0.1}>
                     <Card className="border-border hover:shadow-lg transition-shadow h-full">
                       <CardHeader>
                         <div className="flex items-center justify-between mb-2">
@@ -114,7 +141,7 @@ export default function SchedulePage() {
                         )}
                       </CardContent>
                     </Card>
-                  </div>
+                  </Reveal>
                 ))}
               </div>
 

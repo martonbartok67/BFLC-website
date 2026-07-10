@@ -3,6 +3,8 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Presentation, Trophy, Users, Briefcase, Target, Lightbulb } from "lucide-react"
 import Image from "next/image"
+import { Reveal } from "@/components/motion/reveal"
+import { SectionLabel } from "@/components/section-label"
 
 const features = [
   {
@@ -51,28 +53,44 @@ export default function AboutPage() {
     <>
       <Header />
       <main className="pt-16">
-        <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/hero-background.jpg"
-              alt="FLC About"
-              fill
-              className="object-cover opacity-30"
-              priority
-            />
-            <div className="absolute inset-0 bg-primary/90 opacity-70" />
-          </div>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
-                Klubunkról
-              </h1>
-              <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
-                A Financial Literacy Club 2024 májusában alakult, azzal a céllal, hogy diákok számára biztosítson
-                alapvető és a mindennapokban releváns pénzügyi ismereteket, amelyek a középiskolai oktatásból gyakran
-                hiányoznak. Bár a klubot diákok vezetik, az oktatási programokat és tevékenységeket szakértő támogatók
-                és partnerek segítik, hogy hasznos és praktikus ismereteket sajátíthassanak el diákjaink.
-              </p>
+        {/* Light background, split layout. The team photo has been buried below
+            the fold on this page since launch -- moving it to the hero makes
+            the club feel real immediately, before anyone reads anything. */}
+        <section className="relative overflow-hidden bg-background border-b border-border">
+          <div aria-hidden="true" className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/[0.05] blur-3xl pointer-events-none" />
+
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+
+              <Reveal>
+                <SectionLabel align="start">Rólunk</SectionLabel>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-balance leading-[1.05] tracking-tight">
+                  Klubunkról
+                </h1>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg">
+                  A Financial Literacy Club 2024 májusában alakult, azzal a céllal, hogy diákok számára biztosítson
+                  alapvető és a mindennapokban releváns pénzügyi ismereteket, amelyek a középiskolai oktatásból
+                  gyakran hiányoznak.
+                </p>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <span className="h-px w-8 bg-primary/30" />
+                  <span>Alapítva: 2024. május · Eötvös József Gimnázium</span>
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.15}>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/[0.06]">
+                  <Image
+                    src="/images/flc-team-2025.jpeg"
+                    alt="A Budapest Financial Literacy Club csapata 2025-ben"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
+                </div>
+              </Reveal>
+
             </div>
           </div>
         </section>

@@ -3,18 +3,11 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
-  Instagram,
-  Mail,
-  Linkedin,
-  Heart,
-  Lightbulb,
-  Users,
-  Presentation,
-  Megaphone,
-  Handshake,
-  Building2,
+  Instagram, Mail, Linkedin, Heart, Lightbulb, Users,
+  Presentation, Megaphone, Handshake, Building2,
 } from "lucide-react"
-import Image from "next/image"
+import { Reveal } from "@/components/motion/reveal"
+import { SectionLabel } from "@/components/section-label"
 
 export default function CollaborationPage() {
   return (
@@ -22,32 +15,39 @@ export default function CollaborationPage() {
       <Header />
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0">
-            <Image
-              src="/images/hero-background.jpg"
-              alt="FLC Collaboration"
-              fill
-              className="object-cover opacity-30"
-              priority
-            />
-            <div className="absolute inset-0 bg-primary/90 opacity-70" />
-          </div>
-          <div className="absolute top-20 right-10 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
-          <div className="absolute bottom-20 left-10 w-40 h-40 bg-white/5 rounded-full blur-3xl" />
+        {/* Dark navy, left-aligned. The old "Együttműködés" pill badge + centered
+            title read the same as every other page. Benefit chips (the actual
+            four collaboration types from the body) and a CTA in the hero means
+            partners can understand the offer and act without scrolling. */}
+        <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-gradient-to-b from-primary to-[#0a1a47] text-primary-foreground">
+          <div aria-hidden="true" className="absolute -top-16 right-0 w-96 h-96 rounded-full bg-white/[0.05] blur-3xl pointer-events-none" />
+          <div aria-hidden="true" className="absolute bottom-0 left-1/3 w-72 h-72 rounded-full bg-[#C5B0E1]/[0.04] blur-3xl pointer-events-none" />
 
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="max-w-3xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6">
-                <Heart className="w-4 h-4 text-primary-foreground" />
-                <span className="text-sm text-primary-foreground/90">Együttműködés</span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-balance text-primary-foreground">
-                Együttműködés
-              </h1>
-              <p className="text-lg text-pretty leading-relaxed text-primary-foreground/90">
-                Segíts nekünk abban, hogy még több diákot érhessünk el pénzügyi oktatási programunkkal!
-              </p>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20">
+            <div className="max-w-3xl">
+              <Reveal>
+                <SectionLabel tone="light" align="start">Együttműködés</SectionLabel>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-balance leading-[1.05] tracking-tight">
+                  Építsük együtt<br className="hidden sm:block" /> a jövőt
+                </h1>
+                <p className="text-lg text-pretty leading-relaxed text-primary-foreground/85 mb-8 max-w-2xl">
+                  Segíts nekünk abban, hogy még több diákot érhessünk el pénzügyi oktatási programunkkal!
+                </p>
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {["Vendégelőadások", "Céglátogatások", "Szponzorálás", "Iskolai látogatások"].map(chip => (
+                    <span key={chip} className="bg-white/10 border border-white/15 px-4 py-1.5 rounded-full text-sm text-primary-foreground/90">
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href="mailto:bflc@bflc.hu"
+                  className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-3 rounded-xl hover:bg-white/90 transition-all duration-200 hover:scale-[1.02]"
+                >
+                  <Mail className="h-4 w-4" />
+                  Kapcsolatfelvétel
+                </a>
+              </Reveal>
             </div>
           </div>
         </section>
