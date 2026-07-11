@@ -37,40 +37,28 @@ export default function ArticlesPage() {
 
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <article className="bg-card rounded-lg shadow-sm border p-8 md:p-12">
-                <div className="mb-8">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="inline-flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                      <TrendingUp className="w-3 h-3" />
-                      Pénzügyi tudatosság
-                    </span>
-                    <span className="inline-flex items-center gap-1 bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
-                      <Lightbulb className="w-3 h-3" />
-                      Oktatás
-                    </span>
-                  </div>
-
-                  <h1 className="text-3xl md:text-4xl font-bold mb-6 text-balance text-primary">
+            <div className="max-w-2xl mx-auto">
+              <article>
+                <div className="mb-10">
+                  <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance leading-snug">
                     Pénzügyi tudatosság tinédzserként? Miért kell időben elkezdeni?
-                  </h1>
-
-                  <div className="flex flex-wrap gap-6 text-sm text-muted-foreground border-l-4 border-primary pl-4 py-2">
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground py-4 border-y border-border">
                     <div className="flex items-center gap-2">
-                      <User className="w-4 h-4" />
-                      <span className="font-medium">Balogh Bendegúz & Bartók Márton</span>
+                      <User className="w-4 h-4 flex-shrink-0" />
+                      <span className="font-medium text-foreground">Balogh Bendegúz & Bartók Márton</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      <span>2025. 02. 06.</span>
+                      <Calendar className="w-4 h-4 flex-shrink-0" />
+                      <span>2025. február 6.</span>
                     </div>
+                    <span className="hidden sm:inline text-border">·</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">Pénzügyi tudatosság</span>
                   </div>
                 </div>
 
-                <div className="w-16 h-1 bg-primary/20 rounded-full mb-8" />
-
                 <div className="prose prose-lg max-w-none">
-                  <p className="lead text-xl text-muted-foreground mb-8 leading-relaxed">
+                  <p className="drop-cap text-lg text-muted-foreground mb-8 leading-relaxed">
                     Egyre többen találjuk magunkat szemben azzal, hogy tinédzserként nincsenek alapvető pénzügyi
                     ismereteink, holott a gazdasági környezet kihívásai – például az árak gyors növekedése – minket is
                     napi szinten érintenek. Az ismereteink korai bővítése és a tudatos pénzkezelés elsajátítása nemcsak
@@ -90,12 +78,10 @@ export default function ArticlesPage() {
                     kérdésekre keressük a választ.
                   </p>
 
-                  <h2 className="text-2xl font-bold mt-12 mb-6 flex items-center gap-3 text-primary">
-                    <span className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                      1
-                    </span>
-                    A pénzügyi ismeretek hiányának hatásai
-                  </h2>
+                  <div className="mt-14 mb-5">
+                    <span className="text-xs font-bold text-primary/60 tracking-[0.2em] uppercase block mb-1">01</span>
+                    <h2 className="text-2xl sm:text-3xl font-bold leading-snug">A pénzügyi ismeretek hiányának hatásai</h2>
+                  </div>
 
                   <p className="mb-6 leading-relaxed">
                     A pénzügyi tudás hiánya gyakran vezet impulzusvásárláshoz és a megtakarítások elmaradásához, ami
@@ -123,12 +109,10 @@ export default function ArticlesPage() {
                     ahol nem tudjuk a pénz "valódi értékét".
                   </p>
 
-                  <h2 className="text-2xl font-bold mt-12 mb-6 flex items-center gap-3 text-primary">
-                    <span className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                      2
-                    </span>
-                    A pénzügyi oktatás Magyarországon - hiánya és lehetőségek
-                  </h2>
+                  <div className="mt-14 mb-5">
+                    <span className="text-xs font-bold text-primary/60 tracking-[0.2em] uppercase block mb-1">02</span>
+                    <h2 className="text-2xl sm:text-3xl font-bold leading-snug">A pénzügyi oktatás Magyarországon — hiánya és lehetőségek</h2>
+                  </div>
 
                   <p className="mb-6 leading-relaxed">
                     Magyarországon az iskolai tantervekben szinte egyáltalán nem szerepelnek átfogó, gyakorlati pénzügyi
@@ -144,22 +128,19 @@ export default function ArticlesPage() {
                     hozzáférhetők.
                   </p>
 
-                  <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg my-8 text-primary">
-                    <p className="leading-relaxed font-medium text-primary">
-                      Mi azzal a céllal hoztuk létre tavaly májusban a Budapest Financial Literacy Club-ot az Eötvös
-                      József Gimnáziumban, hogy középiskolás diákok számára biztosítson alapvető és releváns pénzügyi
-                      ismereteket heti rendszerességgel, szakértők előadásain és workshopokon keresztül. Jelenleg számos
-                      budapesti gimnáziummal állunk kapcsolatban, és diákjaik számára teljes mértékben elérhető
-                      programunk.
+                  <blockquote className="my-12 -mx-4 sm:-mx-8 md:-mx-16 px-8 sm:px-12 py-8 bg-primary text-primary-foreground rounded-2xl relative overflow-hidden">
+                    <div aria-hidden="true" className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-white/[0.06] blur-2xl" />
+                    <span aria-hidden="true" className="absolute top-2 left-6 text-7xl font-bold text-white/10 leading-none select-none">"</span>
+                    <p className="text-lg sm:text-xl font-medium leading-relaxed relative z-10 mb-4">
+                      Mi azzal a céllal hoztuk létre 2024 májusában a Budapest Financial Literacy Club-ot, hogy középiskolás diákok számára biztosítson alapvető és releváns pénzügyi ismereteket heti rendszerességgel, szakértők előadásain és workshopokon keresztül.
                     </p>
-                  </div>
+                    <cite className="text-sm text-primary-foreground/70 not-italic">— Balogh Bendegúz & Bartók Márton, alapítók</cite>
+                  </blockquote>
 
-                  <h2 className="text-2xl font-bold mt-12 mb-6 flex items-center gap-3">
-                    <span className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                      3
-                    </span>
-                    Hogyan segíthet személyes szinten a pénzügyi oktatás?
-                  </h2>
+                  <div className="mt-14 mb-5">
+                    <span className="text-xs font-bold text-primary/60 tracking-[0.2em] uppercase block mb-1">03</span>
+                    <h2 className="text-2xl sm:text-3xl font-bold leading-snug">Hogyan segíthet személyes szinten a pénzügyi oktatás?</h2>
+                  </div>
 
                   <p className="mb-6 leading-relaxed">
                     Már az gimnáziumi éveink alatt is naponta kerülünk döntéshelyzetekbe, – Megvegyem-e ezt a
@@ -192,12 +173,10 @@ export default function ArticlesPage() {
                     optimalizálni az adófizetést, így létfontosságú ezen a téren is tájékozódnunk.
                   </p>
 
-                  <h2 className="text-2xl font-bold mt-12 mb-6 flex items-center gap-3">
-                    <span className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                      4
-                    </span>
-                    Jövőkép: A pénzügyi tudatosság hosszú távú hatása
-                  </h2>
+                  <div className="mt-14 mb-5">
+                    <span className="text-xs font-bold text-primary/60 tracking-[0.2em] uppercase block mb-1">04</span>
+                    <h2 className="text-2xl sm:text-3xl font-bold leading-snug">Jövőkép — a pénzügyi tudatosság hosszú távú hatása</h2>
+                  </div>
 
                   <p className="mb-6 leading-relaxed">
                     A pénzügyi készségek fejlesztése hozzájárul a személyes fejlődéshez is: növeli önfegyelmet,
@@ -214,66 +193,49 @@ export default function ArticlesPage() {
                     teremtenek.
                   </p>
 
-                  <div className="w-16 h-1 bg-primary/20 rounded-full my-12 mx-auto" />
+                  <div className="mt-14 pt-8 border-t border-border">
+                    <div className="flex items-start gap-4 mb-10">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <User className="w-5 h-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground">Balogh Bendegúz & Bartók Márton</p>
+                        <p className="text-sm text-muted-foreground">11. osztályos diákok · Budapest Financial Literacy Club alapítói</p>
+                        <p className="text-xs text-muted-foreground mt-1">2025. február 6.</p>
+                      </div>
+                    </div>
 
-                  <div className="text-center text-muted-foreground mt-12 pt-8 border-t">
-                    <p className="font-medium mb-2">2025. 02. 06.</p>
-                    <p className="text-lg">Balogh Bendegúz & Bartók Márton</p>
-                    <p className="text-sm">11. osztályos diákok - a Financial Literacy Club vezetősége</p>
-                  </div>
-
-                  <div className="mt-12 pt-8 border-t">
-                    <h3 className="text-sm font-semibold mb-4 text-muted-foreground">Források:</h3>
-                    <ul className="text-sm text-muted-foreground space-y-2">
-                      <li>
-                        1.{" "}
-                        <a
-                          href="https://www.mnb.hu/sajtoszoba/sajtokozlemenyek/2024-evi-sajtokozlemenyek/a-penzugyi-egeszseg-nem-csupan-az-anyagi-helyzettol-fugg"
-                          className="text-primary hover:underline"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          MNB - A pénzügyi egészség nem csupán az anyagi helyzettől függ
-                        </a>
-                      </li>
-                      <li>
-                        2.{" "}
-                        <a
-                          href="https://beconomist.hu/"
-                          className="text-primary hover:underline"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          BeEconomist
-                        </a>
-                      </li>
-                      <li>
-                        3.{" "}
-                        <a
-                          href="https://www.otpfayalapitvany.hu/web/aloldal/digitalis_oktatasi_program"
-                          className="text-primary hover:underline"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          OTP Fáy András Alapítvány - Digitális oktatási program
-                        </a>
-                      </li>
-                    </ul>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground mb-3">Források</p>
+                      <ol className="text-sm text-muted-foreground space-y-2 list-none">
+                        <li>
+                          <a href="https://www.mnb.hu/sajtoszoba/sajtokozlemenyek/2024-evi-sajtokozlemenyek/a-penzugyi-egeszseg-nem-csupan-az-anyagi-helyzettol-fugg" className="hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
+                            MNB — A pénzügyi egészség nem csupán az anyagi helyzettől függ
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://beconomist.hu/" className="hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
+                            BeEconomist
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.otpfayalapitvany.hu/web/aloldal/digitalis_oktatasi_program" className="hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
+                            OTP Fáy András Alapítvány — Digitális oktatási program
+                          </a>
+                        </li>
+                      </ol>
+                    </div>
                   </div>
                 </div>
               </article>
 
-              <div className="mt-16 text-center">
-                <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
-                  <BookOpen className="w-4 h-4 text-primary" />
-                  <span className="text-sm text-primary font-medium">További tartalmak</span>
-                </div>
-                <h2 className="text-3xl font-bold mb-4">További cikkek hamarosan!</h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8">
-                  Klubtagjaink folyamatosan dolgoznak új, érdekes és informatív cikkeken különböző pénzügyi témákban.
-                  Kövess minket a közösségi médiában, hogy értesülj az új tartalmakról!
+              <div className="mt-20 pt-12 border-t border-border text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-3">Folytatás</p>
+                <h2 className="text-2xl font-bold mb-3">További cikkek hamarosan</h2>
+                <p className="text-muted-foreground leading-relaxed max-w-md mx-auto mb-8">
+                  Klubtagjaink folyamatosan dolgoznak új cikkeken. Kövess minket, hogy értesülj az új tartalmakról.
                 </p>
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="rounded-xl">
                   <a href="https://www.instagram.com/budapestflc/" target="_blank" rel="noopener noreferrer">
                     Kövess Instagramon
                   </a>
