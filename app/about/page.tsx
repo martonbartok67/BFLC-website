@@ -23,35 +23,6 @@ const values = [
   },
 ]
 
-// Timeline — the one thing this page has that the homepage doesn't.
-// Content drawn from what's verifiably stated on the site.
-const timeline = [
-  {
-    date: "2024. május",
-    title: "Megalakul a klub",
-    description:
-      "A Budapest Financial Literacy Club az Eötvös József Gimnáziumban jön létre. Célja: alapvető és mindennapokban releváns pénzügyi ismeretek diákoknak, amelyek a középiskolai oktatásból hiányoznak.",
-  },
-  {
-    date: "2024. szeptember",
-    title: "Rendszeres csütörtöki alkalmak",
-    description:
-      "Megkezdődnek a heti foglalkozások: saját előadások, interaktív workshopok, vendégelőadók — strukturált, modulszerű tudásépítéssel.",
-  },
-  {
-    date: "2024–2025",
-    title: "Versenyek, céglátogatások, európai szint",
-    description:
-      "A klub diákjai pénzügyi és közgazdasági versenyeken vesznek részt, céglátogatásokon és az Európai Parlamentben is megjelennek.",
-  },
-  {
-    date: "2025",
-    title: "Bővülés több iskolára",
-    description:
-      "Számos fővárosi és vidéki gimnázium diákjai számára is elérhetővé válik a program. A klub nyitott minden középiskolásnak.",
-  },
-]
-
 export default function AboutPage() {
   return (
     <>
@@ -98,40 +69,61 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── Timeline ──────────────────────────────────────────────────────
-            Replaces the "Mit nyújtunk?" card grid (identical to the homepage
-            bento section) and the duplicate team photo in "Csapatunk".
-            A timeline is the one content type that belongs only on this page
-            and can't exist on the homepage. */}
-        <section className="py-20 sm:py-24 bg-background border-b border-border">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <Reveal className="max-w-3xl mx-auto text-center mb-16">
-              <SectionLabel>Történetünk</SectionLabel>
-              <h2 className="text-3xl sm:text-4xl font-bold text-balance">Hogyan kezdődött</h2>
-            </Reveal>
+        {/* ── About: dark editorial section ─────────────────────────────
+            Uses the original "Csapatunk" + "Mit nyújtunk?" text verbatim.
+            The problem was never the text — it was the same card pattern
+            as the homepage. Here the founding paragraph runs at editorial
+            scale in dark navy, and the four features sit below as a clean
+            typographic 2×2 grid instead of duplicated card components. */}
+        <section className="relative bg-gradient-to-b from-primary to-[#0a1a47] text-primary-foreground overflow-hidden">
+          <div aria-hidden="true" className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/[0.04] blur-3xl pointer-events-none" />
+          <div aria-hidden="true" className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#C5B0E1]/[0.04] blur-3xl pointer-events-none" />
 
-            <div className="max-w-2xl mx-auto relative">
-              {/* Vertical track */}
-              <div aria-hidden="true" className="absolute left-3 top-2 bottom-2 w-px bg-border" />
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 relative z-10">
+            <div className="max-w-6xl mx-auto">
 
-              <div className="space-y-10">
-                {timeline.map((event, i) => (
-                  <Reveal key={i} delay={i * 0.1}>
-                    <div className="relative pl-12">
-                      {/* Dot */}
-                      <div className="absolute left-0 top-1.5 w-7 h-7 rounded-full bg-background border-2 border-primary flex items-center justify-center">
-                        <div className="w-2 h-2 rounded-full bg-primary" />
-                      </div>
+              {/* Founding statement — original text, editorial scale */}
+              <Reveal className="mb-16">
+                <SectionLabel tone="light" align="start">A klubunkról</SectionLabel>
+                <p className="text-xl sm:text-2xl md:text-3xl font-medium leading-relaxed text-primary-foreground/90 max-w-4xl">
+                  Mi azzal a céllal hoztuk létre 2024 májusában a Budapest Financial Literacy Club-ot az Eötvös
+                  József Gimnáziumban, hogy középiskolás diákok számára biztosítson alapvető és releváns pénzügyi
+                  ismereteket heti rendszerességgel, szakértők előadásain, interaktív workshopokon és
+                  céglátogatásokon keresztül. Jelenleg számos budapesti és vidéki gimnáziummal állunk kapcsolatban,
+                  és diákjaik számára teljes mértékben elérhető programunk.
+                </p>
+              </Reveal>
 
-                      <span className="inline-block text-xs font-bold text-primary uppercase tracking-[0.18em] mb-1">
-                        {event.date}
-                      </span>
-                      <h3 className="text-lg font-bold mb-1">{event.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">{event.description}</p>
+              {/* Four features as typographic 2×2 grid — original text, no card clones */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-10 border-t border-white/10 pt-12">
+                {[
+                  {
+                    title: "Sokszínű alkalmak",
+                    text: "Hetente izgalmas előadások, workshopok és vendégelőadók különböző pénzügyi témákban.",
+                  },
+                  {
+                    title: "Versenyfelkészítés",
+                    text: "Közép- és nagyvállalati esettanulmányi versenyek a megszerzett tudás valós tesztelésére.",
+                  },
+                  {
+                    title: "Hálózatépítés",
+                    text: "Kapcsolatépítési lehetőségek pénzügyi szakemberekkel és más motivált diákokkal.",
+                  },
+                  {
+                    title: "Nyitott mindenkinek",
+                    text: "Nincsen szükség előzetes tapasztalatra. Minden érdeklődő diákot szívesen látunk.",
+                  },
+                ].map((item, i) => (
+                  <Reveal key={i} delay={i * 0.08}>
+                    <div className="flex flex-col gap-2">
+                      <span className="h-px w-8 bg-white/30 mb-1" />
+                      <h3 className="text-base font-semibold text-primary-foreground">{item.title}</h3>
+                      <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
                     </div>
                   </Reveal>
                 ))}
               </div>
+
             </div>
           </div>
         </section>
