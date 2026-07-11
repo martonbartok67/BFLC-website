@@ -1,38 +1,13 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
-import { Presentation, Trophy, Users, Briefcase, Target, Lightbulb } from "lucide-react"
+import { Target, Lightbulb } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
 
-const features = [
-  {
-    icon: Presentation,
-    title: "Sokszínű alkalmak",
-    description:
-      "A rendszeres saját és vendég előadásokat interaktív workshopok és beszélgetések is kiegészítik, így biztosítva, hogy minél változatosabb formában adhassunk át hasznosítható ismereteket és újdonságokat. Az év során modulszerű egységek biztosítják a strukturált tudásépítést.",
-  },
-  {
-    icon: Users,
-    title: "Soft skill-ek fejlesztése",
-    description:
-      "Csapatmunkán, beszélgetéseken és prezentációkon át nyújtunk lehetőséget a nyilvános beszédkészség, kritikus gondolkodás, csapatmunka és vezetői képességek fejlesztésére is. Ezek mindannyiunk jövőjében (és jelenjében is!) kiemelten fontos készségek, hiszen minden közösségben szükségünk lesz rájuk.",
-  },
-  {
-    icon: Briefcase,
-    title: "Karrier- és kapcsolatépítés",
-    description:
-      " Építs ki az előadások és céglátogatások alkalmával már most olyan kapcsolatrendszert, amely karriered alapját képezheti. Kapcsolódj diák társaiddal és akár szakértőkkel is ezen alkalmakkor. ",
-  },
-  {
-    icon: Trophy,
-    title: "Pályaorientáció",
-    description:
-      "Programunk részeként betekintést kaphatunk felsőoktatási lehetőségekbe, megismerkedünk azok meghatározó elemeivel és különbségeivel is. Mindezt oktatással foglalkozó szakemberek tanácsai és szakértő előadóink tapasztalatai, karrierútjai segítik.",
-  },
-]
-
+// Mission + Vision — unique to this page, not on the homepage
 const values = [
   {
     icon: Target,
@@ -48,14 +23,42 @@ const values = [
   },
 ]
 
+// Timeline — the one thing this page has that the homepage doesn't.
+// Content drawn from what's verifiably stated on the site.
+const timeline = [
+  {
+    date: "2024. május",
+    title: "Megalakul a klub",
+    description:
+      "A Budapest Financial Literacy Club az Eötvös József Gimnáziumban jön létre. Célja: alapvető és mindennapokban releváns pénzügyi ismeretek diákoknak, amelyek a középiskolai oktatásból hiányoznak.",
+  },
+  {
+    date: "2024. szeptember",
+    title: "Rendszeres csütörtöki alkalmak",
+    description:
+      "Megkezdődnek a heti foglalkozások: saját előadások, interaktív workshopok, vendégelőadók — strukturált, modulszerű tudásépítéssel.",
+  },
+  {
+    date: "2024–2025",
+    title: "Versenyek, céglátogatások, európai szint",
+    description:
+      "A klub diákjai pénzügyi és közgazdasági versenyeken vesznek részt, céglátogatásokon és az Európai Parlamentben is megjelennek.",
+  },
+  {
+    date: "2025",
+    title: "Bővülés több iskolára",
+    description:
+      "Számos fővárosi és vidéki gimnázium diákjai számára is elérhetővé válik a program. A klub nyitott minden középiskolásnak.",
+  },
+]
+
 export default function AboutPage() {
   return (
     <>
       <Header />
       <main className="pt-16">
-        {/* Light background, split layout. The team photo has been buried below
-            the fold on this page since launch -- moving it to the hero makes
-            the club feel real immediately, before anyone reads anything. */}
+
+        {/* ── Hero: light split layout, team photo ──────────────────────── */}
         <section className="relative overflow-hidden bg-background border-b border-border">
           <div aria-hidden="true" className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary/[0.05] blur-3xl pointer-events-none" />
 
@@ -95,54 +98,78 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-20 sm:py-24 bg-background">
+        {/* ── Timeline ──────────────────────────────────────────────────────
+            Replaces the "Mit nyújtunk?" card grid (identical to the homepage
+            bento section) and the duplicate team photo in "Csapatunk".
+            A timeline is the one content type that belongs only on this page
+            and can't exist on the homepage. */}
+        <section className="py-20 sm:py-24 bg-background border-b border-border">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance">Mit nyújtunk?</h2>
-              <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
-                Klubunk átfogó pénzügyi oktatást nyújt különböző tevékenységeken és programokon keresztül.
-              </p>
-            </div>
+            <Reveal className="max-w-3xl mx-auto text-center mb-16">
+              <SectionLabel>Történetünk</SectionLabel>
+              <h2 className="text-3xl sm:text-4xl font-bold text-balance">Hogyan kezdődött</h2>
+            </Reveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-              {features.map((feature, index) => {
-                const Icon = feature.icon
-                return (
-                  <Card key={index} className="border-border hover:border-primary transition-colors">
-                    <CardContent className="p-6">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <Icon className="h-6 w-6 text-primary" />
+            <div className="max-w-2xl mx-auto relative">
+              {/* Vertical track */}
+              <div aria-hidden="true" className="absolute left-3 top-2 bottom-2 w-px bg-border" />
+
+              <div className="space-y-10">
+                {timeline.map((event, i) => (
+                  <Reveal key={i} delay={i * 0.1}>
+                    <div className="relative pl-12">
+                      {/* Dot */}
+                      <div className="absolute left-0 top-1.5 w-7 h-7 rounded-full bg-background border-2 border-primary flex items-center justify-center">
+                        <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
-                      <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-                    </CardContent>
-                  </Card>
+
+                      <span className="inline-block text-xs font-bold text-primary uppercase tracking-[0.18em] mb-1">
+                        {event.date}
+                      </span>
+                      <h3 className="text-lg font-bold mb-1">{event.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-sm">{event.description}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Mission + Vision ──────────────────────────────────────────────
+            Not on the homepage — unique content this page justifies. */}
+        <section className="py-20 sm:py-24 bg-secondary/20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <Reveal className="max-w-3xl mx-auto text-center mb-12">
+              <SectionLabel>Értékeink</SectionLabel>
+              <h2 className="text-3xl sm:text-4xl font-bold text-balance">Küldetés & Vízió</h2>
+            </Reveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {values.map((value, i) => {
+                const Icon = value.icon
+                return (
+                  <Reveal key={i} delay={i * 0.1}>
+                    <Card className="border-border hover:border-primary transition-colors h-full">
+                      <CardContent className="p-6">
+                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                          <Icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                      </CardContent>
+                    </Card>
+                  </Reveal>
                 )
               })}
             </div>
           </div>
         </section>
 
-        <section className="py-20 sm:py-24 bg-secondary/30">
+        {/* ── CTA ───────────────────────────────────────────────────────── */}
+        <section className="py-20 sm:py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance text-center">Csapatunk</h2>
-              <div className="relative aspect-video rounded-2xl overflow-hidden mb-6">
-                <Image
-                  src="/images/flc-team-2025.jpeg"
-                  alt="Financial Literacy Club csapata 2025"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <p className="text-center text-muted-foreground text-pretty leading-relaxed">
-                Mi azzal a céllal hoztuk létre 2024 májusában a Budapest Financial Literacy Club-ot, hogy középiskolás diákok számára biztosítson alapvető és releváns pénzügyi ismereteket
-                heti rendszerességgel, szakértők előadásain, interaktív workshopokon és céglátogatásokon keresztül. Jelenleg számos budapesti
-                és vidéki gimnáziummal állunk kapcsolatban, és diákjaik számára teljes mértékben elérhető programunk.
-              </p>
-            </div>
-
-            <div className="max-w-3xl mx-auto text-center">
+            <Reveal className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance">Csatlakozz közösségünkhöz</h2>
               <p className="text-lg text-muted-foreground text-pretty leading-relaxed mb-8">
                 Akár teljesen kezdő vagy, akár már van némi előzetes tudásod, szeretettel várunk klubunkban. Minden
@@ -151,20 +178,21 @@ export default function AboutPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="mailto:bflc@bflc.hu"
-                  className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                  className="inline-flex items-center justify-center rounded-xl bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-all hover:scale-[1.02]"
                 >
                   Lépj kapcsolatba
                 </a>
-                <a
+                <Link
                   href="/schedule"
-                  className="inline-flex items-center justify-center rounded-md border border-input bg-background px-8 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                  className="inline-flex items-center justify-center rounded-xl border border-border bg-background px-8 py-3 text-sm font-medium hover:border-primary hover:text-primary transition-colors"
                 >
                   Naptár megtekintése
-                </a>
+                </Link>
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
+
       </main>
       <Footer />
     </>
