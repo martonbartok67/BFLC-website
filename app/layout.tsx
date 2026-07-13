@@ -39,10 +39,16 @@ export const metadata: Metadata = {
     images: ["/images/flc-logo-no-text.png"],
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png",    type: "image/png", sizes: "192x192" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
-    generator: 'v0.app'
+  manifest: "/manifest.json",
+  generator: "BFLC",
 };
 
 export default function RootLayout({
