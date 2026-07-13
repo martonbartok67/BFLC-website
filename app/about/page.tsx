@@ -1,3 +1,5 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
@@ -6,6 +8,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
+import { TextReveal } from "@/components/motion/text-reveal"
+import { TiltCard } from "@/components/motion/tilt-card"
+import { motion, useReducedMotion } from "framer-motion"
 
 // Mission + Vision — unique to this page, not on the homepage
 const values = [
@@ -82,41 +87,39 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 relative z-10">
             <div className="max-w-6xl mx-auto">
 
-              {/* Founding statement — original text, editorial scale */}
-              <Reveal className="mb-16">
-                <SectionLabel tone="light" align="start">A klubunkról</SectionLabel>
+              {/* Founding statement — word-by-word scroll reveal at editorial scale */}
+              <div className="mb-16">
+                <Reveal className="mb-6">
+                  <SectionLabel tone="light" align="start">A klubunkról</SectionLabel>
+                </Reveal>
                 <p className="text-xl sm:text-2xl md:text-3xl font-medium leading-relaxed text-primary-foreground/90 max-w-4xl">
-                  Mi azzal a céllal hoztuk létre 2024 májusában a Budapest Financial Literacy Club-ot az Eötvös
-                  József Gimnáziumban, hogy középiskolás diákok számára biztosítson alapvető és releváns pénzügyi
-                  ismereteket heti rendszerességgel, szakértők előadásain, interaktív workshopokon és
-                  céglátogatásokon keresztül. Jelenleg számos budapesti és vidéki gimnáziummal állunk kapcsolatban,
-                  és diákjaik számára teljes mértékben elérhető programunk.
+                  <TextReveal
+                    scroll
+                    text="Mi azzal a céllal hoztuk létre 2024 májusában a Budapest Financial Literacy Club-ot az Eötvös József Gimnáziumban, hogy középiskolás diákok számára biztosítson alapvető és releváns pénzügyi ismereteket heti rendszerességgel, szakértők előadásain, interaktív workshopokon és céglátogatásokon keresztül. Jelenleg számos budapesti és vidéki gimnáziummal állunk kapcsolatban, és diákjaik számára teljes mértékben elérhető programunk."
+                    wordDelay={0.04}
+                  />
                 </p>
-              </Reveal>
+              </div>
 
               {/* Four features as typographic 2×2 grid — original text, no card clones */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-10 border-t border-white/10 pt-12">
                 {[
-                  {
-                    title: "Sokszínű alkalmak",
-                    text: "Hetente izgalmas előadások, workshopok és vendégelőadók különböző pénzügyi témákban.",
-                  },
-                  {
-                    title: "Versenyfelkészítés",
-                    text: "Közép- és nagyvállalati esettanulmányi versenyek a megszerzett tudás valós tesztelésére.",
-                  },
-                  {
-                    title: "Hálózatépítés",
-                    text: "Kapcsolatépítési lehetőségek pénzügyi szakemberekkel és más motivált diákokkal.",
-                  },
-                  {
-                    title: "Nyitott mindenkinek",
-                    text: "Nincsen szükség előzetes tapasztalatra. Minden érdeklődő diákot szívesen látunk.",
-                  },
+                  { title: "Sokszínű alkalmak",    text: "Hetente izgalmas előadások, workshopok és vendégelőadók különböző pénzügyi témákban." },
+                  { title: "Versenyfelkészítés",   text: "Közép- és nagyvállalati esettanulmányi versenyek a megszerzett tudás valós tesztelésére." },
+                  { title: "Hálózatépítés",        text: "Kapcsolatépítési lehetőségek pénzügyi szakemberekkel és más motivált diákokkal." },
+                  { title: "Nyitott mindenkinek",  text: "Nincsen szükség előzetes tapasztalatra. Minden érdeklődő diákot szívesen látunk." },
                 ].map((item, i) => (
                   <Reveal key={i} delay={i * 0.08}>
                     <div className="flex flex-col gap-2">
-                      <span className="h-px w-8 bg-white/30 mb-1" />
+                      <motion.span
+                        aria-hidden="true"
+                        className="block h-px bg-white/50 mb-1 origin-left"
+                        style={{ width: "2rem" }}
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, ease: "easeOut", delay: i * 0.08 }}
+                      />
                       <h3 className="text-base font-semibold text-primary-foreground">{item.title}</h3>
                       <p className="text-sm text-primary-foreground/70 leading-relaxed">{item.text}</p>
                     </div>
@@ -142,15 +145,17 @@ export default function AboutPage() {
                 const Icon = value.icon
                 return (
                   <Reveal key={i} delay={i * 0.1}>
-                    <Card className="border-border hover:border-primary transition-colors h-full">
-                      <CardContent className="p-6">
-                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                          <Icon className="h-6 w-6 text-primary" />
-                        </div>
-                        <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-                      </CardContent>
-                    </Card>
+                    <TiltCard className="h-full rounded-xl">
+                      <Card className="border-border hover:border-primary transition-colors h-full">
+                        <CardContent className="p-6">
+                          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <Icon className="h-6 w-6 text-primary" />
+                          </div>
+                          <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                          <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                        </CardContent>
+                      </Card>
+                    </TiltCard>
                   </Reveal>
                 )
               })}

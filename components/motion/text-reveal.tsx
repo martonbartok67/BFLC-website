@@ -7,14 +7,12 @@ interface TextRevealProps {
   className?: string
   delay?: number
   wordDelay?: number
+  /** When true, fires on scroll (whileInView) instead of immediately on mount.
+   *  Use false (default) for hero headlines that are visible on load. */
+  scroll?: boolean
 }
 
-/**
- * Splits text into words and reveals them in sequence. Used for the hero
- * headline only — this is the single boldest motion moment on the site,
- * everything else stays calmer so this doesn't get diluted.
- */
-export function TextReveal({ text, className, delay = 0, wordDelay = 0.1 }: TextRevealProps) {
+export function TextReveal({ text, className, delay = 0, wordDelay = 0.1, scroll = false }: TextRevealProps) {
   const shouldReduceMotion = useReducedMotion()
   const words = text.split(" ")
 
@@ -28,7 +26,10 @@ export function TextReveal({ text, className, delay = 0, wordDelay = 0.1 }: Text
         <motion.span
           key={`${word}-${i}`}
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          {...(scroll
+            ? { whileInView: { opacity: 1, y: 0 }, viewport: { once: true, amount: 0.3 } }
+            : { animate: { opacity: 1, y: 0 } }
+          )}
           transition={{ duration: 0.5, ease: "easeOut", delay: delay + i * wordDelay }}
           style={{ display: "inline-block", marginRight: "0.28em" }}
         >
