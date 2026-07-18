@@ -133,6 +133,10 @@ export function Footer() {
         {/* ── Bottom bar ──────────────────────────────────────────────────── */}
         <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-primary-foreground/40">
           <p>© {new Date().getFullYear()} Budapest Financial Literacy Club</p>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-primary-foreground transition-colors">Adatvédelem</Link>
+            <Link href="/impresszum" className="hover:text-primary-foreground transition-colors">Impresszum</Link>
+          </div>
           <button
             onClick={scrollToTop}
             className="hover:text-primary-foreground transition-colors duration-200 flex items-center gap-1"
