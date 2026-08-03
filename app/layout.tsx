@@ -8,6 +8,7 @@ import { GeistSans } from "geist/font/sans"
 import { AmbientBackground } from "@/components/ambient-background"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bflc.hu"),
   title: {
     default: "Budapest Financial Literacy Club | BFLC",
     template: "%s | BFLC",
