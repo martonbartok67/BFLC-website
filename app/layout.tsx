@@ -6,6 +6,7 @@ import { Suspense } from "react"
 import Script from "next/script"
 import { GeistSans } from "geist/font/sans"
 import { AmbientBackground } from "@/components/ambient-background"
+import { CookieConsent } from "@/components/cookie-consent"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bflc.hu"),
@@ -61,6 +62,7 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <body className={`font-sans ${GeistSans.className} ${GeistSans.variable}`}>
         <AmbientBackground />
+        <CookieConsent />
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
         <Script

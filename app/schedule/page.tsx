@@ -9,6 +9,8 @@ import { Clock, MapPin, Calendar, ExternalLink, CalendarPlus } from "lucide-reac
 import { schedule } from "@/lib/schedule-data"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
+import { useState, useEffect } from "react"
+import { getCookieConsent } from "@/components/cookie-consent"
 
 const upcomingEvents = [
   {
@@ -23,6 +25,15 @@ const upcomingEvents = [
 ]
 
 export default function SchedulePage() {
+  const [consent, setConsent] = useState<"accepted" | "essential" | null>(null)
+
+  useEffect(() => {
+    setConsent(getCookieConsent())
+    // Re-check if the user accepts from the banner while on this page
+    const onStorage = () => setConsent(getCookieConsent())
+    window.addEventListener("storage", onStorage)
+    return () => window.removeEventListener("storage", onStorage)
+  }, [])
 
   return (
     <>
@@ -148,16 +159,31 @@ export default function SchedulePage() {
               {/* CALENDAR SECTION */}
               <div className="mb-20">
                 <h2 className="text-3xl font-bold mb-8 text-center">Interaktív Naptár</h2>
-                <div className="rounded-xl overflow-hidden border shadow-xl bg-white p-2">
-                  <iframe
-                    src="https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest"
-                    width="100%"
-                    height="600"
-                    frameBorder="0"
-                    scrolling="no"
-                    className="rounded-lg"
-                  ></iframe>
-                </div>
+
+                {consent === "accepted" ? (
+                  <div className="rounded-xl overflow-hidden border shadow-xl bg-white p-2">
+                    <iframe
+                      src="https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest"
+                      width="100%"
+                      height="600"
+                      frameBorder="0"
+                      scrolling="no"
+                      className="rounded-lg"
+                    />
+                  </div>
+                ) : (
+                  // Placeholder shown when cookies not yet accepted or declined
+                  <div className="rounded-xl border shadow-xl bg-secondary/20 flex flex-col items-center justify-center gap-4 p-10 text-center min-h-[300px]">
+                    <Calendar className="h-10 w-10 text-muted-foreground/40" />
+                    <div>
+                      <p className="font-semibold mb-1">A naptár megtekintéséhez süti-hozzájárulás szükséges</p>
+                      <p className="text-sm text-muted-foreground max-w-sm">
+                        A Google Naptár beágyazás sütikhez fér hozzá. Fogadd el a sütiket az oldal alján megjelenő értesítőben a naptár betöltéséhez.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 <div className="mt-4 text-center">
                   <Button variant="outline" className="gap-2" asChild>
                     <a
