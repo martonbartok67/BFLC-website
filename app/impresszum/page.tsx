@@ -7,7 +7,7 @@ export default function ImpresszumPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen py-20">
+      <main id="main-content" className="min-h-screen py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
           <Reveal>
             <SectionLabel align="start">Impresszum</SectionLabel>

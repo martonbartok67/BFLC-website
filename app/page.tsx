@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <HeroSection />
         <EventsSection />
         <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />

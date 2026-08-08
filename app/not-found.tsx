@@ -4,7 +4,7 @@ import { Reveal } from "@/components/motion/reveal"
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-background px-4">
+    <main id="main-content" className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="max-w-xl w-full text-center">
 
         <Reveal>

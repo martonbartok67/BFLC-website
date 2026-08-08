@@ -17,8 +17,9 @@ export function HeroSection() {
           src="/images/hero-background.jpg"
           alt="Financial Literacy Club presentation event"
           fill
-          className="object-cover opacity-30"
+          sizes="100vw"
           priority
+          className="object-cover opacity-30"
         />
       </div>
 

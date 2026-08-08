@@ -32,7 +32,7 @@ export function Header() {
   const shouldReduceMotion          = useReducedMotion()
 
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([])
-  const navRef   = useRef<HTMLDivElement>(null)
+  const navRef   = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10)
@@ -73,7 +73,7 @@ export function Header() {
               - Logo mark: 40px → 32px (same ratio as h-16 → h-14)
               - Text: opacity 1 → 0.75, scale 1 → 0.94 from left origin
               stiffness 320 / damping 28 = snappy, not elastic */}
-          <Link href="/" className="flex items-center gap-2" onClick={scrollToTop}>
+          <Link href="/" className="flex items-center gap-2" aria-label="BFLC főoldal" onClick={scrollToTop}>
             <motion.div
               className="relative flex-shrink-0"
               animate={shouldReduceMotion ? undefined : {
@@ -85,7 +85,7 @@ export function Header() {
             >
               <Image
                 src="/images/flc-logo-no-text.png"
-                alt="Financial Literacy Club"
+                alt=""
                 fill
                 sizes="40px"
                 className="object-contain rounded-lg"
@@ -111,10 +111,11 @@ export function Header() {
               Snaps back to the active route when mouse leaves the nav.
               indicator state is set via DOM measurement (useLayoutEffect)
               so the position is exact regardless of link label length. */}
-          <div
+          <nav
             ref={navRef}
             className="hidden lg:flex items-center gap-7 relative"
             onMouseLeave={() => setHoveredIdx(null)}
+            aria-label="Fő navigáció"
           >
             {!shouldReduceMotion && (
               <motion.div
@@ -145,10 +146,10 @@ export function Header() {
                 Csatlakozz!
               </Link>
             </Button>
-          </div>
+          </nav>
 
           {/* ── Mobile / narrow landscape ────────────────────────────────── */}
-          <div className="lg:hidden">
+          <nav className="lg:hidden" aria-label="Mobil navigáció">
             <StaggeredMenu
               items={navItems}
               socialItems={socialItems}
@@ -156,7 +157,7 @@ export function Header() {
               ctaLink="https://m.me/cm/AbaU8rQOgYlXAugE/"
               buttonColor="var(--primary)"
             />
-          </div>
+          </nav>
 
         </div>
       </div>

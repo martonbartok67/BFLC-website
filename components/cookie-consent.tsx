@@ -39,7 +39,7 @@ export function CookieConsent() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          role="dialog"
+          role="region"
           aria-label="Cookie hozzájárulás"
           aria-live="polite"
           className="fixed bottom-0 left-0 right-0 z-[200] p-4 sm:p-6"
@@ -58,7 +58,7 @@ export function CookieConsent() {
                 Megtudhatsz többet az adatvédelmi nyilatkozatunkban:{" "}
                 <Link
                   href="/privacy"
-                  className="underline underline-offset-2 hover:text-white transition-colors"
+                  className="rounded-sm underline underline-offset-2 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                 >
                   Adatvédelem
                 </Link>
@@ -69,13 +69,13 @@ export function CookieConsent() {
             <div className="flex items-center gap-2 flex-shrink-0">
               <button
                 onClick={essential}
-                className="text-sm font-medium text-primary-foreground/70 hover:text-primary-foreground transition-colors px-3 py-2 rounded-lg hover:bg-white/10"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-primary-foreground/70 transition-colors hover:bg-white/10 hover:text-primary-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
                 Csak szükséges
               </button>
               <button
                 onClick={accept}
-                className="text-sm font-semibold bg-white text-primary px-5 py-2 rounded-xl hover:bg-white/90 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="rounded-xl bg-white px-5 py-2 text-sm font-semibold text-primary transition-all hover:scale-[1.02] hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white active:scale-[0.98]"
               >
                 Elfogadás
               </button>

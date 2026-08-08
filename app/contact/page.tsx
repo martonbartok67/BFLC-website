@@ -9,7 +9,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         {/* Light background, minimal. The contact form below is the real
             content — this hero just sets the page context and gets out of the
             way. The ghost '@' echoes what email IS without being literal. */}

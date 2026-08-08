@@ -33,7 +33,7 @@ export default function CollaborationPage() {
   return (
     <>
       <Header />
-      <main className="pt-16">
+      <main id="main-content" className="pt-16">
         {/* Hero Section */}
         {/* Dark navy, left-aligned. The old "Együttműködés" pill badge + centered
             title read the same as every other page. Benefit chips (the actual

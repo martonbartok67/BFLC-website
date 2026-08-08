@@ -61,6 +61,12 @@ export default function RootLayout({
   return (
     <html lang="hu" className="bg-background">
       <body className={`font-sans ${GeistSans.className} ${GeistSans.variable}`}>
+        <a
+          href="#main-content"
+          className="sr-only fixed left-4 top-4 z-[300] rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground focus:not-sr-only focus:outline-none focus:ring-2 focus:ring-white"
+        >
+          Ugrás a tartalomra
+        </a>
         <AmbientBackground />
         <CookieConsent />
         <Suspense fallback={null}>{children}</Suspense>

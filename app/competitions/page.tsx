@@ -113,7 +113,7 @@ export default function CompetitionsPage() {
   return (
     <>
       <Header />
-      <main className="pt-16">
+      <main id="main-content" className="pt-16">
         {/* Dark navy, left-aligned. The centered icon-above-title treatment was
             identical to every other page. Giant ghost trophy at low opacity gives
             it a visual signature without competing with the content. */}

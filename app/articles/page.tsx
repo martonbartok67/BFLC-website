@@ -10,7 +10,7 @@ export default function ArticlesPage() {
   return (
     <>
       <Header />
-      <main className="pt-16">
+      <main id="main-content" className="pt-16">
         {/* Light background, editorial masthead feel. Horizontal rules, volume
             number, tracked small-caps label — signals "this is published content"
             rather than another generic page header. */}

@@ -46,6 +46,7 @@ export function StaggeredMenu({
   const openTlRef = useRef<gsap.core.Timeline | null>(null)
   const closeTweenRef = useRef<gsap.core.Tween | null>(null)
   const busyRef = useRef(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -119,6 +120,11 @@ export function StaggeredMenu({
       }
     }
 
+    tl.eventCallback("onComplete", () => {
+      busyRef.current = false
+      panel.querySelector<HTMLElement>("a, button")?.focus()
+    })
+
     openTlRef.current = tl
     return tl
   }, [])
@@ -128,9 +134,6 @@ export function StaggeredMenu({
     busyRef.current = true
     const tl = buildOpenTimeline()
     if (tl) {
-      tl.eventCallback("onComplete", () => {
-        busyRef.current = false
-      })
       tl.play(0)
     } else {
       busyRef.current = false
@@ -152,6 +155,7 @@ export function StaggeredMenu({
       overwrite: "auto",
       onComplete: () => {
         busyRef.current = false
+        toggleRef.current?.focus()
       },
     })
   }, [])
@@ -176,9 +180,19 @@ export function StaggeredMenu({
     playClose()
   }, [playClose, onOpenChange])
 
+  useLayoutEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMenu()
+    }
+
+    document.addEventListener("keydown", onKeyDown)
+    return () => document.removeEventListener("keydown", onKeyDown)
+  }, [closeMenu])
+
   return (
     <>
       <button
+        ref={toggleRef}
         className={styles.toggle}
         style={{ color: buttonColor }}
         aria-label={open ? "Menü bezárása" : "Menü megnyitása"}
@@ -203,6 +217,7 @@ export function StaggeredMenu({
         ref={panelRef}
         className={styles.panel}
         aria-hidden={!open}
+        inert={!open ? true : undefined}
         role="dialog"
         aria-modal="true"
       >

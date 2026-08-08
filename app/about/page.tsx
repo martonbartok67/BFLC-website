@@ -31,7 +31,7 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="pt-16">
+      <main id="main-content" className="pt-16">
 
         {/* ── Hero: light split layout, team photo ──────────────────────── */}
         <section className="relative overflow-hidden bg-background border-b border-border">

@@ -29,6 +29,7 @@ const calendarEmbedUrl =
 
 export default function SchedulePage() {
   const [consent, setConsent] = useState<"accepted" | "essential" | null>(null)
+  const [calendarLoaded, setCalendarLoaded] = useState(false)
 
   useEffect(() => {
     setConsent(getCookieConsent())
@@ -44,7 +45,7 @@ export default function SchedulePage() {
   return (
     <>
       <Header />
-      <main className="pt-16">
+      <main id="main-content" className="pt-16">
         <section className="relative min-h-[50vh] flex items-center overflow-hidden bg-gradient-to-b from-primary to-[#0a1a47] text-primary-foreground">
           <div aria-hidden="true" className="absolute -top-16 right-1/4 w-80 h-80 rounded-full bg-white/[0.04] blur-3xl pointer-events-none" />
 
@@ -146,7 +147,26 @@ export default function SchedulePage() {
                 </div>
 
                 {consent === "accepted" ? (
-                  <div className="overflow-hidden rounded-lg border bg-white">
+                  <div className="relative overflow-hidden rounded-lg border bg-white">
+                    {!calendarLoaded && (
+                      <div className="absolute inset-0 z-10 bg-white p-5">
+                        <div className="mb-5 flex items-center justify-between">
+                          <div className="h-5 w-40 animate-pulse rounded-full bg-primary/10" />
+                          <div className="h-8 w-24 animate-pulse rounded-md bg-muted" />
+                        </div>
+                        <div className="space-y-3">
+                          {[0, 1, 2, 3].map(row => (
+                            <div key={row} className="grid grid-cols-[5rem_1fr] gap-4 border-t border-border/70 pt-3">
+                              <div className="h-4 w-16 animate-pulse rounded-full bg-primary/10" />
+                              <div className="space-y-2">
+                                <div className="h-4 w-3/4 animate-pulse rounded-full bg-muted" />
+                                <div className="h-3 w-1/2 animate-pulse rounded-full bg-muted/70" />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                     <iframe
                       title="Budapest Financial Literacy Club Google Naptár"
                       src={calendarEmbedUrl}
@@ -154,6 +174,7 @@ export default function SchedulePage() {
                       height="420"
                       frameBorder="0"
                       scrolling="no"
+                      onLoad={() => setCalendarLoaded(true)}
                       className="block h-[360px] w-full sm:h-[420px]"
                     />
                   </div>

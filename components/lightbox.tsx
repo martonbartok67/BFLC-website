@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useCallback } from "react"
+import { useEffect, useCallback, useRef } from "react"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
@@ -17,6 +17,7 @@ export function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxPro
   const shouldReduceMotion = useReducedMotion()
   const isOpen = index !== null
   const image  = index !== null ? images[index] : null
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
 
   // Keyboard nav
   const onKey = useCallback((e: KeyboardEvent) => {
@@ -24,6 +25,25 @@ export function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxPro
     if (e.key === "Escape")     onClose()
     if (e.key === "ArrowLeft")  onPrev()
     if (e.key === "ArrowRight") onNext()
+    if (e.key === "Tab") {
+      const focusable = Array.from(
+        document.querySelectorAll<HTMLElement>(
+          "[data-lightbox-dialog] button, [data-lightbox-dialog] a, [data-lightbox-dialog] [tabindex]:not([tabindex='-1'])",
+        ),
+      ).filter(el => !el.hasAttribute("disabled") && el.getAttribute("aria-hidden") !== "true")
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (!first || !last) return
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
   }, [isOpen, onClose, onPrev, onNext])
 
   useEffect(() => {
@@ -35,6 +55,7 @@ export function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxPro
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"
+      closeButtonRef.current?.focus()
     } else {
       document.body.style.overflow = ""
     }
@@ -47,6 +68,10 @@ export function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxPro
         <motion.div
           key="lightbox-overlay"
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Galéria képnézegető"
+          data-lightbox-dialog
           initial={shouldReduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -81,9 +106,10 @@ export function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxPro
 
           {/* Close */}
           <button
+            ref={closeButtonRef}
             onClick={onClose}
             aria-label="Bezár"
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             <X className="h-5 w-5" />
           </button>
@@ -93,7 +119,7 @@ export function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxPro
             <button
               onClick={e => { e.stopPropagation(); onPrev() }}
               aria-label="Előző"
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
@@ -104,7 +130,7 @@ export function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxPro
             <button
               onClick={e => { e.stopPropagation(); onNext() }}
               aria-label="Következő"
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
               <ChevronRight className="h-6 w-6" />
             </button>
