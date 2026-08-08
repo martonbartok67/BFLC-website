@@ -7,6 +7,8 @@
  * this approach compiles directly into Vercel's CDN layer with zero
  * runtime overhead.
  */
+const isDev = process.env.NODE_ENV !== "production"
+
 const securityHeaders = [
   {
     key: "Content-Security-Policy",
@@ -19,7 +21,7 @@ const securityHeaders = [
       // arbitrary third-party domains, which is the main XSS vector.
       // Note: if a nonce-based strict CSP is ever needed, it requires
       // Next.js middleware to inject nonces per-request.
-      "script-src 'self' 'unsafe-inline'",
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
 
       // Tailwind uses inline styles throughout; 'unsafe-inline' required
       "style-src 'self' 'unsafe-inline'",
@@ -42,6 +44,9 @@ const securityHeaders = [
       // Blocks all plugin content (<object>, <embed>, <applet>)
       "object-src 'none'",
 
+      // Prevent other sites from embedding this site in frames.
+      "frame-ancestors 'self'",
+
       // No service workers used
       "worker-src 'none'",
 
@@ -53,7 +58,7 @@ const securityHeaders = [
       "form-action 'self'",
 
       // Upgrade any accidental http:// sub-resource requests to https://
-      "upgrade-insecure-requests",
+      ...(isDev ? [] : ["upgrade-insecure-requests"]),
     ].join("; "),
   },
   {
@@ -83,9 +88,19 @@ const securityHeaders = [
     key: "X-Content-Type-Options",
     value: "nosniff",
   },
+  ...(isDev
+    ? []
+    : [
+        {
+          // Tell browsers to use HTTPS for this domain after the first secure visit.
+          key: "Strict-Transport-Security",
+          value: "max-age=31536000; includeSubDomains",
+        },
+      ]),
 ]
 
 const nextConfig = {
+  poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
   },

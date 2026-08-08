@@ -7,6 +7,7 @@ import Link from "next/link"
 export type CookieConsent = "accepted" | "essential" | null
 
 const STORAGE_KEY = "bflc-cookie-consent"
+export const COOKIE_CONSENT_EVENT = "bflc-cookie-consent-change"
 
 export function getCookieConsent(): CookieConsent {
   if (typeof window === "undefined") return null
@@ -18,24 +19,20 @@ export function CookieConsent() {
   const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
-    // Only show if no prior choice has been stored
-    if (!localStorage.getItem(STORAGE_KEY)) {
-      // Small delay so the banner doesn't flash in before the page renders
-      const t = setTimeout(() => setVisible(true), 800)
-      return () => clearTimeout(t)
-    }
+    const t = setTimeout(() => setVisible(true), 800)
+    return () => clearTimeout(t)
   }, [])
 
   function accept() {
     localStorage.setItem(STORAGE_KEY, "accepted")
     setVisible(false)
-    // Reload so the calendar iframe initialises with consent granted
-    window.location.reload()
+    window.dispatchEvent(new Event(COOKIE_CONSENT_EVENT))
   }
 
   function essential() {
     localStorage.setItem(STORAGE_KEY, "essential")
     setVisible(false)
+    window.dispatchEvent(new Event(COOKIE_CONSENT_EVENT))
   }
 
   return (
@@ -56,9 +53,9 @@ export function CookieConsent() {
             {/* Text */}
             <div className="flex-1 min-w-0">
               <p className="text-sm leading-relaxed text-primary-foreground/90">
-                Az oldal Google Naptár beágyazást használ, amelyhez a Google sütiket helyez el.
-                Az „Elfogadás" gombra kattintva hozzájárulsz a nem szükséges sütik használatához.
-                Bővebben:{" "}
+                Az oldalon található beágyazott Google Naptárunk cookie-kat használ.
+                Az „Elfogadás" gombra kattintva hozzájárulsz, hogy az oldalon megjelenhet a beágyazott naptár. Ez segíti a programok közti tájékozódásod. 
+                Megtudhatsz többet az adatvédelmi nyilatkozatunkban:{" "}
                 <Link
                   href="/privacy"
                   className="underline underline-offset-2 hover:text-white transition-colors"

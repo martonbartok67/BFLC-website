@@ -3,13 +3,13 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Suspense } from "react"
-import Script from "next/script"
 import { GeistSans } from "geist/font/sans"
 import { AmbientBackground } from "@/components/ambient-background"
 import { CookieConsent } from "@/components/cookie-consent"
+import { siteUrl } from "@/lib/site"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://bflc.hu"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Budapest Financial Literacy Club | BFLC",
     template: "%s | BFLC",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "hu_HU",
-    url: "https://bflc.hu",
+    url: siteUrl,
     title: "Budapest Financial Literacy Club - Fejleszd a pénzügyi tudásod!",
     description: "Csatlakozz te is a BFLC-hez! Gyakorlatias pénzügyi ismeretek, mentorprogram és exkluzív vállalati látogatások.",
     siteName: "BFLC",
@@ -59,20 +59,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="hu" className="bg-background">
       <body className={`font-sans ${GeistSans.className} ${GeistSans.variable}`}>
         <AmbientBackground />
         <CookieConsent />
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
-        <Script
-          id="live2support"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var pp=document.createElement('script'), ppr=document.getElementsByTagName('script')[0]; stid='aUgyYjM4bnJMWmFZcHNpbTVqWkZVUT09';pp.type='text/javascript'; pp.async=true; pp.src=('https:' == document.location.protocol ? 'https://' : 'http://') + 's01.live2support.com/dashboardv2/chatwindow/'; ppr.parentNode.insertBefore(pp, ppr);})();`,
-          }}
-        />
-        <Script async src="https://www.instagram.com/embed.js" strategy="lazyOnload" />
       </body>
     </html>
   )

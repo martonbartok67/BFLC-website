@@ -2,14 +2,34 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import {
-  Instagram, Mail, Linkedin, Heart, Lightbulb, Users,
-  Presentation, Megaphone, Handshake, Building2,
-} from "lucide-react"
+import { Instagram, Mail, Linkedin, Heart } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
 
 export default function CollaborationPage() {
+  const collaborationOptions = [
+    {
+      title: "Iskolai látogatások",
+      text: "Szívesen tartunk bemutatkozó előadásokat és workshopokat más iskolákban is.",
+    },
+    {
+      title: "Vendégelőadások",
+      text: "Várjuk szakértők jelentkezését, akik megosztanák tudásukat diákjainkkal.",
+    },
+    {
+      title: "Céglátogatások",
+      text: "Szívesen látogatnánk meg vállalatokat, hogy diákjaink betekintést nyerjenek a pénzügyi szektor működésébe.",
+    },
+    {
+      title: "Promóciós együttműködés",
+      text: "Közös marketing kampányok és rendezvények szervezése partnerekkel.",
+    },
+    {
+      title: "Szponzorálás",
+      text: "Pénzügyi támogatás rendezvényeinkhez, eszközbeszerzéshez és programjainkhoz.",
+    },
+  ]
+
   return (
     <>
       <Header />
@@ -24,7 +44,7 @@ export default function CollaborationPage() {
           <div aria-hidden="true" className="absolute bottom-0 left-1/3 w-72 h-72 rounded-full bg-[#C5B0E1]/[0.04] blur-3xl pointer-events-none" />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20">
-            <div className="max-w-3xl">
+            <div className="max-w-5xl">
               <Reveal>
                 <SectionLabel tone="light" align="start">Együttműködés</SectionLabel>
                 <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 text-balance leading-[1.05] tracking-tight">
@@ -33,9 +53,15 @@ export default function CollaborationPage() {
                 <p className="text-lg text-pretty leading-relaxed text-primary-foreground/85 mb-8 max-w-2xl">
                   Segíts nekünk abban, hogy még több diákot érhessünk el pénzügyi oktatási programunkkal!
                 </p>
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {["Vendégelőadások", "Céglátogatások", "Szponzorálás", "Iskolai látogatások"].map(chip => (
-                    <span key={chip} className="bg-white/10 border border-white/15 px-4 py-1.5 rounded-full text-sm text-primary-foreground/90">
+                <div className="mb-8 flex flex-nowrap items-center gap-x-3 overflow-x-auto text-xs font-medium text-primary-foreground/75 sm:gap-x-4 sm:text-sm">
+                  {[
+                    "Iskolai látogatások",
+                    "Vendégelőadások",
+                    "Céglátogatások",
+                    "Promóciós együttműködések",
+                    "Szponzorálás",
+                  ].map(chip => (
+                    <span key={chip} className="relative shrink-0 after:ml-3 after:text-primary-foreground/30 after:content-['/'] last:after:content-[''] sm:after:ml-4">
                       {chip}
                     </span>
                   ))}
@@ -68,84 +94,49 @@ export default function CollaborationPage() {
                 </p>
               </div>
 
-              <Card className="mb-12 border-2 border-primary/20">
-                <CardContent className="p-8">
-                  <div className="text-center mb-8">
-                    <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <Lightbulb className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4">Együttműködési lehetőségek</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Keresünk partnereket és támogatókat, akik segítenek küldetésünk megvalósításában!
+              <div className="mb-16 py-8">
+                <div className="mb-12">
+                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-primary">Partnerség</p>
+                  <div className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+                    <h3 className="max-w-xl text-4xl font-bold leading-tight text-balance sm:text-5xl">
+                      Együttműködési lehetőségek
+                    </h3>
+                    <p className="text-2xl font-semibold leading-snug text-foreground text-balance sm:text-3xl">
+                      Keressük partnereinket és támogatóinkat, akik segítenek küldetésünk megvalósításában.
                     </p>
                   </div>
+                </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-background rounded-lg p-6 border">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <Users className="w-6 h-6 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-lg mb-2">Iskolai látogatások</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Szívesen tartunk bemutatkozó előadásokat és workshopokat más iskolákban is.
-                      </p>
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                  {collaborationOptions.map((option, index) => (
+                    <div
+                      key={option.title}
+                      className={`group relative py-8 md:px-8 ${
+                        index % 2 === 1 ? "md:border-l md:border-border" : ""
+                      } ${index > 1 ? "border-t border-border" : index === 1 ? "border-t border-border md:border-t-0" : ""}`}
+                    >
+                      <div
+                        aria-hidden="true"
+                        className="mb-5 h-1 w-14 rounded-full bg-gradient-to-r from-primary/80 to-[#C5B0E1]/70 transition-all duration-300 group-hover:w-24"
+                      />
+                      <h4 className="text-2xl font-semibold mb-3 text-foreground">{option.title}</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{option.text}</p>
                     </div>
+                  ))}
+                </div>
 
-                    <div className="bg-background rounded-lg p-6 border">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <Presentation className="w-6 h-6 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-lg mb-2">Vendégelőadások</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Várjuk szakértők jelentkezését, akik megosztanák tudásukat diákjainkkal.
-                      </p>
-                    </div>
-
-                    <div className="bg-background rounded-lg p-6 border">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <Building2 className="w-6 h-6 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-lg mb-2">Céglátogatások</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Szívesen látogatnánk meg vállalatokat, hogy diákjaink betekintést nyerjenek a pénzügyi szektor
-                        működésébe.
-                      </p>
-                    </div>
-
-                    <div className="bg-background rounded-lg p-6 border">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <Megaphone className="w-6 h-6 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-lg mb-2">Promóciós együttműködés</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Közös marketing kampányok és rendezvények szervezése partnerekkel.
-                      </p>
-                    </div>
-
-                    <div className="bg-background rounded-lg p-6 border md:col-span-2">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                        <Handshake className="w-6 h-6 text-primary" />
-                      </div>
-                      <h4 className="font-semibold text-lg mb-2">Szponzorálás</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        Pénzügyi támogatás rendezvényeinkhez, eszközbeszerzéshez és programjainkhoz.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 text-center">
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Érdekel az együttműködés? Vedd fel velünk a kapcsolatot!
-                    </p>
-                    <Button asChild size="lg">
-                      <a href="mailto:bflc@bflc.hu">
-                        <Mail className="mr-2 h-4 w-4" />
-                        Kapcsolatfelvétel
-                      </a>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                <div className="mt-12 flex flex-col gap-5 border-y border-primary/15 py-6 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="max-w-xl text-xl font-semibold leading-snug text-foreground text-balance">
+                    Érdekel az együttműködés? Vedd fel velünk a kapcsolatot!
+                  </p>
+                  <Button asChild size="lg" className="w-fit">
+                    <a href="mailto:bflc@bflc.hu">
+                      <Mail className="mr-2 h-4 w-4" />
+                      Kapcsolatfelvétel
+                    </a>
+                  </Button>
+                </div>
+              </div>
 
               {/* Contact for Collaboration */}
               <div className="text-center mb-12">

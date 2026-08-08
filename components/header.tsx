@@ -87,6 +87,7 @@ export function Header() {
                 src="/images/flc-logo-no-text.png"
                 alt="Financial Literacy Club"
                 fill
+                sizes="40px"
                 className="object-contain rounded-lg"
               />
             </motion.div>

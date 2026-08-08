@@ -3,7 +3,7 @@
 import { useEffect, useCallback } from "react"
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
-import { SkeletonImage } from "@/components/skeleton-image"
+import Image from "next/image"
 
 interface LightboxProps {
   images: { src: string; alt: string }[]
@@ -57,19 +57,20 @@ export function Lightbox({ images, index, onClose, onPrev, onNext }: LightboxPro
               itself doesn't close the lightbox */}
           <motion.div
             key={index}
-            className="relative max-w-5xl max-h-[85vh] w-full mx-4 rounded-xl overflow-hidden shadow-2xl"
+            className="relative h-[82vh] w-[min(92vw,72rem)] mx-4 rounded-xl overflow-hidden shadow-2xl bg-black/30"
             initial={shouldReduceMotion ? false : { scale: 0.92, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.92, opacity: 0 }}
             transition={{ duration: 0.28, ease: "easeOut" }}
             onClick={e => e.stopPropagation()}
           >
-            <SkeletonImage
+            <Image
               src={image.src}
               alt={image.alt}
-              tone="dark"
+              fill
+              priority
               sizes="(min-width: 1280px) 1024px, 90vw"
-              className="object-contain max-h-[85vh]"
+              className="object-contain"
             />
           </motion.div>
 

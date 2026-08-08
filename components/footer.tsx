@@ -42,7 +42,7 @@ export function Footer() {
             Csatlakozz hozzánk
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-balance leading-tight mb-8">
-            Építsd a pénzügyi jövőd<br className="hidden sm:block" /> velünk csütörtökönként.
+            Építsd a jövőd<br className="hidden sm:block" /> velünk csütörtökönként.
           </h2>
           <a
             href="https://m.me/cm/AbaU8rQOgYlXAugE/"
@@ -66,6 +66,7 @@ export function Footer() {
                   src="/images/flc-logo-no-text.png"
                   alt="Budapest Financial Literacy Club"
                   fill
+                  sizes="36px"
                   className="object-contain"
                 />
               </div>
@@ -87,7 +88,7 @@ export function Footer() {
                   <Link
                     href={link.href}
                     onClick={scrollToTop}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200 hover:translate-x-1 inline-block"
+                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -123,9 +124,9 @@ export function Footer() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary-foreground/40 mb-4">Alkalmak</p>
             <div className="space-y-2 text-sm text-primary-foreground/70">
-              <p>📅 Minden csütörtök</p>
-              <p>🏫 Eötvös József Gimnázium</p>
-              <p>🕐 15:45 – 16:45</p>
+              <p>Minden csütörtök</p>
+              <p>Eötvös József Gimnázium</p>
+              <p>15:45 – 16:45</p>
             </div>
           </div>
         </div>

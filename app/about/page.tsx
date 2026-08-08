@@ -9,7 +9,6 @@ import Link from "next/link"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
 import { TextReveal } from "@/components/motion/text-reveal"
-import { TiltCard } from "@/components/motion/tilt-card"
 import { motion, useReducedMotion } from "framer-motion"
 
 // Mission + Vision — unique to this page, not on the homepage
@@ -104,10 +103,22 @@ export default function AboutPage() {
               {/* Four features as typographic 2×2 grid — original text, no card clones */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-10 border-t border-white/10 pt-12">
                 {[
-                  { title: "Sokszínű alkalmak",    text: "Hetente izgalmas előadások, workshopok és vendégelőadók különböző pénzügyi témákban." },
-                  { title: "Versenyfelkészítés",   text: "Közép- és nagyvállalati esettanulmányi versenyek a megszerzett tudás valós tesztelésére." },
-                  { title: "Hálózatépítés",        text: "Kapcsolatépítési lehetőségek pénzügyi szakemberekkel és más motivált diákokkal." },
-                  { title: "Nyitott mindenkinek",  text: "Nincsen szükség előzetes tapasztalatra. Minden érdeklődő diákot szívesen látunk." },
+                  {
+                    title: "Sokszínű alkalmak",
+                    text: "Rendszeres vendégelőadások mellett, interaktív workshopok és beszélgetések színesítik alkalmainkat és garantálják, hogy minél több felületen találkozzunk hasznosítható tudással és újdonságokkal. Az év során modulszerű egységek biztosítják a strukturált tudásépítést.",
+                  },
+                  {
+                    title: "Soft skillek fejlesztése",
+                    text: "Csapatmunkán, beszélgetéseken és prezentációkon át nyújtunk lehetőséget a nyilvános beszédkészség, kritikus gondolkodás, csapatmunka és vezetői képességek fejlesztésére. Ezek mindannyiunk jövőjében és jelenjében is kiemelten fontos készségek.",
+                  },
+                  {
+                    title: "Kapcsolatépítés és karrier",
+                    text: "Kialakíthatsz értékes kapcsolatokat diáktársaiddal és szakértőkkel, részt vehetsz céglátogatásokon és előadásokon, és építhetsz olyan kapcsolatrendszert, amely karriered alapját képezheti.",
+                  },
+                  {
+                    title: "Pályaorientáció",
+                    text: "Programunk részeként betekintést kaphatunk a felsőoktatás lehetőségeibe. Megismerhetjük ezek fontos elemeit és különbségeit is. Mindezt oktatással foglalkozó szakemberek tanácsai és szakértő előadóink tapasztalatai, karrierútjai segítik.",
+                  },
                 ].map((item, i) => (
                   <Reveal key={i} delay={i * 0.08}>
                     <div className="flex flex-col gap-2">
@@ -145,17 +156,15 @@ export default function AboutPage() {
                 const Icon = value.icon
                 return (
                   <Reveal key={i} delay={i * 0.1}>
-                    <TiltCard className="h-full rounded-xl">
-                      <Card className="border-border hover:border-primary transition-colors h-full">
-                        <CardContent className="p-6">
-                          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                            <Icon className="h-6 w-6 text-primary" />
-                          </div>
-                          <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                          <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-                        </CardContent>
-                      </Card>
-                    </TiltCard>
+                    <Card className="border-border hover:border-primary transition-colors h-full">
+                      <CardContent className="p-6">
+                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                          <Icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{value.description}</p>
+                      </CardContent>
+                    </Card>
                   </Reveal>
                 )
               })}

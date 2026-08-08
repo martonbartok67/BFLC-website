@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Instagram, MessageCircle, Mail, Linkedin } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
-import { TiltCard } from "@/components/motion/tilt-card"
 import { SectionLabel } from "@/components/section-label"
 
 export function SocialMediaSection() {
@@ -64,25 +63,23 @@ const socialLinks = [
             const Icon = social.icon
             return (
               <Reveal key={social.name} delay={index * 0.1}>
-                <TiltCard className="h-full rounded-4xl">
-                  <Card className="hover:shadow-lg transition-shadow rounded-4xl h-full">
-                    <CardContent className="p-6 flex flex-col text-center gap-4 items-center">
-                      <div className={`w-16 h-16 rounded-full ${social.color} flex items-center justify-center`}>
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-lg mb-1">{social.name}</h3>
-                        <p className="text-sm text-muted-foreground font-medium mb-3">{social.handle}</p>
-                        <p className="text-sm text-muted-foreground mb-4">{social.description}</p>
-                      </div>
-                      <Button asChild className="w-full">
-                        <a href={social.link} {...(social.isExternal && { target: "_blank", rel: "noopener noreferrer" })}>
-                          {social.name === "Email" ? "Írj nekünk" : "Követés"}
-                        </a>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </TiltCard>
+                <Card className="hover:shadow-lg transition-shadow rounded-4xl h-full">
+                  <CardContent className="p-6 flex h-full flex-col text-center gap-4 items-center">
+                    <div className={`w-16 h-16 rounded-full ${social.color} flex items-center justify-center`}>
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1">{social.name}</h3>
+                      <p className="text-sm text-muted-foreground font-medium mb-3">{social.handle}</p>
+                      <p className="text-sm text-muted-foreground mb-4">{social.description}</p>
+                    </div>
+                    <Button asChild className="mt-auto w-full">
+                      <a href={social.link} {...(social.isExternal && { target: "_blank", rel: "noopener noreferrer" })}>
+                        {social.name === "Email" ? "Írj nekünk" : "Követés"}
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
               </Reveal>
             )
           })}

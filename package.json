@@ -1,7 +1,8 @@
 {
-  "name": "my-v0-project",
+  "name": "bflc-website",
   "version": "0.1.0",
   "private": true,
+  "license": "UNLICENSED",
   "scripts": {
     "build": "next build",
     "dev": "next dev",

@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Trophy, Calendar, Users, Sparkles } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Trophy, Calendar, Users, Sparkles, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
@@ -140,55 +139,6 @@ export default function CompetitionsPage() {
           </div>
         </section>
 
-        {/* Events Section */}
-        <section className="py-20 bg-secondary/30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                  <Sparkles className="w-6 h-6 text-primary" />
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Események</h2>
-                <p className="text-muted-foreground text-lg">
-                  Konferenciák és egyéb izgalmas események, ahol bővítheted tudásod és kapcsolataidat
-                </p>
-              </div>
-
-              <div className="space-y-8">
-                {events.map((event, index) => (
-                  <Card key={index} className="border-2 hover:border-primary/50 transition-colors bg-card">
-                    <CardHeader>
-                      <CardTitle className="text-2xl text-primary">{event.title}</CardTitle>
-                      <CardDescription className="space-y-1 text-base">
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4" />
-                          <span>
-                            <strong>Időpont:</strong> {event.date}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Users className="w-4 h-4" />
-                          <span>
-                            <strong>Helyszín:</strong> {event.location}
-                          </span>
-                        </div>
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-foreground leading-relaxed">{event.description}</p>
-                      <Button asChild>
-                        <a href={event.link} target="_blank" rel="noopener noreferrer">
-                          További információ és regisztráció
-                        </a>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Competitions List */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -203,41 +153,112 @@ export default function CompetitionsPage() {
                 </p>
               </div>
 
-              <div className="space-y-8">
+              <div className="border-t border-primary/15">
                 {competitions.map((competition, index) => (
-                  <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
-                    <CardHeader>
-                      <CardTitle className="text-2xl text-primary">{competition.title}</CardTitle>
-                      <CardDescription className="space-y-1 text-base">
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4" />
-                          <span>
-                            <strong>Jelentkezési határidő:</strong> {competition.deadline}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4" />
-                          <span>
-                            <strong>Verseny időpontja:</strong> {competition.date}
-                          </span>
-                        </div>
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-foreground leading-relaxed">{competition.description}</p>
-                      <div className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <Users className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                  <article
+                    key={competition.title}
+                    className="group grid gap-5 border-b border-primary/15 py-8 transition-colors hover:bg-primary/[0.025] sm:grid-cols-[4rem_1fr] lg:grid-cols-[4rem_1fr_17rem]"
+                  >
+                    <div className="text-sm font-semibold tabular-nums text-primary/50 sm:pt-2">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+                    <div>
+                      <h3 className="max-w-3xl text-3xl font-bold leading-tight text-primary text-balance transition-colors group-hover:text-[#0a1a47] sm:text-4xl">
+                        {competition.title}
+                      </h3>
+                      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/80 sm:text-base">
+                        {competition.description}
+                      </p>
+                      <div className="mt-5 flex items-start gap-2 text-sm text-muted-foreground">
+                        <Users className="mt-0.5 h-4 w-4 flex-shrink-0" />
                         <span>
                           <strong>Ki jelentkezhet:</strong> {competition.eligibility}
                         </span>
                       </div>
-                      <Button asChild>
+                    </div>
+                    <div className="space-y-4 text-sm text-muted-foreground lg:pt-2">
+                      <div className="flex items-start gap-2">
+                        <Calendar className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                        <span>
+                          <strong className="block text-foreground">Jelentkezési határidő</strong>
+                          {competition.deadline}
+                        </span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <Calendar className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                        <span>
+                          <strong className="block text-foreground">Verseny időpontja</strong>
+                          {competition.date}
+                        </span>
+                      </div>
+                      <Button asChild variant="outline" className="mt-2">
                         <a href={competition.link} target="_blank" rel="noopener noreferrer">
                           További információ
+                          <ArrowUpRight className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Events Section */}
+        <section className="py-20 bg-secondary/30">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
+                  <Sparkles className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Események</h2>
+                <p className="text-muted-foreground text-lg">
+                  Konferenciák és egyéb izgalmas események, ahol új dolgokat tanulhatsz és személyesen találkozhatsz a profikkal!
+                </p>
+              </div>
+
+              <div className="border-t border-primary/15">
+                {events.map((event, index) => (
+                  <article
+                    key={event.title}
+                    className="group grid gap-5 border-b border-primary/15 py-8 transition-colors hover:bg-background/70 sm:grid-cols-[4rem_1fr] lg:grid-cols-[4rem_1fr_17rem]"
+                  >
+                    <div className="text-sm font-semibold tabular-nums text-primary/50 sm:pt-2">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+                    <div>
+                      <h3 className="max-w-3xl text-3xl font-bold leading-tight text-primary text-balance sm:text-4xl">
+                        {event.title}
+                      </h3>
+                      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-foreground/80 sm:text-base">
+                        {event.description}
+                      </p>
+                    </div>
+                    <div className="space-y-4 text-sm text-muted-foreground lg:pt-2">
+                      <div className="flex items-start gap-2">
+                        <Calendar className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                        <span>
+                          <strong className="block text-foreground">Időpont</strong>
+                          {event.date}
+                        </span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <Users className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                        <span>
+                          <strong className="block text-foreground">Helyszín</strong>
+                          {event.location}
+                        </span>
+                      </div>
+                      <Button asChild variant="outline" className="mt-2">
+                        <a href={event.link} target="_blank" rel="noopener noreferrer">
+                          További információ és regisztráció
+                          <ArrowUpRight className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  </article>
                 ))}
               </div>
             </div>

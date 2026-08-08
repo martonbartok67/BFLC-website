@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { siteUrl } from "@/lib/site"
 
 /**
  * Generates /robots.txt at build time.
@@ -12,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://bflc.hu/sitemap.xml",
+    sitemap: `${siteUrl}/sitemap.xml`,
   }
 }

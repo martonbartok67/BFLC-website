@@ -1,30 +1,31 @@
-# Student club website
+# BFLC Website
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Official website for BFLC (Budapest Financial Literacy Club).
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/bartoks-projects/v0-budapest-financial-literacy-club)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/irJCdEObiQH)
+## Usage Notice
 
-## Overview
+This repository is private and proprietary. All rights are reserved by the project owner. The source code, design, copy, assets, and project structure may not be copied, cloned, redistributed, republished, or reused without explicit written permission.
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Development
 
-## Deployment
+Install dependencies:
 
-Your project is live at:
+```bash
+npm install --legacy-peer-deps
+```
 
-**[https://vercel.com/bartoks-projects/v0-budapest-financial-literacy-club](https://vercel.com/bartoks-projects/v0-budapest-financial-literacy-club)**
+Run locally:
 
-## Build your app
+```bash
+npm run dev
+```
 
-Continue building your app on:
+Build for production:
 
-**[https://v0.app/chat/projects/irJCdEObiQH](https://v0.app/chat/projects/irJCdEObiQH)**
+```bash
+npm run build
+```
 
-## How It Works
+## Project
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+This is a Next.js App Router project for the public BFLC website, including pages for the club overview, schedule, articles, competitions and events, collaboration, contact, privacy, and impresszum.

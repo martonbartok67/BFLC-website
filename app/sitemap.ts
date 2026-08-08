@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { siteUrl } from "@/lib/site"
 
 /**
  * Generates /sitemap.xml at build time via Next.js App Router's
@@ -14,7 +15,7 @@ import type { MetadataRoute } from "next"
  * changes, which helps crawlers budget their crawl time.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://bflc.hu"
+  const base = siteUrl
   const now = new Date()
 
   return [

@@ -10,7 +10,7 @@ import { schedule } from "@/lib/schedule-data"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
 import { useState, useEffect } from "react"
-import { getCookieConsent } from "@/components/cookie-consent"
+import { COOKIE_CONSENT_EVENT, getCookieConsent } from "@/components/cookie-consent"
 
 const upcomingEvents = [
   {
@@ -24,29 +24,32 @@ const upcomingEvents = [
   },
 ]
 
+const calendarEmbedUrl =
+  "https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest&mode=AGENDA&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0"
+
 export default function SchedulePage() {
   const [consent, setConsent] = useState<"accepted" | "essential" | null>(null)
 
   useEffect(() => {
     setConsent(getCookieConsent())
-    // Re-check if the user accepts from the banner while on this page
-    const onStorage = () => setConsent(getCookieConsent())
-    window.addEventListener("storage", onStorage)
-    return () => window.removeEventListener("storage", onStorage)
+    const onConsentChange = () => setConsent(getCookieConsent())
+    window.addEventListener("storage", onConsentChange)
+    window.addEventListener(COOKIE_CONSENT_EVENT, onConsentChange)
+    return () => {
+      window.removeEventListener("storage", onConsentChange)
+      window.removeEventListener(COOKIE_CONSENT_EVENT, onConsentChange)
+    }
   }, [])
 
   return (
     <>
       <Header />
       <main className="pt-16">
-        {/* Dark navy, split layout. The "next session" info card on the right
-            answers the most important question immediately: when and where.
-            Previously this info was only inside the body, below the fold. */}
         <section className="relative min-h-[50vh] flex items-center overflow-hidden bg-gradient-to-b from-primary to-[#0a1a47] text-primary-foreground">
           <div aria-hidden="true" className="absolute -top-16 right-1/4 w-80 h-80 rounded-full bg-white/[0.04] blur-3xl pointer-events-none" />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="grid max-w-6xl mx-auto gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
 
               <Reveal>
                 <SectionLabel tone="light" align="start">Eseménynaptár</SectionLabel>
@@ -58,39 +61,19 @@ export default function SchedulePage() {
                 </p>
               </Reveal>
 
-              <Reveal delay={0.15}>
-                <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6 sm:p-8 space-y-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/50">
-                    Rendszeres alkalmak
-                  </p>
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                        <Calendar className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-primary-foreground/50 mb-0.5">Nap</p>
-                        <p className="font-bold text-lg">Minden csütörtök</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                        <Clock className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-primary-foreground/50 mb-0.5">Időpont</p>
-                        <p className="font-bold text-lg">15:45 – 16:45</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                        <MapPin className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-primary-foreground/50 mb-0.5">Helyszín</p>
-                        <p className="font-bold">10-es terem<br /><span className="font-normal text-sm text-primary-foreground/75">Eötvös József Gimnázium</span></p>
-                      </div>
-                    </div>
+              <Reveal delay={0.12}>
+                <div className="grid gap-5 text-sm sm:text-base lg:justify-self-end lg:min-w-[24rem]">
+                  <div className="flex items-center gap-4">
+                    <Calendar className="h-5 w-5 flex-shrink-0 text-primary-foreground/70" />
+                    <span className="font-semibold">Minden csütörtök</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <Clock className="h-5 w-5 flex-shrink-0 text-primary-foreground/70" />
+                    <span className="font-semibold">15:45 – 16:45</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <MapPin className="h-5 w-5 flex-shrink-0 text-primary-foreground/70" />
+                    <span className="font-semibold">10-es terem, Eötvös József Gimnázium</span>
                   </div>
                 </div>
               </Reveal>
@@ -157,23 +140,26 @@ export default function SchedulePage() {
               </div>
 
               {/* CALENDAR SECTION */}
-              <div className="mb-20">
-                <h2 className="text-3xl font-bold mb-8 text-center">Interaktív Naptár</h2>
+              <div className="mb-20 max-w-4xl mx-auto">
+                <div className="mb-6 text-center">
+                  <h2 className="text-3xl font-bold">Letölthető programterv</h2>
+                </div>
 
                 {consent === "accepted" ? (
-                  <div className="rounded-xl overflow-hidden border shadow-xl bg-white p-2">
+                  <div className="overflow-hidden rounded-lg border bg-white">
                     <iframe
-                      src="https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest"
+                      title="Budapest Financial Literacy Club Google Naptár"
+                      src={calendarEmbedUrl}
                       width="100%"
-                      height="600"
+                      height="420"
                       frameBorder="0"
                       scrolling="no"
-                      className="rounded-lg"
+                      className="block h-[360px] w-full sm:h-[420px]"
                     />
                   </div>
                 ) : (
                   // Placeholder shown when cookies not yet accepted or declined
-                  <div className="rounded-xl border shadow-xl bg-secondary/20 flex flex-col items-center justify-center gap-4 p-10 text-center min-h-[300px]">
+                  <div className="flex min-h-[220px] flex-col items-center justify-center gap-4 rounded-lg border bg-secondary/20 p-8 text-center">
                     <Calendar className="h-10 w-10 text-muted-foreground/40" />
                     <div>
                       <p className="font-semibold mb-1">A naptár megtekintéséhez süti-hozzájárulás szükséges</p>
@@ -184,7 +170,7 @@ export default function SchedulePage() {
                   </div>
                 )}
 
-                <div className="mt-4 text-center">
+                <div className="mt-4 flex justify-center">
                   <Button variant="outline" className="gap-2" asChild>
                     <a
                       href="https://calendar.google.com/calendar/ical/ejgfinance%40gmail.com/public/basic.ics"
@@ -192,7 +178,7 @@ export default function SchedulePage() {
                       rel="noopener noreferrer"
                     >
                       <CalendarPlus className="h-4 w-4" />
-                      Feliratkozás a naptárra (.ics)
+                      Feliratkozás
                     </a>
                   </Button>
                 </div>
@@ -201,55 +187,81 @@ export default function SchedulePage() {
               <h2 className="text-3xl sm:text-4xl font-bold text-center border-0 mb-0 py-0 mt-16">Heti alkalmak</h2>
 
               <div className="space-y-12 mb-20 mt-12">
-                {schedule.map((module, index) => (
-                  <div key={index}>
-                    <div className="mb-6">
-                      <h3 className="text-2xl font-bold text-primary mb-2">{module.module}</h3>
-                      {module.sessions.length === 0 && <p className="text-muted-foreground italic">Szünet</p>}
-                    </div>
-
-                    {module.sessions.length > 0 && (
-                      <div className="grid grid-cols-1 gap-4">
-                        {module.sessions.map((session, sessionIndex) => (
-                          <Card
-                            key={sessionIndex}
-                            className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm"
-                          >
-                            <CardHeader>
-                              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
-                                <Badge className="font-medium text-base w-fit" variant="secondary">
-                                  {session.date}
-                                </Badge>
-                                <div className="flex-1 md:order-first">
-                                  <CardTitle className="text-xl text-balance mb-2">{session.topic}</CardTitle>
-                                  {session.content && (
-                                    <p className="text-sm text-muted-foreground leading-relaxed">{session.content}</p>
-                                  )}
-                                </div>
-                              </div>
-                            </CardHeader>
-                            <CardContent>
-                              <div className="flex flex-wrap gap-4 text-sm">
-                                <div className="flex items-center gap-2 text-muted-foreground">
-                                  <Clock className="h-4 w-4" />
-                                  <span className="">15:45</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-muted-foreground">
-                                  <MapPin className="h-4 w-4" />
-                                  <span>10-es terem, Eötvös József Gimnázium</span>
-                                </div>
-                                <div className="flex items-center gap-2 text-muted-foreground">
-                                  <Calendar className="h-4 w-4" />
-                                  <span>Csütörtök</span>
-                                </div>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        ))}
-                      </div>
-                    )}
+                <div>
+                  <h3 className="text-2xl font-bold text-primary mb-6">2026/2027</h3>
+                  <div className="mb-6">
+                    <h4 className="text-2xl font-bold text-primary mb-2">Évkezdés</h4>
                   </div>
-                ))}
+
+                  <Card className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm">
+                    <CardHeader>
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+                        <Badge className="font-medium text-base w-fit" variant="secondary">
+                          Hamarosan
+                        </Badge>
+                        <div className="flex-1 md:order-first">
+                          <CardTitle className="text-xl text-balance">Hamarosan!</CardTitle>
+                        </div>
+                      </div>
+                    </CardHeader>
+                  </Card>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-bold text-primary mb-6">2025/2026</h3>
+
+                  <div className="space-y-12">
+                    {schedule.map((module, index) => (
+                      <div key={index}>
+                        <div className="mb-6">
+                          <h3 className="text-2xl font-bold text-primary mb-2">{module.module}</h3>
+                          {module.sessions.length === 0 && <p className="text-muted-foreground italic">Szünet</p>}
+                        </div>
+
+                        {module.sessions.length > 0 && (
+                          <div className="grid grid-cols-1 gap-4">
+                            {module.sessions.map((session, sessionIndex) => (
+                              <Card
+                                key={sessionIndex}
+                                className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm"
+                              >
+                                <CardHeader>
+                                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+                                    <Badge className="font-medium text-base w-fit" variant="secondary">
+                                      {session.date}
+                                    </Badge>
+                                    <div className="flex-1 md:order-first">
+                                      <CardTitle className="text-xl text-balance mb-2">{session.topic}</CardTitle>
+                                      {session.content && (
+                                        <p className="text-sm text-muted-foreground leading-relaxed">{session.content}</p>
+                                      )}
+                                    </div>
+                                  </div>
+                                </CardHeader>
+                                <CardContent>
+                                  <div className="flex flex-wrap gap-4 text-sm">
+                                    <div className="flex items-center gap-2 text-muted-foreground">
+                                      <Clock className="h-4 w-4" />
+                                      <span className="">15:45</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-muted-foreground">
+                                      <MapPin className="h-4 w-4" />
+                                      <span>10-es terem, Eötvös József Gimnázium</span>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-muted-foreground">
+                                      <Calendar className="h-4 w-4" />
+                                      <span>Csütörtök</span>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <div className="bg-secondary/30 rounded-lg p-8 mt-16">

@@ -96,13 +96,9 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Diagonal seam into the next section -- replaces a flat horizontal
-          edge with an intentional angled cut. Scale-invariant corner-to-corner
-          triangle, safe at any width. Sits below z-10 content so it can never
-          visually clip the headline/buttons even on very short viewports. */}
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 w-full h-12 sm:h-16 lg:h-24 bg-background"
+        className="absolute -bottom-px left-0 z-10 h-14 w-full bg-background sm:h-20 lg:h-24"
         style={{ clipPath: "polygon(0 100%, 100% 0, 100% 100%)" }}
       />
 
@@ -110,7 +106,7 @@ export function HeroSection() {
         initial={shouldReduceMotion ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: shouldReduceMotion ? 0 : 1.5, duration: 0.6 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-12 sm:bottom-14 left-1/2 -translate-x-1/2 z-20"
       >
         <motion.div
           animate={shouldReduceMotion ? {} : { y: [0, 8, 0] }}
