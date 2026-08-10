@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Instagram, Mail, Linkedin, MessageCircle, ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
+import { googleMapsUrl } from "@/lib/site"
 
 const navLinks = [
   { label: "Rólunk",                   href: "/about"         },
@@ -64,7 +65,7 @@ export function Footer() {
               <div className="relative w-9 h-9 flex-shrink-0">
                 <Image
                   src="/images/flc-logo-no-text.png"
-                  alt="Budapest Financial Literacy Club"
+                  alt=""
                   fill
                   sizes="36px"
                   className="object-contain"
@@ -125,7 +126,14 @@ export function Footer() {
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary-foreground/40 mb-4">Alkalmak</p>
             <div className="space-y-2 text-sm text-primary-foreground/70">
               <p>Minden csütörtök</p>
-              <p>Eötvös József Gimnázium</p>
+              <a
+                href={googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block underline-offset-4 hover:text-primary-foreground hover:underline"
+              >
+                Eötvös József Gimnázium
+              </a>
               <p>15:45 – 16:45</p>
             </div>
           </div>

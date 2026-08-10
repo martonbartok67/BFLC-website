@@ -6,6 +6,7 @@ import { Suspense } from "react"
 import { GeistSans } from "geist/font/sans"
 import { AmbientBackground } from "@/components/ambient-background"
 import { CookieConsent } from "@/components/cookie-consent"
+import { StructuredData } from "@/components/structured-data"
 import { siteUrl } from "@/lib/site"
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
         url: "/images/flc-logo-no-text.png", 
         width: 1200,
         height: 630,
-        alt: "BFLC Budapest Financial Literacy Club",
+        alt: "",
       },
     ],
   },
@@ -63,7 +64,7 @@ export default function RootLayout({
       <body className={`font-sans ${GeistSans.className} ${GeistSans.variable}`}>
         <a
           href="#main-content"
-          className="sr-only fixed left-4 top-4 z-[300] rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground focus:not-sr-only focus:outline-none focus:ring-2 focus:ring-white"
+          className="fixed left-4 top-4 z-[300] -translate-y-24 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground opacity-0 transition focus:translate-y-0 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-white"
         >
           Ugrás a tartalomra
         </a>
@@ -71,6 +72,7 @@ export default function RootLayout({
         <CookieConsent />
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
+        <StructuredData />
       </body>
     </html>
   )

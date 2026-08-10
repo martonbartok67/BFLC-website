@@ -8,12 +8,12 @@ import { Lightbox } from "@/components/lightbox"
 import { Maximize2 } from "lucide-react"
 
 const images = [
-  { src: "/images/gallery/flc-presentation.jpg",        alt: "Diákok a 'Fektess a jövődbe' prezentáción"  },
-  { src: "/images/gallery/flc-parliament-visit.jpg",    alt: "FLC tagok az Európai Parlamentben"           },
-  { src: "/images/gallery/flc-event-table.jpg",         alt: "Regisztrációs asztal klubeseményen"          },
-  { src: "/images/gallery/flc-outdoor-signup.jpg",      alt: "Diákok jelentkeznek a klubba"                },
-  { src: "/images/gallery/flc-classroom-engagement.jpg",alt: "Aktív részvétel az osztályteremben"          },
-  { src: "/images/gallery/flc-speaker-event.jpg",       alt: "Vendégelőadó prezentál FLC eseményen"        },
+  { src: "/images/gallery/flc-presentation.jpg",         alt: "" },
+  { src: "/images/gallery/flc-parliament-visit.jpg",     alt: "" },
+  { src: "/images/gallery/flc-event-table.jpg",          alt: "" },
+  { src: "/images/gallery/flc-outdoor-signup.jpg",       alt: "" },
+  { src: "/images/gallery/flc-classroom-engagement.jpg", alt: "" },
+  { src: "/images/gallery/flc-speaker-event.jpg",        alt: "" },
 ]
 
 export function GallerySection() {
@@ -48,7 +48,7 @@ export function GallerySection() {
                 <button
                   className="relative h-full w-full overflow-hidden rounded-lg bg-white/5 ring-1 ring-white/10 group shadow-xl shadow-black/20 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   onClick={() => setLightboxIdx(index)}
-                  aria-label={`Kép megnyitása: ${image.alt}`}
+                  aria-label={`Galéria kép ${index + 1} megnyitása`}
                 >
                   <SkeletonImage
                     src={image.src}

@@ -15,7 +15,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/images/hero-background.jpg"
-          alt="Financial Literacy Club presentation event"
+          alt=""
           fill
           sizes="100vw"
           priority

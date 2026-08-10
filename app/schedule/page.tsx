@@ -11,6 +11,7 @@ import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
 import { useState, useEffect } from "react"
 import { COOKIE_CONSENT_EVENT, getCookieConsent } from "@/components/cookie-consent"
+import { googleMapsUrl } from "@/lib/site"
 
 const upcomingEvents = [
   {
@@ -74,7 +75,14 @@ export default function SchedulePage() {
                   </div>
                   <div className="flex items-center gap-4">
                     <MapPin className="h-5 w-5 flex-shrink-0 text-primary-foreground/70" />
-                    <span className="font-semibold">10-es terem, Eötvös József Gimnázium</span>
+                    <a
+                      href={googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold underline-offset-4 hover:underline"
+                    >
+                      10-es terem, Eötvös József Gimnázium
+                    </a>
                   </div>
                 </div>
               </Reveal>
@@ -267,7 +275,14 @@ export default function SchedulePage() {
                                     </div>
                                     <div className="flex items-center gap-2 text-muted-foreground">
                                       <MapPin className="h-4 w-4" />
-                                      <span>10-es terem, Eötvös József Gimnázium</span>
+                                      <a
+                                        href={googleMapsUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="underline-offset-4 hover:text-primary hover:underline"
+                                      >
+                                        10-es terem, Eötvös József Gimnázium
+                                      </a>
                                     </div>
                                     <div className="flex items-center gap-2 text-muted-foreground">
                                       <Calendar className="h-4 w-4" />

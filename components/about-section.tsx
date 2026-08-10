@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
 
@@ -41,9 +42,12 @@ export function AboutSection() {
 
         <div className="max-w-5xl mx-auto">
           <Reveal className="mb-10">
-            <p className="text-4xl font-bold leading-tight text-primary text-balance sm:text-5xl">
+            <Link
+              href="/about"
+              className="inline-flex text-4xl font-bold leading-tight text-primary text-balance transition-colors hover:text-[#0a1a47] sm:text-5xl"
+            >
               Mit nyújtunk?
-            </p>
+            </Link>
           </Reveal>
 
           <div className="border-t border-primary/15">

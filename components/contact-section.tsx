@@ -12,6 +12,7 @@ import { Mail, MapPin, Users } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
+import { googleMapsUrl } from "@/lib/site"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -95,7 +96,7 @@ export function ContactSection() {
             <Card>
               <CardHeader>
                 <CardTitle>Küldj üzenetet</CardTitle>
-                <CardDescription>Töltsd ki a kapcsolatfelvételi lapot és rövidesen visszajelzünk!</CardDescription>
+                <CardDescription>Töltsd ki a kapcsolatfelvételi lapot. Általában 2-3 napon belül válaszolunk.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -148,11 +149,16 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Helyszín</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <a
+                      href={googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-sm text-muted-foreground leading-relaxed transition-colors hover:text-primary"
+                    >
                       Eötvös József Gimnázium
                       <br />
                       Budapest, Reáltanoda utca 7, 1053
-                    </p>
+                    </a>
                   </div>
                 </div>
               </CardContent>

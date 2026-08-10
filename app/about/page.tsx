@@ -60,7 +60,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/[0.06]">
                   <Image
                     src="/images/flc-team-2025.jpeg"
-                    alt="A Budapest Financial Literacy Club csapata 2025-ben"
+                    alt=""
                     fill
                     className="object-cover"
                     priority

@@ -2,6 +2,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
+import { googleMapsUrl } from "@/lib/site"
 
 export default function ImpresszumPage() {
   return (
@@ -17,7 +18,11 @@ export default function ImpresszumPage() {
               <p>BFLC (Budapest Financial Literacy Club)</p>
               
               <p><strong>Székhely:</strong></p>
-              <p>1053 Budapest, Reáltanoda utca 7. - Eötvös József Gimnázium</p>
+              <p>
+                <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                  1053 Budapest, Reáltanoda utca 7. - Eötvös József Gimnázium
+                </a>
+              </p>
               
               <p><strong>Kapcsolattartás:</strong></p>
               <p>E-mail: bflc@bflc.hu</p>

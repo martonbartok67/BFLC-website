@@ -1,10 +1,12 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
-import { Calendar, User, TrendingUp, BookOpen, Lightbulb } from "lucide-react"
-import Link from "next/link"
+import { Calendar, User } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
+
+const mccArticleUrl =
+  "https://mcc.hu/hir/kozepiskolasok-a-penzugyi-jovorol-az-mcc-es-az-eotvos-gimnazium-kozos-kezdemenyezese"
 
 export default function ArticlesPage() {
   return (
@@ -38,7 +40,41 @@ export default function ArticlesPage() {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mx-auto">
-              <article>
+              <Reveal className="mb-16">
+                <div className="border-y border-primary/15 py-8">
+                  <p className="mb-6 text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+                    Tartalomjegyzék
+                  </p>
+                  <div className="space-y-5">
+                    <a
+                      href="#penzugyi-tudatossag-tinedzserkent"
+                      className="group block"
+                    >
+                      <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                        BFLC alapítói cikk
+                      </span>
+                      <span className="text-2xl font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+                        Pénzügyi tudatosság tinédzserként? Miért kell időben elkezdeni?
+                      </span>
+                    </a>
+                    <a
+                      href={mccArticleUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block"
+                    >
+                      <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                        Az MCC beszámolója a Fektess a jövődbe! vol. 2 konferenciánkról
+                      </span>
+                      <span className="text-2xl font-semibold leading-tight text-foreground transition-colors group-hover:text-primary">
+                        Középiskolások a pénzügyi jövőről
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
+
+              <article id="penzugyi-tudatossag-tinedzserkent" className="scroll-mt-24">
                 <div className="mb-10">
                   <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-balance leading-snug">
                     Pénzügyi tudatosság tinédzserként? Miért kell időben elkezdeni?
