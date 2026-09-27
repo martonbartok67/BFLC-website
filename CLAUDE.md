@@ -43,8 +43,12 @@ npx tsc --noEmit                 # the ONLY real type check (the build skips it,
 Since the upgrade to Next.js 16.3.6, the framework itself ships tooling for AI coding agents:
 - Version-matched docs are bundled at `node_modules/next/dist/docs/`. Prefer these over training data or a web search for anything Next.js-API-specific — they match the exact installed version.
 - The managed block at the bottom of this file (see the Commands section above) is written by `next dev`, not by a person. Don't hand-edit inside it; anything outside its HTML-comment markers is preserved across regenerations. Don't quote those markers' literal text anywhere in this file either — see the Commands section for why.
-- A dev-server MCP server is available at `/_next/mcp` while `next dev` is running (see `node_modules/next/dist/docs/01-app/02-guides/mcp.mdx` for the current API), exposing routes, server logs, and compilation issues without needing a full build.
+- A dev-server MCP server is available at `/_next/mcp` while `next dev` is running (see `node_modules/next/dist/docs/01-app/02-guides/mcp.mdx` for the current API), exposing routes, server logs, and compilation issues without needing a full build. Confirmed live 2026-09-27 (`curl http://localhost:3000/_next/mcp` returns a real JSON-RPC response).
 - Disable all of this with `agentRules: false` in `next.config.mjs` if it's ever unwanted.
+
+**Installed skills** (`npx skills add vercel/next.js --skill <name>`, added 2026-09-27): `next-dev-loop`, `next-cache-components-adoption`, `next-cache-components-optimizer`, `next-partial-prefetching-adoption`. The real files live in `.agents/skills/` (committed — ~144K of markdown, portable). `.claude/skills/` is a symlink farm pointing into it with **absolute, machine-specific paths**; this repo has `core.symlinks=false`, so it's gitignored rather than committed, and gets regenerated locally with `npx skills experimental_install` (reads `skills-lock.json`, also committed). If that symlink directory is ever missing, that's expected on a fresh clone — run the command above, don't recreate it by hand.
+
+Of these, only `next-dev-loop` is safe to reach for casually — it's a read/verify workflow (dev server + browser) with no side effects on the app itself. The other three are **migration skills** that change how the app renders (`cacheComponents: true`, restructured `<Suspense>` boundaries, `instant()` tests): installed so they're available, but none has been run. Don't invoke `next-cache-components-adoption`, `next-cache-components-optimizer`, or `next-partial-prefetching-adoption` without discussing it first — this project deliberately opted out of Cache Components during the Next 16 upgrade (see below).
 
 ## Directory map
 

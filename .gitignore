@@ -25,3 +25,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Skills (npx skills add): .agents/skills holds the real files and is
+# committed; .claude/skills is a symlink farm into it with absolute,
+# machine-specific paths (this repo has core.symlinks=false, so committing
+# it would check in broken text-file placeholders on any other machine).
+# Regenerate it locally with `npx skills experimental_install`.
+.claude/skills
