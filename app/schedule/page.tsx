@@ -15,12 +15,13 @@ import { googleMapsUrl } from "@/lib/site"
 
 const upcomingEvents = [
   {
-    title: "Vakáció! Találkozunk jövőre!",
-    date: "",
-    time: "",
-    location: "",
-    type: "",
-    description: "",
+    title: "Szezonnyitó bemutatkozó & befektetési trendek workshop",
+    date: "2026. október 1.",
+    time: "15:45 – 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Workshop",
+    description:
+      "Az idei szezonunk megkezdése: új vezetőségi tagjaink bemutatkozása, majd egy workshop az új befektetési trendekről.",
     registrationUrl: null,
   },
 ]

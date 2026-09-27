@@ -7,12 +7,13 @@ import { SectionLabel } from "@/components/section-label"
 export function EventsSection() {
   const upcomingEvents = [
     {
-      date: "",
-      topic: "Vakáció! Találkozunk jövőre!",
-      content: "",
-      location: "",
-      time: "",
-      type: "",
+      date: "2026. október 1.",
+      topic: "Szezonnyitó bemutatkozó & befektetési trendek workshop",
+      content:
+        "Az idei szezonunk megkezdése: új vezetőségi tagjaink bemutatkozása, majd egy workshop az új befektetési trendekről.",
+      location: "10-es terem, Eötvös József Gimnázium",
+      time: "15:45 – 16:45",
+      type: "Workshop",
       registrationUrl: null,
     },
   ]
