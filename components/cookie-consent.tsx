@@ -19,6 +19,7 @@ export function CookieConsent() {
   const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
+    if (getCookieConsent() !== null) return
     const t = setTimeout(() => setVisible(true), 800)
     return () => clearTimeout(t)
   }, [])
