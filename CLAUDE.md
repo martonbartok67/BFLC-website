@@ -142,12 +142,45 @@ Content is hardcoded in components. There is no CMS. The school-year rollover to
 
 ## Git and branches
 
-- Work happens directly on `main`, which auto-deploys through Vercel. As of 2026-09-27 local `main` is in sync with `origin/main` (`a0fc785`).
+- Work happens directly on `main`, which auto-deploys through Vercel — **pushing to `origin/main` triggers a real production deploy**, not a preview. As of 2026-09-27 local `main` is in sync with `origin/main` (`686ea24`).
+- For anything beyond a one-line fix, branch off `main` first (`git checkout -b <name>`), verify (`tsc`, `build`, and ideally the live-preview loop below), then fast-forward-merge back and push. `main` itself has never diverged from `origin/main` in practice, so these merges have all been fast-forwards so far.
 - Commit style is a short imperative summary, sometimes prefixed (`SEO:`, `GDPR:`, `Security:`, `feat(legal):`, `About:`).
 - Remote branches, all stale:
   - `origin/agent/add-bflc-favicon`: 2 unmerged commits that add `public/favicon.svg` and edit icon metadata. **Superseded** by `f1ec1f3` (real FLC-logo favicons) and 5 commits behind main. Safe to delete. Don't merge it.
   - `origin/v0/marcibartok07-2185-*` (two branches): early v0.dev history, fully merged, 35–39 commits behind. Safe to delete.
 - Much of the early history came from v0.dev (bot commits), which explains the leftover template dependencies and `styles/globals.css`.
+
+## Local preview workflow
+
+The user wants a live preview window open continuously while working, not started fresh for each change. The standing setup:
+
+1. **Dev server, run as a harness-tracked background job** (not a detached subshell — that's untrackable and got left running by accident more than once):
+   ```bash
+   npx next dev -p 3000   # run_in_background: true
+   ```
+2. **A headed Chrome instance with remote debugging, on a stable (non-Temp) profile path** so it isn't cleaned up between sessions and keeps its own cookies/localStorage:
+   ```bash
+   "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe" \
+     --remote-debugging-port=9222 \
+     --user-data-dir="C:/Users/Bende/AppData/Local/agent-browser-profile" \
+     --no-first-run --no-default-browser-check --new-window http://localhost:3000
+   ```
+   This machine doesn't have `agent-browser install`'s bundled Chrome-for-Testing working (its downloader hits a TLS `UnknownIssuer` error, likely a local proxy/AV doing certificate interception) — connecting to the already-installed Chrome via CDP sidesteps that entirely and is the working path here, not a one-off workaround.
+3. **`agent-browser` attaches to that Chrome over CDP** rather than launching its own:
+   ```bash
+   SESSION="$(agent-browser session id --scope worktree --prefix preview)"
+   agent-browser --session "$SESSION" connect 9222
+   ```
+   This is the same session `next-dev-loop` (see "AI agent tooling" above) drives for verification — the visible window and the programmatic checks are the same browser instance.
+
+**Branch-switch caution, learned the hard way:** `git checkout`/`merge` doesn't pause a running `next dev` — it keeps executing against whatever's now on disk. Once, a Next 16 dev server kept running through a branch switch to a Next-15-`package.json` branch and silently rewrote `tsconfig.json` and dropped a stray `AGENTS.md` into that branch, because `node_modules` doesn't change with `git checkout`. **Stop the dev server before any branch switch, merge, or `npm install`, then restart it after** — don't leave it running across those operations. The Chrome window itself is unaffected by git operations and can stay open the whole time; only the dev server needs the pause.
+
+To stop things cleanly:
+```bash
+agent-browser --session "$SESSION" close   # saves cookies/storage for next time
+# then stop the next dev background job (TaskStop, or its own controls)
+```
+Leaving `.next` alone while the server is running matters too — deleting or moving it while `next dev` is up discards its incremental cache and disconnects it from its own state.
 
 ---
 
