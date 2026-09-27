@@ -13,21 +13,22 @@ Public marketing site for the **Budapest Financial Literacy Club (BFLC / FLC)**,
 
 ```bash
 npm install --legacy-peer-deps   # peer-dep conflicts (React 19 vs older Radix/vaul) need this flag
-npm run dev                      # next dev, http://localhost:3000
-npm run build                    # next build. All routes are statically prerendered.
+npm run dev                      # next dev (Turbopack), http://localhost:3000
+npm run build                    # next build (Turbopack). All routes are statically prerendered.
 npx tsc --noEmit                 # the ONLY real type check (the build skips it, see below)
 ```
 
-- `npm run lint` is **broken**: ESLint is not installed and there is no eslint config.
-- `next.config.mjs` sets `typescript.ignoreBuildErrors: true` and `eslint.ignoreDuringBuilds: true`, so **a green build does not mean the code type-checks.** Run `npx tsc --noEmit` after any TS change. As of 2026-09-27 it passes cleanly.
+- `npm run lint` is **broken**: ESLint is not installed and there is no eslint config. (The `eslint` config key that used to silence this at build time was removed in Next 16 anyway — see Housekeeping.)
+- `next.config.mjs` sets `typescript.ignoreBuildErrors: true`, so **a green build does not mean the code type-checks.** Run `npx tsc --noEmit` after any TS change. As of 2026-09-27 it passes cleanly.
 - There are **no tests** of any kind.
 - Two lockfiles are committed (`package-lock.json` and `pnpm-lock.yaml`). The README says to use npm, so treat `package-lock.json` as authoritative.
+- On first `next dev` after installing, Next.js may print `Generated CLAUDE.md for AI agents` and append a `<!-- BEGIN:nextjs-agent-rules --> ... <!-- END:nextjs-agent-rules -->` block to the bottom of this very file, pointing agents at the version-matched docs bundled in `node_modules/next/dist/docs/`. That's expected (see "AI agent tooling" below) — commit it rather than reverting it.
 
 ## Stack
 
 | Concern | Choice |
 |---|---|
-| Framework | Next.js **15.2.8**, App Router, React 19 |
+| Framework | Next.js **16.3.6** (Turbopack by default), App Router, React **19.3.0** |
 | Styling | Tailwind CSS **v4** (CSS-first config in `app/globals.css`, no `tailwind.config`), `tw-animate-css` |
 | UI primitives | A handful of shadcn/ui ("new-york") components in `components/ui/` |
 | Animation | `framer-motion` for almost everything; `gsap` only in the mobile `StaggeredMenu` |
@@ -35,7 +36,15 @@ npx tsc --noEmit                 # the ONLY real type check (the build skips it,
 | Font | Geist Sans, self-hosted via the `geist` package (the CSP relies on no external font CDN) |
 | Analytics | `@vercel/analytics` (cookieless) |
 
-`package.json` still carries **~38 unused dependencies** from the original v0.dev/shadcn scaffold: most `@radix-ui/*`, `recharts`, `zod`, `react-hook-form`, `cmdk`, `vaul`, `embla-carousel-react`, `date-fns`, `sonner`, `input-otp`, `react-day-picker`, `next-themes`, and others. Don't assume a dependency is in use just because it's installed. Grep for it first.
+`package.json` still carries **~38 unused dependencies** from the original v0.dev/shadcn scaffold: most `@radix-ui/*`, `recharts`, `zod`, `react-hook-form`, `cmdk`, `vaul`, `embla-carousel-react`, `date-fns`, `sonner`, `input-otp`, `react-day-picker`, `next-themes`, and others. Don't assume a dependency is in use just because it's installed. Grep for it first. `vaul@0.9.9` in particular prints a peer-dependency warning against React 19 on install — it's dead weight, not a real compatibility issue, and goes away once it's removed.
+
+### AI agent tooling (Next.js 16.2+)
+
+Since the upgrade to Next.js 16.3.6, the framework itself ships tooling for AI coding agents:
+- Version-matched docs are bundled at `node_modules/next/dist/docs/`. Prefer these over training data or a web search for anything Next.js-API-specific — they match the exact installed version.
+- The managed block at the bottom of this file (see the Commands section above) is written by `next dev`, not by a person. Don't hand-edit inside `<!-- BEGIN:nextjs-agent-rules -->` / `<!-- END:nextjs-agent-rules -->`; anything outside those markers is preserved across regenerations.
+- A dev-server MCP server is available at `/_next/mcp` while `next dev` is running (see `node_modules/next/dist/docs/01-app/02-guides/mcp.mdx` for the current API), exposing routes, server logs, and compilation issues without needing a full build.
+- Disable all of this with `agentRules: false` in `next.config.mjs` if it's ever unwanted.
 
 ## Directory map
 
@@ -182,3 +191,20 @@ Verified against the code on 2026-09-27. They're ordered roughly by impact.
 - Deduplicate contact and nav constants into `lib/site.ts` (email, Messenger URL, socials, nav items, meeting time). Right now a single change touches 6–8 files.
 - Move `upcomingEvents` and `competitions` into `lib/` data files like `schedule-data.ts`, so the homepage and schedule stop duplicating event data.
 - Delete the stale remote branches listed above.
+- `next build`/`next dev` print a Turbopack workspace-root warning about an unrelated `package-lock.json` above the repo. That's a stray file in whoever's home directory is running the build, not a repo problem — if it gets noisy, pin it with `turbopack: { root: __dirname }` in `next.config.mjs`.
+
+### Next.js 16 upgrade (done 2026-09-27)
+
+Upgraded from 15.2.8 → 16.3.6 via `npx @next/codemod@canary upgrade latest`. Verified: `tsc --noEmit` clean, `next build` (Turbopack) succeeds, all 9 routes serve 200 (404 page serves 404) under `next dev`. Nothing else in the codebase needed changes — no middleware, no dynamic route segments, no `params`/`searchParams` usage, no custom webpack config, no PPR/cache APIs in use. Two things worth knowing:
+- The codemod also inserted `export const instant = false` (with a Cache Components migration comment) into every route file. That's a preemptive opt-out for a *future* Cache Components adoption (`cacheComponents: true`, not enabled here) — it was removed from this upgrade since this project isn't adopting Cache Components right now. Re-run the codemod's `cache-components-instant-false` transform, or see `/docs/app/guides/migrating-to-cache-components`, if that adoption happens later.
+- `package.json` now pins `react`/`react-dom`/`@types/react`/`@types/react-dom` to exact `19.3.0` (was `^19`) and adds a matching `overrides` block, both added automatically by the codemod to keep the App Router's bundled React canary in sync. Don't loosen these back to `^19` without checking Next's supported React version first.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

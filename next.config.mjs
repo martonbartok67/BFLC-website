@@ -101,9 +101,6 @@ const securityHeaders = [
 
 const nextConfig = {
   poweredByHeader: false,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
