@@ -227,13 +227,42 @@ export default function SchedulePage() {
                     <CardHeader>
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
                         <Badge className="font-medium text-base w-fit" variant="secondary">
-                          Hamarosan
+                          Október 1.
                         </Badge>
                         <div className="flex-1 md:order-first">
-                          <CardTitle className="text-xl text-balance">Hamarosan!</CardTitle>
+                          <CardTitle className="text-xl text-balance mb-2">
+                            Szezonnyitó bemutatkozó & befektetési trendek workshop
+                          </CardTitle>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            Az idei szezonunk megkezdése: új vezetőségi tagjaink bemutatkozása, majd egy workshop az új
+                            befektetési trendekről.
+                          </p>
                         </div>
                       </div>
                     </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Clock className="h-4 w-4" />
+                          <span className="">15:45</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <MapPin className="h-4 w-4" />
+                          <a
+                            href={googleMapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline-offset-4 hover:text-primary hover:underline"
+                          >
+                            10-es terem, Eötvös József Gimnázium
+                          </a>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Calendar className="h-4 w-4" />
+                          <span>Csütörtök</span>
+                        </div>
+                      </div>
+                    </CardContent>
                   </Card>
                 </div>
 
