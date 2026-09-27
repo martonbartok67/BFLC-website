@@ -22,7 +22,7 @@ npx tsc --noEmit                 # the ONLY real type check (the build skips it,
 - `next.config.mjs` sets `typescript.ignoreBuildErrors: true`, so **a green build does not mean the code type-checks.** Run `npx tsc --noEmit` after any TS change. As of 2026-09-27 it passes cleanly.
 - There are **no tests** of any kind.
 - Two lockfiles are committed (`package-lock.json` and `pnpm-lock.yaml`). The README says to use npm, so treat `package-lock.json` as authoritative.
-- On first `next dev` after installing, Next.js may print `Generated CLAUDE.md for AI agents` and append a `<!-- BEGIN:nextjs-agent-rules --> ... <!-- END:nextjs-agent-rules -->` block to the bottom of this very file, pointing agents at the version-matched docs bundled in `node_modules/next/dist/docs/`. That's expected (see "AI agent tooling" below) — commit it rather than reverting it.
+- On first `next dev` after installing, Next.js may print `Generated CLAUDE.md for AI agents` and append its own managed block (delimited by HTML comments) to the bottom of this file, pointing agents at the version-matched docs bundled in `node_modules/next/dist/docs/`. That's expected (see "AI agent tooling" below) — commit it rather than reverting it. **Do not type that marker's exact text anywhere else in this file** — the generator does a naive substring search for it, not "append at end of file," so a literal mention of it in prose (even inside backticks) gets matched and has the real block spliced into it. That happened once already; see the note at the bottom of this file if it happens again.
 
 ## Stack
 
@@ -42,7 +42,7 @@ npx tsc --noEmit                 # the ONLY real type check (the build skips it,
 
 Since the upgrade to Next.js 16.3.6, the framework itself ships tooling for AI coding agents:
 - Version-matched docs are bundled at `node_modules/next/dist/docs/`. Prefer these over training data or a web search for anything Next.js-API-specific — they match the exact installed version.
-- The managed block at the bottom of this file (see the Commands section above) is written by `next dev`, not by a person. Don't hand-edit inside `<!-- BEGIN:nextjs-agent-rules -->` / `<!-- END:nextjs-agent-rules -->`; anything outside those markers is preserved across regenerations.
+- The managed block at the bottom of this file (see the Commands section above) is written by `next dev`, not by a person. Don't hand-edit inside it; anything outside its HTML-comment markers is preserved across regenerations. Don't quote those markers' literal text anywhere in this file either — see the Commands section for why.
 - A dev-server MCP server is available at `/_next/mcp` while `next dev` is running (see `node_modules/next/dist/docs/01-app/02-guides/mcp.mdx` for the current API), exposing routes, server logs, and compilation issues without needing a full build.
 - Disable all of this with `agentRules: false` in `next.config.mjs` if it's ever unwanted.
 
