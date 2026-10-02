@@ -32,3 +32,10 @@ next-env.d.ts
 # it would check in broken text-file placeholders on any other machine).
 # Regenerate it locally with `npx skills experimental_install`.
 .claude/skills
+
+# Package manager: this project uses npm only (package-lock.json).
+# A stray pnpm/yarn/bun lockfile makes Vercel switch package managers.
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+bun.lockb

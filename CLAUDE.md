@@ -21,7 +21,7 @@ npx tsc --noEmit                 # the ONLY real type check (the build skips it,
 - `npm run lint` is **broken**: ESLint is not installed and there is no eslint config. (The `eslint` config key that used to silence this at build time was removed in Next 16 anyway — see Housekeeping.)
 - `next.config.mjs` sets `typescript.ignoreBuildErrors: true`, so **a green build does not mean the code type-checks.** Run `npx tsc --noEmit` after any TS change. As of 2026-09-27 it passes cleanly.
 - There are **no tests** of any kind.
-- Two lockfiles are committed (`package-lock.json` and `pnpm-lock.yaml`). The README says to use npm, so treat `package-lock.json` as authoritative.
+- npm only. `package-lock.json` is the sole lockfile. `pnpm-lock.yaml`, `yarn.lock` and `bun.lock*` are gitignored, and `vercel.json` pins Vercel's install step to `npm ci`, because a stale `pnpm-lock.yaml` once made Vercel switch to pnpm and fail the deploy (fixed in #27). Don't run `pnpm install` here.
 - On first `next dev` after installing, Next.js may print `Generated CLAUDE.md for AI agents` and append its own managed block (delimited by HTML comments) to the bottom of this file, pointing agents at the version-matched docs bundled in `node_modules/next/dist/docs/`. That's expected (see "AI agent tooling" below) — commit it rather than reverting it. **Do not type that marker's exact text anywhere else in this file** — the generator does a naive substring search for it, not "append at end of file," so a literal mention of it in prose (even inside backticks) gets matched and has the real block spliced into it. That happened once already; see the note at the bottom of this file if it happens again.
 
 ## Stack
@@ -224,7 +224,6 @@ Verified against the code on 2026-09-27. They're ordered roughly by impact.
 - `public/adatvedelmi-tajekoztato.md` is publicly served and still contains the template placeholder `[Weboldal neve/szervezet neve]`. Move the source docs out of `public/`.
 - Gallery originals are 1–3.4 MB each and the hero and team photos are ~1.4 MB. `next/image` optimizes delivery, but compressing the source files would slim the repo.
 - Either install and configure ESLint, or drop the `lint` script. Consider turning off `ignoreBuildErrors` now that `tsc` passes.
-- Delete one of the two lockfiles.
 - Deduplicate contact and nav constants into `lib/site.ts` (email, Messenger URL, socials, nav items, meeting time). Right now a single change touches 6–8 files.
 - Move `upcomingEvents` and `competitions` into `lib/` data files like `schedule-data.ts`, so the homepage and schedule stop duplicating event data.
 - Delete the stale remote branches listed above.
