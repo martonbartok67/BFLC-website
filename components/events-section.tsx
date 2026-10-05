@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, Clock, ExternalLink } from "lucide-react"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
+import { isFutureEvent } from "@/lib/utils"
 
 export function EventsSection() {
   const upcomingEvents = [
@@ -14,6 +15,16 @@ export function EventsSection() {
       location: "10-es terem, Eötvös József Gimnázium",
       time: "15:45 – 16:45",
       type: "Workshop",
+      registrationUrl: null,
+    },
+    {
+      date: "2026. október 8.",
+      topic: "Mitől lesz sikeres egy ország? + economics vs. business",
+      content:
+        "Tordai Dániel PhD, a KTI közlekedési közgazdásza betekintést ad a gazdasági siker kulcsaiba, és bemutatja, mit jelent valójában az economics és a business, és miért nem ugyanaz a kettő.",
+      location: "10-es terem, Eötvös József Gimnázium",
+      time: "15:45 – 16:45",
+      type: "Vendégelőadás",
       registrationUrl: null,
     },
   ]
@@ -30,7 +41,7 @@ export function EventsSection() {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {upcomingEvents.map((event, index) => (
+          {upcomingEvents.filter(event => isFutureEvent(event.date)).map((event, index) => (
             <Reveal key={index} delay={index * 0.1}>
               <Card className="border-border transition-all duration-300 hover-lift hover:shadow-2xl h-full">
                 <CardHeader>

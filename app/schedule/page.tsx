@@ -12,6 +12,7 @@ import { SectionLabel } from "@/components/section-label"
 import { useState, useEffect } from "react"
 import { COOKIE_CONSENT_EVENT, getCookieConsent } from "@/components/cookie-consent"
 import { googleMapsUrl } from "@/lib/site"
+import { isFutureEvent } from "@/lib/utils"
 
 const upcomingEvents = [
   {
@@ -22,6 +23,16 @@ const upcomingEvents = [
     type: "Workshop",
     description:
       "Az idei szezonunk megkezdése: új vezetőségi tagjaink bemutatkozása, majd egy workshop az új befektetési trendekről.",
+    registrationUrl: null,
+  },
+  {
+    title: "Mitől lesz sikeres egy ország? + economics vs. business",
+    date: "2026. október 8.",
+    time: "15:45 – 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Vendégelőadás",
+    description:
+      "Tordai Dániel PhD, a KTI közlekedési közgazdásza betekintést ad a gazdasági siker kulcsaiba, és bemutatja, mit jelent valójában az economics és a business, és miért nem ugyanaz a kettő.",
     registrationUrl: null,
   },
 ]
@@ -97,7 +108,7 @@ export default function SchedulePage() {
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">Közelgő események</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-                {upcomingEvents.map((event, index) => (
+                {upcomingEvents.filter(event => isFutureEvent(event.date)).map((event, index) => (
                   <Reveal key={index} delay={index * 0.1}>
                     <Card className="border-border hover:shadow-lg transition-shadow h-full">
                       <CardHeader>
@@ -236,6 +247,49 @@ export default function SchedulePage() {
                           <p className="text-sm text-muted-foreground leading-relaxed">
                             Az idei szezonunk megkezdése: új vezetőségi tagjaink bemutatkozása, majd egy workshop az új
                             befektetési trendekről.
+                          </p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Clock className="h-4 w-4" />
+                          <span className="">15:45</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <MapPin className="h-4 w-4" />
+                          <a
+                            href={googleMapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline-offset-4 hover:text-primary hover:underline"
+                          >
+                            10-es terem, Eötvös József Gimnázium
+                          </a>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Calendar className="h-4 w-4" />
+                          <span>Csütörtök</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm mt-4">
+                    <CardHeader>
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+                        <Badge className="font-medium text-base w-fit" variant="secondary">
+                          Október 8.
+                        </Badge>
+                        <div className="flex-1 md:order-first">
+                          <CardTitle className="text-xl text-balance mb-2">
+                            Mitől lesz sikeres egy ország? + economics vs. business
+                          </CardTitle>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            Tordai Dániel PhD, a KTI közlekedési közgazdásza betekintést ad a gazdasági siker
+                            kulcsaiba, és bemutatja, mit jelent valójában az economics és a business, és miért nem
+                            ugyanaz a kettő.
                           </p>
                         </div>
                       </div>
