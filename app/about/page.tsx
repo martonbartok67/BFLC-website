@@ -59,10 +59,10 @@ export default function AboutPage() {
               <Reveal delay={0.15}>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/[0.06]">
                   <Image
-                    src="/images/flc-team-2025.jpeg"
-                    alt=""
+                    src="/images/flc-team-2026.jpeg"
+                    alt="A Budapest Financial Literacy Club csapata a 2026/27-es tanévben"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />

@@ -35,6 +35,16 @@ const upcomingEvents = [
       "Tordai Dániel PhD, a KTI közlekedési közgazdásza betekintést ad a gazdasági siker kulcsaiba, és bemutatja, mit jelent valójában az economics és a business, és miért nem ugyanaz a kettő.",
     registrationUrl: null,
   },
+  {
+    title: "Közösségi event",
+    date: "2026. október 22.",
+    time: "15:45 – 16:45",
+    location: "TBA",
+    type: "Beszélgetés",
+    description:
+      "Ezen a héten kihagyjuk a tantermet: egy külső helyszínre megyünk, ahol leülünk, és egy jót beszélgetünk egymással.",
+    registrationUrl: null,
+  },
 ]
 
 const calendarEmbedUrl =

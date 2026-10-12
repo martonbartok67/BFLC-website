@@ -27,6 +27,16 @@ export function EventsSection() {
       type: "Vendégelőadás",
       registrationUrl: null,
     },
+    {
+      date: "2026. október 22.",
+      topic: "Közösségi event",
+      content:
+        "Ezen a héten kihagyjuk a tantermet: egy külső helyszínre megyünk, ahol leülünk, és egy jót beszélgetünk egymással.",
+      location: "TBA",
+      time: "15:45 – 16:45",
+      type: "Beszélgetés",
+      registrationUrl: null,
+    },
   ]
 
   return (

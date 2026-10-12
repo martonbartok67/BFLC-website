@@ -10,6 +10,15 @@ export default function CompetitionsPage() {
 
   const competitions = [
     {
+      title: "High School Business Challenge",
+      deadline: "2026. november 27.",
+      date: "Online forduló: 2026. november 30. – december 14.; országos forduló: 2027. január 25. – február 13.; nemzetközi döntő: 2027. március 1–13.",
+      description:
+        "A Business is More által szervezett nemzetközi üzleti verseny középiskolásoknak. Háromfordulós megmérettetés valós üzleti kihívásokkal: az első forduló online teszt anyanyelven, a második (országos) forduló és a nemzetközi döntő esettanulmányokra épül, angol nyelven. A részvétel ingyenes, a nemzetközi döntő útiköltségét és szállását a szervezők állják, a díjazás 1. hely: 3000 €, 2. hely: 1500 €, 3. hely: 1000 €, 4. hely: 500 €.",
+      eligibility: "Középiskolás csapatok (3–5 fő) vagy egyéni jelentkezők, akiket a szervezők csapatba osztanak.",
+      link: "https://businessismore.eu/hu/regisztracio/",
+    },
+    {
       title: "Future Makers Innovációs és Gazdasági Verseny",
       deadline: "2026. március 4. 23:59",
       date: "Jelenleg nem ismert",
@@ -35,15 +44,6 @@ export default function CompetitionsPage() {
         "A töri és a kémia mellett érdemes lenne a pénzről és a befektetésekről is tanulni? Ha ezzel egyetértesz, a legjobb helyen jársz, hiszen a 'Tőzsdejáték Középiskolásoknak!' hazánk leghosszabb múlttal rendelkező pénzügyi versenye",
       eligibility: "9–12. osztályos diákok, 3 fős csapatok.",
       link: "https://kebaverseny.hu/",
-    },
-    {
-      title: "High School Business Challenge",
-      deadline: "2025. november 7.",
-      date: "Online forduló 2025. 10. 11 – 11. 20.; országos döntő 2025. december",
-      description:
-        "A High School Business Challenge egy üzleti verseny, amely középiskolás diákokat céloz meg, akik érdeklődnek a gazdaság és az üzleti élet iránt. A pályázaton kívül a projekt küldetése a vállalkozói készség és a fiatalok kompetenciafejlesztésének elősegítése.",
-      eligibility: "Középiskolai csapatok.",
-      link: "https://businessismore.eu/",
     },
     {
       title: "A4S International Case Competition",
@@ -139,6 +139,58 @@ export default function CompetitionsPage() {
           </div>
         </section>
 
+        {/* Featured competition banner: the one currently open for registration. */}
+        <section className="bg-background pt-12 sm:pt-16">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <Reveal>
+              <div className="relative max-w-5xl mx-auto overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#0a1a47] text-primary-foreground shadow-2xl ring-1 ring-black/[0.06]">
+                <div aria-hidden="true" className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/[0.05] blur-3xl" />
+                <div aria-hidden="true" className="absolute -bottom-24 left-1/4 h-64 w-64 rounded-full bg-[#C5B0E1]/10 blur-3xl" />
+                <div aria-hidden="true" className="pointer-events-none absolute right-6 top-1/2 -translate-y-1/2 select-none">
+                  <Trophy strokeWidth={0.6} className="h-56 w-56 text-white/[0.06] sm:h-72 sm:w-72" />
+                </div>
+
+                <div className="relative z-10 grid gap-8 p-8 sm:p-12 lg:grid-cols-[1fr_auto] lg:items-center">
+                  <div>
+                    <span className="inline-flex items-center gap-2 rounded-full bg-[#C5B0E1]/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#C5B0E1]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#C5B0E1]" />
+                      Nyitott jelentkezés · 2026/27
+                    </span>
+                    <h2 className="mt-5 max-w-2xl text-3xl font-bold leading-[1.1] tracking-tight text-balance sm:text-4xl md:text-5xl">
+                      High School Business Challenge
+                    </h2>
+                    <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-foreground/85 text-pretty">
+                      Nemzetközi üzleti verseny középiskolásoknak, ingyenes részvétellel és 6000 eurós díjalappal.
+                      Jelentkezz egyénileg vagy csapatban 2026. november 27-ig!
+                    </p>
+                    <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm text-primary-foreground/85">
+                      <div>
+                        <dt className="text-xs uppercase tracking-wider text-primary-foreground/60">Online forduló</dt>
+                        <dd className="font-semibold">2026. nov. 30. – dec. 14.</dd>
+                      </div>
+                      <div>
+                        <dt className="text-xs uppercase tracking-wider text-primary-foreground/60">Országos forduló</dt>
+                        <dd className="font-semibold">2027. jan. 25. – febr. 13.</dd>
+                      </div>
+                      <div>
+                        <dt className="text-xs uppercase tracking-wider text-primary-foreground/60">Nemzetközi döntő</dt>
+                        <dd className="font-semibold">2027. márc. 1–13.</dd>
+                      </div>
+                    </dl>
+                  </div>
+
+                  <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+                    <a href="https://businessismore.eu/hu/regisztracio/" target="_blank" rel="noopener noreferrer">
+                      Jelentkezz most
+                      <ArrowUpRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* Competitions List */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -149,7 +201,7 @@ export default function CompetitionsPage() {
                 </div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">Versenyek</h2>
                 <p className="text-muted-foreground text-lg">
-                  Frissítés a 2026/27-es tanévre hamarosan. Tavalyi versenyek és időpontok:
+                  A 2026/27-es tanév versenyeit hamarosan frissítjük. A High School Business Challenge kivételével az alábbi időpontok tavalyiak:
                 </p>
               </div>
 
