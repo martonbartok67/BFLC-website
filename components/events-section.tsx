@@ -37,6 +37,16 @@ export function EventsSection() {
       type: "Beszélgetés",
       registrationUrl: null,
     },
+    {
+      date: "2026. november 5.",
+      topic: "Pénzügyi versenyek: miért érdemes, és hova jelentkezhetsz?",
+      content:
+        "Áttekintjük, milyen pénzügyi versenyek léteznek, miért éri meg elindulni rajtuk, és melyekre lehet éppen jelentkezni. A High School Business Challenge (HSBC) és a Samsung pénzügyi versenye külön szót kap: két olyan diák mesél róluk, aki már részt vett rajtuk.",
+      location: "10-es terem, Eötvös József Gimnázium",
+      time: "15:45 – 16:45",
+      type: "Előadás",
+      registrationUrl: null,
+    },
   ]
 
   return (

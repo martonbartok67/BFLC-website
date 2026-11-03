@@ -45,6 +45,16 @@ const upcomingEvents = [
       "Ezen a héten kihagyjuk a tantermet: egy külső helyszínre megyünk, ahol leülünk, és egy jót beszélgetünk egymással.",
     registrationUrl: null,
   },
+  {
+    title: "Pénzügyi versenyek: miért érdemes, és hova jelentkezhetsz?",
+    date: "2026. november 5.",
+    time: "15:45 – 16:45",
+    location: "10-es terem, Eötvös József Gimnázium",
+    type: "Előadás",
+    description:
+      "Áttekintjük, milyen pénzügyi versenyek léteznek, miért éri meg elindulni rajtuk, és melyekre lehet éppen jelentkezni. A High School Business Challenge (HSBC) és a Samsung pénzügyi versenye külön szót kap: két olyan diák mesél róluk, aki már részt vett rajtuk.",
+    registrationUrl: null,
+  },
 ]
 
 const calendarEmbedUrl =
@@ -300,6 +310,82 @@ export default function SchedulePage() {
                             Tordai Dániel PhD, a KTI közlekedési közgazdásza betekintést ad a gazdasági siker
                             kulcsaiba, és bemutatja, mit jelent valójában az economics és a business, és miért nem
                             ugyanaz a kettő.
+                          </p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Clock className="h-4 w-4" />
+                          <span className="">15:45</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <MapPin className="h-4 w-4" />
+                          <a
+                            href={googleMapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline-offset-4 hover:text-primary hover:underline"
+                          >
+                            10-es terem, Eötvös József Gimnázium
+                          </a>
+                        </div>
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Calendar className="h-4 w-4" />
+                          <span>Csütörtök</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm mt-4">
+                    <CardHeader>
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+                        <Badge className="font-medium text-base w-fit" variant="secondary">
+                          Október 22.
+                        </Badge>
+                        <div className="flex-1 md:order-first">
+                          <CardTitle className="text-xl text-balance mb-2">ELMARADT (Eötvös napok)</CardTitle>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            A tervezett közösségi event elmarad.
+                          </p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <div className="flex items-center gap-2 text-muted-foreground">
+                          <Calendar className="h-4 w-4" />
+                          <span>Csütörtök</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <div className="mt-12 mb-6">
+                    <h4 className="text-2xl font-bold text-primary mb-2">Őszi szünet (Október 23 – November 1.)</h4>
+                    <p className="text-muted-foreground italic">Szünet</p>
+                  </div>
+
+                  <div className="mt-12 mb-6">
+                    <h4 className="text-2xl font-bold text-primary mb-2">November</h4>
+                  </div>
+
+                  <Card className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm">
+                    <CardHeader>
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+                        <Badge className="font-medium text-base w-fit" variant="secondary">
+                          November 5.
+                        </Badge>
+                        <div className="flex-1 md:order-first">
+                          <CardTitle className="text-xl text-balance mb-2">
+                            Pénzügyi versenyek: miért érdemes, és hova jelentkezhetsz?
+                          </CardTitle>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            Áttekintjük, milyen pénzügyi versenyek léteznek, miért éri meg elindulni rajtuk, és melyekre
+                            lehet éppen jelentkezni. A High School Business Challenge (HSBC) és a Samsung pénzügyi
+                            versenye külön szót kap: két olyan diák mesél róluk, aki már részt vett rajtuk.
                           </p>
                         </div>
                       </div>
