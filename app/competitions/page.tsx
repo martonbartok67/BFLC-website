@@ -19,6 +19,15 @@ export default function CompetitionsPage() {
       link: "https://businessismore.eu/hu/regisztracio/",
     },
     {
+      title: "KEBA Tőzsdejáték Középiskolásoknak",
+      deadline: "2026. november 18.",
+      date: "1. teszt: 2026. november 18–25.; 2. teszt: december 9.; 3. teszt: 2027. január 13.; tőzsdejáték vége: január 15.; elődöntő: február; döntő: március eleje.",
+      description:
+        "A Közép-európai Brókerképző Alapítvány értékpapírpiaci versenyén tesztfordulókon és virtuális tőzsdei kereskedésben mérhetitek össze tudásotokat. A csapatok az Erste Trader felületén 10 millió virtuális forinttal gazdálkodnak. Az első helyezett csapat tagjai tőzsdei szakvizsgára felkészítő tanfolyamon és szakmai gyakorlaton vehetnek részt; a döntősök személyesen versenyeznek.",
+      eligibility: "Középiskolák nappali tagozatos diákjai, 3 fős csapatokban; a csapat több iskolából is összeállhat.",
+      link: "https://kebaverseny.hu/",
+    },
+    {
       title: "K&H Vigyázz, kész, pénz!",
       deadline: "2027. január 22. 23:59",
       date: "1. forduló: 2027. január 22-ig; 2. forduló: február 22. – március 5.; regionális középdöntő: április 27–28.; országos döntő: június 1–2. (Budapest)",
@@ -83,15 +92,6 @@ export default function CompetitionsPage() {
         "Szívesen kipróbálnád magad innovátorként, agrárgazdasági problémák megoldójaként? Most itt a lehetőség, hogy megmutasd, mit tudsz! Légy Te a jövő innovatív vállalkozója! A Future Makers 2026 középpontjában valós innovációs és gazdasági kihívások állnak. A verseny célja, hogy a résztvevők kreatív ötleteken és stratégiai gondolkodáson keresztül dolgozzanak fel egy gyakorlati problémát.",
       eligibility: "Középiskolás diákcsapatok",
       link: "https://futuremakers.hu/",
-    },
-    {
-      title: "KEBA Student Investor Challenge",
-      deadline: "2025. november 19.",
-      date: "2025. 11. 19–26. - 1. teszt; 2025. 12. 10. - 1. döntő",
-      description:
-        "A töri és a kémia mellett érdemes lenne a pénzről és a befektetésekről is tanulni? Ha ezzel egyetértesz, a legjobb helyen jársz, hiszen a 'Tőzsdejáték Középiskolásoknak!' hazánk leghosszabb múlttal rendelkező pénzügyi versenye",
-      eligibility: "9–12. osztályos diákok, 3 fős csapatok.",
-      link: "https://kebaverseny.hu/",
     },
     {
       title: "A4S International Case Competition",
