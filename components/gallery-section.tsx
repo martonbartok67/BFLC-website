@@ -8,12 +8,17 @@ import { Lightbox } from "@/components/lightbox"
 import { Maximize2 } from "lucide-react"
 
 const images = [
-  { src: "/images/gallery/flc-presentation.jpg",         alt: "" },
-  { src: "/images/gallery/flc-parliament-visit.jpg",     alt: "" },
-  { src: "/images/gallery/flc-event-table.jpg",          alt: "" },
-  { src: "/images/gallery/flc-outdoor-signup.jpg",       alt: "" },
-  { src: "/images/gallery/flc-classroom-engagement.jpg", alt: "" },
-  { src: "/images/gallery/flc-speaker-event.jpg",        alt: "" },
+  { src: "/images/gallery/mcc-panel-esemeny.jpeg",        alt: "A BFLC diákjai és vendégei egy MCC-panelbeszélgetésen", featured: true },
+  { src: "/images/gallery/flc-presentation.jpg",          alt: "", featured: false },
+  { src: "/images/gallery/mcc-panel-beszelgetes.jpeg",    alt: "Két BFLC-s résztvevő figyeli a panelbeszélgetést", featured: false },
+  { src: "/images/gallery/flc-parliament-visit.jpg",      alt: "", featured: false },
+  { src: "/images/gallery/mcc-kozonseg.jpeg",            alt: "Diákok figyelik az MCC rendezvényének panelbeszélgetését", featured: false },
+  { src: "/images/gallery/flc-event-table.jpg",           alt: "", featured: false },
+  { src: "/images/gallery/mcc-telthaz.jpeg",             alt: "A BFLC MCC-rendezvényén a diákok közönség előtt beszélgetnek", featured: true },
+  { src: "/images/gallery/mcc-vendegeloado.jpeg",         alt: "Vendégelőadó tart előadást a BFLC MCC-rendezvényén", featured: false },
+  { src: "/images/gallery/flc-outdoor-signup.jpg",        alt: "", featured: false },
+  { src: "/images/gallery/flc-classroom-engagement.jpg",  alt: "", featured: false },
+  { src: "/images/gallery/flc-speaker-event.jpg",         alt: "", featured: false },
 ]
 
 export function GallerySection() {
@@ -42,7 +47,7 @@ export function GallerySection() {
 
         <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[9rem] sm:auto-rows-[11rem] lg:auto-rows-[14rem] gap-4 lg:gap-5 max-w-6xl mx-auto">
           {images.map((image, index) => {
-            const isFeatured = index === 0 || index === images.length - 1
+            const isFeatured = image.featured
             return (
               <Reveal key={index} delay={index * 0.08} className={isFeatured ? "col-span-2" : ""}>
                 <button
