@@ -4,6 +4,7 @@ Két reszponzív, táblázatos HTML-sablon készült a Budapest Financial Litera
 
 - `index.html`: az adott heti foglalkozás promója, heti tartalomhelyőrzőkkel.
 - `promo.html`: általános bemutatkozó promó, heti alkalomtól függetlenül használható.
+- `signup-confirmation.html`: egymondatos feliratkozás-visszaigazolás.
 - `proba.html`: kitöltött minta az `index.html` heti sablonhoz.
 
 ## Általános promó
