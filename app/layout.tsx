@@ -43,11 +43,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png",    type: "image/png", sizes: "192x192" },
-    ],
-    apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
     ],
   },
   manifest: "/manifest.json",
