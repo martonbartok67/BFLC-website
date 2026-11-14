@@ -47,6 +47,16 @@ export function EventsSection() {
       type: "Előadás",
       registrationUrl: null,
     },
+    {
+      date: "2026. november 19.",
+      topic: "Mégis hogyan készül el egy Forbes Top 100 lista?",
+      content:
+        "Korábbi vendégelőadónk, Golovics Milán visszatér hozzánk, és bemutatja, hogyan áll össze a Forbes 2026-os Top 100 listája. Betekintést kapunk a háttérben zajló kutatómunkába és a rangsort megalapozó szakmai döntésekbe.",
+      location: "Földrajz terem (10.), Eötvös József Gimnázium",
+      time: "15:45 – 16:45",
+      type: "Vendégelőadás",
+      registrationUrl: null,
+    },
   ]
 
   return (

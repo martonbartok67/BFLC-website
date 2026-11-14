@@ -55,10 +55,20 @@ const upcomingEvents = [
       "Áttekintjük, milyen pénzügyi versenyek léteznek, miért éri meg elindulni rajtuk, és melyekre lehet éppen jelentkezni. A High School Business Challenge (HSBC) és a Samsung pénzügyi versenye külön szót kap: két olyan diák mesél róluk, aki már részt vett rajtuk.",
     registrationUrl: null,
   },
+  {
+    title: "Mégis hogyan készül el egy Forbes Top 100 lista?",
+    date: "2026. november 19.",
+    time: "15:45 – 16:45",
+    location: "Földrajz terem (10.), Eötvös József Gimnázium",
+    type: "Vendégelőadás",
+    description:
+      "Korábbi vendégelőadónk, Golovics Milán visszatér hozzánk, és bemutatja, hogyan áll össze a Forbes 2026-os Top 100 listája. Betekintést kapunk a háttérben zajló kutatómunkába és a rangsort megalapozó szakmai döntésekbe.",
+    registrationUrl: null,
+  },
 ]
 
 const calendarEmbedUrl =
-  "https://calendar.google.com/calendar/embed?src=ejgfinance%40gmail.com&ctz=Europe%2FBudapest&mode=AGENDA&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0"
+  "https://calendar.google.com/calendar/embed?src=b2c5aa40fb012632a3ca05c76d668094e8a35c663caac7ebe27d874b3d8d9d47%40group.calendar.google.com&ctz=Europe%2FBudapest"
 
 export default function SchedulePage() {
   const [consent, setConsent] = useState<"accepted" | "essential" | null>(null)
@@ -234,7 +244,7 @@ export default function SchedulePage() {
                 <div className="mt-4 flex justify-center">
                   <Button variant="outline" className="gap-2" asChild>
                     <a
-                      href="https://calendar.google.com/calendar/ical/ejgfinance%40gmail.com/public/basic.ics"
+                      href="https://calendar.google.com/calendar/ical/b2c5aa40fb012632a3ca05c76d668094e8a35c663caac7ebe27d874b3d8d9d47%40group.calendar.google.com/public/basic.ics"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
