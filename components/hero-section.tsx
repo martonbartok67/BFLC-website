@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
 import { TextReveal } from "@/components/motion/text-reveal"
+import { newsletterSignupUrl } from "@/lib/site"
 
 export function HeroSection() {
   const shouldReduceMotion = useReducedMotion()
@@ -81,6 +82,14 @@ export function HeroSection() {
               <Link href="/about">
                 Tudj meg többet
               </Link>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
+              className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary rounded-2xl leading-8 transition-all duration-300"
+            >
+              <Link href={newsletterSignupUrl} target="_blank" rel="noopener noreferrer">Hírlevél-feliratkozás</Link>
             </Button>
             <Button
               size="lg"

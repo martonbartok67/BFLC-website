@@ -8,11 +8,11 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Mail, MapPin, Users } from "lucide-react"
+import { Mail, MapPin, Users, Bell } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { Reveal } from "@/components/motion/reveal"
 import { SectionLabel } from "@/components/section-label"
-import { googleMapsUrl } from "@/lib/site"
+import { googleMapsUrl, newsletterSignupUrl } from "@/lib/site"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -202,6 +202,31 @@ export function ContactSection() {
             </Card>
           </div>
         </div>
+
+        <Reveal className="max-w-6xl mx-auto mt-10">
+          <Card id="hirlevel" className="scroll-mt-24 border-primary/15 bg-primary/[0.025]">
+            <CardContent className="flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                  <Bell className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">Iratkozz fel a hírlevelünkre!</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">Értesülj a BFLC újdonságairól és közelgő programjairól.</p>
+                </div>
+              </div>
+              <Button asChild className="shrink-0">
+                <a
+                  href={newsletterSignupUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Feliratkozom
+                </a>
+              </Button>
+            </CardContent>
+          </Card>
+        </Reveal>
       </div>
     </section>
   )
