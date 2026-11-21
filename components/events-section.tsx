@@ -57,6 +57,16 @@ export function EventsSection() {
       type: "Vendégelőadás",
       registrationUrl: null,
     },
+    {
+      date: "2026. november 26.",
+      topic: "Mit is csinál a BlackRock? Bevezetés a pénzügyi világba",
+      content:
+        "Hogyan mozgatja a világ egyik legnagyobb befektetési cége a pénzügyi piacokat? Jenei Benjámin segítségével belépünk a BlackRock kulisszái mögé, és közérthetően megnézzük, hogyan működik a befektetések világa.",
+      location: "Földrajz terem (10.), Eötvös József Gimnázium",
+      time: "15:45 – 16:45",
+      type: "Vendégelőadás",
+      registrationUrl: null,
+    },
   ]
 
   return (
