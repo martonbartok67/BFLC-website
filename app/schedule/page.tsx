@@ -319,48 +319,6 @@ export default function SchedulePage() {
                   <Card className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm mt-4">
                     <CardHeader>
                       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
-                        <Badge className="font-medium text-base w-fit" variant="secondary">November 19.</Badge>
-                        <div className="flex-1 md:order-first">
-                          <CardTitle className="text-xl text-balance mb-2">Mégis hogyan készül el egy Forbes Top 100 lista?</CardTitle>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            Korábbi vendégelőadónk, Golovics Milán visszatér hozzánk, és bemutatja, hogyan áll össze a Forbes 2026-os Top 100 listája. Betekintést kapunk a háttérben zajló kutatómunkába és a rangsort megalapozó szakmai döntésekbe.
-                          </p>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-4 text-sm">
-                        <div className="flex items-center gap-2 text-muted-foreground"><Clock className="h-4 w-4" /><span>15:45</span></div>
-                        <div className="flex items-center gap-2 text-muted-foreground"><MapPin className="h-4 w-4" /><span>Földrajz terem (10.), Eötvös József Gimnázium</span></div>
-                        <div className="flex items-center gap-2 text-muted-foreground"><Calendar className="h-4 w-4" /><span>Csütörtök</span></div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm mt-4">
-                    <CardHeader>
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
-                        <Badge className="font-medium text-base w-fit" variant="secondary">November 26.</Badge>
-                        <div className="flex-1 md:order-first">
-                          <CardTitle className="text-xl text-balance mb-2">Mit is csinál a BlackRock? Bevezetés a pénzügyi világba</CardTitle>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            Hogyan mozgatja a világ egyik legnagyobb befektetési cége a pénzügyi piacokat? Jenei Benjámin segítségével belépünk a BlackRock kulisszái mögé, és közérthetően megnézzük, hogyan működik a befektetések világa.
-                          </p>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-4 text-sm">
-                        <div className="flex items-center gap-2 text-muted-foreground"><Clock className="h-4 w-4" /><span>15:45</span></div>
-                        <div className="flex items-center gap-2 text-muted-foreground"><MapPin className="h-4 w-4" /><span>Földrajz terem (10.), Eötvös József Gimnázium</span></div>
-                        <div className="flex items-center gap-2 text-muted-foreground"><Calendar className="h-4 w-4" /><span>Csütörtök</span></div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm mt-4">
-                    <CardHeader>
-                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
                         <Badge className="font-medium text-base w-fit" variant="secondary">
                           Október 8.
                         </Badge>
@@ -473,6 +431,48 @@ export default function SchedulePage() {
                           <Calendar className="h-4 w-4" />
                           <span>Csütörtök</span>
                         </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm mt-4">
+                    <CardHeader>
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+                        <Badge className="font-medium text-base w-fit" variant="secondary">November 19.</Badge>
+                        <div className="flex-1 md:order-first">
+                          <CardTitle className="text-xl text-balance mb-2">Mégis hogyan készül el egy Forbes Top 100 lista?</CardTitle>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            Korábbi vendégelőadónk, Golovics Milán visszatér hozzánk, és bemutatja, hogyan áll össze a Forbes 2026-os Top 100 listája. Betekintést kapunk a háttérben zajló kutatómunkába és a rangsort megalapozó szakmai döntésekbe.
+                          </p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <div className="flex items-center gap-2 text-muted-foreground"><Clock className="h-4 w-4" /><span>15:45</span></div>
+                        <div className="flex items-center gap-2 text-muted-foreground"><MapPin className="h-4 w-4" /><span>Földrajz terem (10.), Eötvös József Gimnázium</span></div>
+                        <div className="flex items-center gap-2 text-muted-foreground"><Calendar className="h-4 w-4" /><span>Csütörtök</span></div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-border bg-background transition-all duration-200 hover:-translate-y-1 hover:shadow-sm mt-4">
+                    <CardHeader>
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4">
+                        <Badge className="font-medium text-base w-fit" variant="secondary">November 26.</Badge>
+                        <div className="flex-1 md:order-first">
+                          <CardTitle className="text-xl text-balance mb-2">Mit is csinál a BlackRock? Bevezetés a pénzügyi világba</CardTitle>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            Hogyan mozgatja a világ egyik legnagyobb befektetési cége a pénzügyi piacokat? Jenei Benjámin segítségével belépünk a BlackRock kulisszái mögé, és közérthetően megnézzük, hogyan működik a befektetések világa.
+                          </p>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-4 text-sm">
+                        <div className="flex items-center gap-2 text-muted-foreground"><Clock className="h-4 w-4" /><span>15:45</span></div>
+                        <div className="flex items-center gap-2 text-muted-foreground"><MapPin className="h-4 w-4" /><span>Földrajz terem (10.), Eötvös József Gimnázium</span></div>
+                        <div className="flex items-center gap-2 text-muted-foreground"><Calendar className="h-4 w-4" /><span>Csütörtök</span></div>
                       </div>
                     </CardContent>
                   </Card>
